@@ -65,8 +65,8 @@
 ### Assosiation
 - belongs_to :user
 - has_one :order
-- has_meny :comments
-- has_meny :images
+- has_many :comments
+- has_many :images
 - has_one :brand
 - has_one :first_category
 - has_one :second_category
@@ -76,7 +76,7 @@
 - add_index posts, :prduct_name
 
 
-## Images
+## images
 
 |Column|Type|Options|
 |------|----|-------|
@@ -87,7 +87,7 @@
 - belongs_to :post
 
 
-## Comments
+## comments
 
 |Column|Type|Options|
 |------|----|-------|
@@ -100,7 +100,7 @@
 - belongs_to :user
 
 
-## First_categories
+## first_categories
 
 |Column|Type|Options|
 |------|----|-------|
@@ -112,7 +112,7 @@
 - has_many :first_second_categories
 
 
-## Second_categories
+## second_categories
 
 |Column|Type|Options|
 |------|----|-------|
@@ -126,7 +126,7 @@
 - has_many :second_third_categories
 
 
-## Third_categories
+## third_categories
 
 |Column|Type|Options|
 |------|----|-------|
@@ -138,7 +138,7 @@
 - has_many :second_third_categories
 
 
-## First_second_categories
+## first_second_categories
 
 |Column|Type|Options|
 |------|----|-------|
@@ -150,7 +150,7 @@
 - belongs_to :second_category
 
 
-## Second_third_categories
+## second_third_categories
 
 |Column|Type|Options|
 |------|----|-------|
@@ -162,7 +162,7 @@
 - belongs_to :third_category
 
 
-## Brands
+## brands
 |Column|Type|Options|
 |------|----|-------|
 |brand_name|string|null: false|
@@ -172,7 +172,7 @@
 - has_many :brand_genres
 
 
-## Genres
+## genres
 |Column|Type|Options|
 |------|----|-------|
 |genre|string|null: false|
@@ -182,7 +182,7 @@
 - has_many :brand_genres
 
 
-## Brand_genres
+## brand_genres
 |Column|Type|Options|
 |------|----|-------|
 |brand_id|integer|null: false, forign_key: true|
