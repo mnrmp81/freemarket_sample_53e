@@ -5,7 +5,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true|
-|e_mail|string|null: false, unique: true|
+|mail|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 |password_confirmation|string|null: false, unique: true|
 |family_name|string|null: false|
