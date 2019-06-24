@@ -11,23 +11,43 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|postal_code|integer|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|block|string|null: false|
-|building|string|null: false|
 |phone_number|integer|null: false, unique: true|
 |card_number|integer|null: false, unique: true|
 |expiration_date|integer|null: false|
 |expiration_year|integer|null: false|
 |security_code|integer|null: false|
-|avatar|string||
-|profile|text||
 
 ### Assosiation
 - has_many :orders
 - has_many :posts
 - has_many :comments
+
+
+## profiles
+
+|Column|Type|Options|
+|------|----|-------|
+|avatar|string||
+|profile|text||
+|user_id|integer|null: false, foreign_key: true|
+
+### Assosiation
+- belongs_to :user
+
+
+## address
+
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|building|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Assosiation
+- belongs_to :user
 
 
 ## orders
