@@ -7,11 +7,7 @@
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
-|phone_number|integer|null: false, unique: true|
+|avatar|string||
 |card_number|integer|null: false, unique: true|
 |expiration_date|integer|null: false|
 |expiration_year|integer|null: false|
@@ -29,8 +25,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|avatar|string||
 |profile|text||
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|phone_number|integer|null: false, unique: true|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Assosiation
