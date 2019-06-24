@@ -21,6 +21,8 @@
 - has_many :orders
 - has_many :posts
 - has_many :comments
+- has_one :profile
+- has_one :address
 
 
 ## profiles
