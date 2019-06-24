@@ -8,10 +8,6 @@
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 |avatar|string||
-|card_number|integer|null: false, unique: true|
-|expiration_date|integer|null: false|
-|expiration_year|integer|null: false|
-|security_code|integer|null: false|
 
 ### Assosiation
 - has_many :orders
@@ -19,6 +15,7 @@
 - has_many :comments
 - has_one :profile
 - has_one :address
+- has_many :credit_cards
 
 
 ## profiles
@@ -46,6 +43,20 @@
 |city|string|null: false|
 |block|string|null: false|
 |building|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Assosiation
+- belongs_to :user
+
+
+## credit_cards
+
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null: false, unique: true|
+|expiration_date|integer|null: false|
+|expiration_year|integer|null: false|
+|security_code|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Assosiation
