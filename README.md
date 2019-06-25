@@ -28,7 +28,7 @@
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |phone_number|string|null: false, unique: true|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :user
@@ -43,7 +43,7 @@
 |city|string|null: false|
 |block|string|null: false|
 |building|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :user
@@ -57,7 +57,7 @@
 |expiration_date|integer|null: false|
 |expiration_year|integer|null: false|
 |security_code|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :user
@@ -67,8 +67,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|post_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|post_id|references|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :user
@@ -81,17 +81,17 @@
 |------|----|-------|
 |product_name|string|null: false|
 |product_description|text|null: false|
-|first_category_id|integer|null: false, foreign_key: true|
-|second_category_id|integer|null: false, foreign_key: true|
-|third_category_id|integer|foreign_key: true|
-|brand_id|string|foreign_key: true|
+|first_category_id|references|null: false, foreign_key: true|
+|second_category_id|references|null: false, foreign_key: true|
+|third_category_id|references|foreign_key: true|
+|brand_id|references|foreign_key: true|
 |product_size|string||
 |product_condition|string|null: false|
 |delivery_fee|string|null: false|
 |delivery_former_area|string|null: false|
 |delivery_date|string|null: false|
 |product_price|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |product_status|string|null: false|
 
 ### Assosiation
@@ -111,7 +111,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|post_id|integer|null: false, foreign_key: true|
+|post_id|references|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :post
@@ -122,8 +122,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|post_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|post_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :post
@@ -164,8 +164,8 @@
 ## brand_genres
 |Column|Type|Options|
 |------|----|-------|
-|brand_id|integer|null: false, forign_key: true|
-|genre_id|integer|null: false, forign_key: true|
+|brand_id|references|null: false, forign_key: true|
+|genre_id|references|null: false, forign_key: true|
 
 ### Assosiation
 - belongs_to :brand
