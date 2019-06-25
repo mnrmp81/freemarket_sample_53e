@@ -81,9 +81,9 @@
 |------|----|-------|
 |product_name|string|null: false|
 |product_description|text|null: false|
-|first_category_id|references|null: false, foreign_key: true|
-|second_category_id|references|null: false, foreign_key: true|
-|third_category_id|references|foreign_key: true|
+|first_category_id|integer|null: false|
+|second_category_id|integer|null: false|
+|third_category_id|integer||
 |brand_id|references|foreign_key: true|
 |product_size|string||
 |product_condition|string|null: false|
