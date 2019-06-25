@@ -134,7 +134,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|category_name|string|null: false|
+|name|string|null: false|
 |tree_parent|integer||
 
 ### Assosiation
@@ -144,7 +144,7 @@
 ## brands
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|null: false|
+|name|string|null: false|
 
 ### Assosiation
 - has_many :genres, through: :brand_genres
