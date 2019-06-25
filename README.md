@@ -100,9 +100,7 @@
 - has_many :comments
 - has_many :images
 - has_one :brand
-- has_one :first_category
-- has_one :second_category
-- has_one :third_category
+- has_many :categories
 
 ### Index
 - add_index posts, :prduct_name
@@ -132,66 +130,15 @@
 - belongs_to :user
 
 
-## first_categories
+## categories
 
 |Column|Type|Options|
 |------|----|-------|
-|first_category|string|null: false, unique: true|
+|category_name|string|null: false|
+|tree_parent|integer||
 
 ### Assosiation
 - belongs_to :post
-- has_many :second_categories, through: :first_second_categories
-- has_many :first_second_categories
-
-
-## second_categories
-
-|Column|Type|Options|
-|------|----|-------|
-|second_category|string|null: false, unique: true|
-
-### Assosiation
-- belongs_to :post
-- has_many :first_categories, through: :first_second_categories
-- has_many :third_categories, through: :second_third_categories
-- has_many :first_second_categories
-- has_many :second_third_categories
-
-
-## third_categories
-
-|Column|Type|Options|
-|------|----|-------|
-|third_category|string|null: false, unique: true|
-
-### Assosiation
-- belongs_to :post
-- has_many :second_categories, through: :second_third_categories
-- has_many :second_third_categories
-
-
-## first_second_categories
-
-|Column|Type|Options|
-|------|----|-------|
-|first_category_id|integer|null: false, foreign_key: true|
-|second_category_id|integer|null: false, foreign_key: true|
-
-### Assosiation
-- belongs_to :first_category
-- belongs_to :second_category
-
-
-## second_third_categories
-
-|Column|Type|Options|
-|------|----|-------|
-|second_category_id|integer|null: false, foreign_key: true|
-|third_category_id|integer|null: false, foreign_key: true|
-
-### Assosiation
-- belongs_to :second_category
-- belongs_to :third_category
 
 
 ## brands
