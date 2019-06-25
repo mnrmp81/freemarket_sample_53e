@@ -27,7 +27,7 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|phone_number|integer|null: false, unique: true|
+|phone_number|string|null: false, unique: true|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Assosiation
@@ -38,7 +38,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|null: false|
+|postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |block|string|null: false|
