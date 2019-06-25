@@ -13,9 +13,9 @@
 - has_many :orders
 - has_many :posts
 - has_many :comments
-- has_one :profile
-- has_one :address
-- has_many :credit_cards
+- has_one :profile, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_many :credit_cards, dependent: :destroy
 
 
 ## profiles
@@ -97,8 +97,8 @@
 ### Assosiation
 - belongs_to :user
 - has_one :order
-- has_many :comments
-- has_many :images
+- has_many :comments, dependent: :destroy
+- has_many :images, dependent: :destroy
 - has_one :brand
 - has_many :categories
 
@@ -148,7 +148,7 @@
 
 ### Assosiation
 - has_many :genres, through: :brand_genres
-- has_many :brand_genres
+- has_many :brand_genres, dependent: :destroy
 
 
 ## genres
@@ -158,7 +158,7 @@
 
 ### Assosiation
 - has_many :brands, through: :brand_genres
-- has_many :brand_genres
+- has_many :brand_genres, dependent: :destroy
 
 
 ## brand_genres
