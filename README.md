@@ -89,10 +89,10 @@
 |product_condition|string|null: false|
 |delivery_fee|string|null: false|
 |delivery_former_area|string|null: false|
-|delivery_date|string|null: false|
+|delivery_date|integer|null: false|
 |product_price|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
-|product_status|string|null: false|
+|product_status|integer|null: false|
 
 ### Assosiation
 - belongs_to :user
@@ -104,6 +104,10 @@
 
 ### Index
 - add_index posts, :prduct_name
+
+### enum
+- enum delivery_date
+- enum product_status
 
 
 ## images
