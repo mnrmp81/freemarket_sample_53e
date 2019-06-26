@@ -1,0 +1,212 @@
+a {
+  color: black;
+}
+
+.main-body{
+  background-color: $body_background;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.mypage-main {
+  width: 55%;
+  margin-left: 50px;
+}
+
+.mypage-main-top {
+  background-color: $content_background;
+}
+
+.user-header {
+  background-image: url("mypage/user-header.jpg");
+  background-size: cover;
+  height: 200px;
+  a {
+    display: block;
+    height: 200px;
+    position: relative;
+    .user-info-box {
+      @include position_absolute();
+      color: #333;
+      &__thumbnail {
+        @include user_header_style();
+        img {
+          border-radius: 30px;
+        }
+      }
+      &__user-name {
+        @include user_header_style();
+        font-weight: bold;
+        margin-top: 8px;
+      }
+      &__short-info {
+        @include user_header_style();
+        margin-top: 8px;
+        .user-evaluation {
+          @include user_header_style();
+          &__num {
+            font-weight: bold;
+            margin-left: 8px;
+          }
+        }
+        .user-post-count {
+          @include user_header_style();
+          margin-left: 16px;
+          &__num {
+            font-weight: bold;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+  a :hover {
+    .user-info-box{
+      &__thumbnail {
+        opacity: $user_header_opacity;
+      }
+      &__user-name {
+        opacity: $user_header_opacity;
+        text-decoration: underline;
+      }
+      &__short-info {
+        opacity: $user_header_opacity;
+      }
+    }
+  }
+}
+
+.tabs {
+  @include tab_style();
+  .tabs-list {
+    cursor: pointer;
+    &__news {
+      border-top: 2px solid #d32f2f;
+    }
+    &__news:hover {
+      opacity: $tabs_opacity;
+    }
+    &__to-do-list {
+      background-color: #eeeeee;
+    }
+    &__to-do-list:hover {
+      opacity: $tabs_opacity;
+    }
+    &__in-transaction {
+      border-top: 2px solid #d32f2f;
+    }
+    &__in-transaction:hover {
+      opacity: $tabs_opacity;
+    }
+    &__past-trading {
+      background-color: #eeeeee;
+    }
+    &__past-trading:hover {
+      opacity: $tabs_opacity;
+    }
+  }
+}
+
+.tabs-contents {
+  .contents-lists {
+    .contents-list {
+      a {
+        @include link_style(80px);
+        .contents-list-main {
+          width: 85%;
+          font-size: $links_font;
+          &__bottom {
+            .bottom-lists {
+              display: flex;
+              color: #9e9e9e;
+              .time-icon {
+                margin-right: 8px;
+              }
+            }
+            &--complete-trading {
+              width: 11%;
+              text-align: center;
+              margin-top: 8px;
+              padding: 3px 0;
+              border-radius: 2px;
+              font-size: 12px;
+              font-weight: bold;
+              color: $badge_font_color;
+              background-color: #888;
+            }
+          }
+        }
+      }
+    }
+
+    .move-list-link {
+      height: 80px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      &__box {
+        // $widthと$heightの値を指定して呼び出し
+        @include position_absolute($width: 95%, $height: 65%);
+        background-color: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $links-font;
+        &--news:hover {
+          opacity: $links_opacity;
+        }
+        &--to-do-list:hover {
+          opacity: $links_opacity;
+        }
+        &--in-transaction:hover {
+          opacity: $links_opacity;
+        }
+        &--past-trading:hover {
+          opacity: $links_opacity;
+        }
+      }
+    }
+  }
+}
+
+.no-content-list {
+  height: 230px;
+  .no-content-box {
+    height: 100%;
+    width: 100%;
+    background-image: url('mypage/no-content.png');
+    background-size: 15%;
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    position: relative;
+    &__message {
+      color: #bdbdbd;
+      font-weight: bold;
+      &--to-do {
+        // top, left, width, heightの順で値の指定が可能
+        @include position_absolute(90%, 18%, 50%, 60%);
+      }
+      &--in-transaction {
+        @include position_absolute(90%, 24%, 50%, 60%);
+      }
+      &--past-trading {
+        @include position_absolute(90%, 25%, 50%, 60%);
+      }
+    }
+  }
+}
+
+.mypage-main-bottom {
+  margin-top: 40px;
+  background-color: $content_background;
+}
+
+.bought-product-header {
+  height: 80px;
+  p {
+    line-height: 80px;
+    margin-left: 20px;
+    font-weight: bold;
+  }
+}
