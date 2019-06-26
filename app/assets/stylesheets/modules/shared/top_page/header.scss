@@ -1,0 +1,97 @@
+.header-pc {
+  .header-pc-inner {
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    margin: 0 auto;
+    width: 1020px;
+    padding: 8px 0 0;
+    &__top {
+      align-items: center;
+      display: flex;
+      .header-pc-inner__top-search{
+        width: 100%;
+        height: 40px;
+        position: relative;
+        margin-left: 40px;
+        .header-pc-inner__top-search-text{
+          position: absolute;
+          padding: 0 40px 0 10px;
+          width: 100%;
+          height: 40px;
+          border-radius: 4px 4px 4px 4px;
+          border: 1px solid;
+          border-color: #e0e0e0;
+          background: #f5f5f5 ;
+          
+        }
+        .header-pc-inner__top-search-text:focus {
+          outline: 0;
+          border-color: #03a9f4;
+        }
+        .header-pc-inner__top-search-submit{
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          padding: 0;
+          width: 40px;
+          height: 40px;
+          background: rgb(102, 102, 102);
+          border-radius: 0px 4px 4px 0px;
+          border: 1px solid;
+          border-color: rgb(102, 102, 102);
+        }
+        .header-pc-inner__top-search-submit:focus {
+          outline: 0;
+        }
+        .fa.fa-search {
+          color: white;
+        }
+      }
+    }
+    &__bottom{
+      a:visited { color: black; } 
+      a:hover { color: #0099e8; }
+      margin: 8px 0 0;
+      height: 44px;
+      .search-menu{
+        float: left;
+        font-weight: 700;
+        display: flex;
+        flex-direction: row;
+        padding-top: 7px; 
+        &__list {
+          padding: 0 11px;
+          .fa.fa-list {
+            color: red;
+          }
+          .fa.fa-bars {
+            color: red;
+          }
+        }
+      }
+      .user-information {
+        float: right;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &__list {
+          line-height: 44px;
+          display: flex;
+          padding: 0 11px;
+          .list-name{
+            margin-left: 10px;
+            font-size: 14px;
+          }
+          .far {
+            color: silver;
+          }
+          .fas {
+            color: silver;
+          }
+          .avater-image {
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
