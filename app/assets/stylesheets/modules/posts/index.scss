@@ -1,0 +1,63 @@
+.main-pc {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .containter {
+    background: #f5f5f5;
+    padding: 40px 0;
+    &__title {
+      font-size: 28px;
+      text-align: center;
+    }
+    &__items-box {
+      width: 940px;
+      margin: 0 auto;
+      a:visited {
+         color: black;
+      }
+      .items-box-title {
+        color: #0099e8;
+        font-size: 22px;
+        margin: 26px 11px;
+        text-align: center;
+        text-decoration: underline;
+      }
+      .items-box-list {
+        display: flex;
+        flex-wrap: wrap;
+        .item-box {
+          background: #fff;
+          margin: 0 0 0 20px;
+          width: 213px;
+          &__image {
+
+          }
+          &__boby {
+            padding: 16px;
+            height: 110px;
+            .item-title {
+              height: 3em;
+              overflow: hidden;
+              position: relative;
+              line-height: 1.5;
+            }
+            .item-detail {
+              display: flex;
+              margin: 8px 0 0;
+              justify-content: space-between;
+              &__price {
+                font-size: 17px;
+              }
+              &__heart {
+                i {
+                  color: silver;
+                }
+              }
+            }
+            .item-tax {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
