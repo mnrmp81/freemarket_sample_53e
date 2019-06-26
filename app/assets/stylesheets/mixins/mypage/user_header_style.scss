@@ -1,0 +1,5 @@
+@mixin user_header_style() {
+  display: flex;
+  justify-content: center;
+  font-size: $links_font;
+}
