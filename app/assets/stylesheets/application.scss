@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+@import "reset";
+
+
+@import "modules/shared/top_page/app-banner.scss";
+@import "modules/shared/top_page/footer.scss";
+@import "modules/shared/top_page/header.scss";
+@import "modules/shared/top_page/sell-fix-logo.scss";
+
+@import "modules/posts/index.scss";
+
