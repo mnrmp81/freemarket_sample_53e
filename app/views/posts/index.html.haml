@@ -1,0 +1,16 @@
+= render "shared/top_page/header"
+.main-pc
+  %section.top-visual
+    = image_tag "top_page/banner-6th-thanks.jpg", width: "100%"
+  .containter
+    %h2.containter__title
+      全ての商品一覧
+    .containter__items-box
+      = link_to root_path do
+        %h3.items-box-title 全ての商品新着アイテム
+      .items-box-list
+        - 4.times do |i|
+          = render "shared/top_page/post-card"
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"

@@ -1,0 +1,76 @@
+.footer
+  .footer-top
+    .footer-top__cell
+      %h2 メルカリについて
+      %ul
+        = link_to root_path do
+          %li 会社概要（運営会社）
+        = link_to root_path do
+          %li 採用情報
+        = link_to root_path do
+          %li プレスリリース
+        = link_to root_path do
+          %li 公式ブログ
+        = link_to root_path do
+          %li メルカリロゴ利用ガイドライン
+        = link_to root_path do
+          %li.footer-snslog
+            %i.fab.fa-twitter.fa-3x
+        = link_to root_path do
+          %li.footer-snslog
+            %i.fab.fa-facebook-square.fa-3x
+    .footer-top__cell
+      %h2 ヘルプ＆ガイド
+      %ul
+        = link_to root_path do
+          %li メルカリガイド
+        = link_to root_path do
+          %li らくらくメルカリ便
+        = link_to root_path do
+          %li ゆうゆうメルカリ便
+        = link_to root_path do
+          %li 大型メルカリ便
+        = link_to root_path do
+          %li 車体取引ガイド
+        = link_to root_path do
+          %li メルカリあんしん・あんぜん宣言！
+        = link_to root_path do
+          %li 偽ブランド品撲滅への取り組み
+        = link_to root_path do
+          %li メルカリボックス
+    .footer-top__cell.parallel-content
+      %h2 プライバシーと利用規約
+      .footer-content
+        %ul.footer-content__left
+          = link_to root_path do
+            %li プライバシーポリシー
+          = link_to root_path do
+            %li メルカリ利用規約
+          = link_to root_path do
+            %li あんしんスマホサポート制度に関する利用特約
+          = link_to root_path do
+            %li コンプライアンスポリシー
+        %ul.footer-content__rihgt
+          = link_to root_path do
+            %li 個人データの安全管理に係る基本方針
+          = link_to root_path do
+            %li 特定商取引に関する表記
+          = link_to root_path do
+            %li 資金決済法に基づく表示
+          = link_to root_path do
+            %li 法令順守と犯罪抑止のために
+          = link_to root_path do
+            %li 返品・返金ポリシー
+    .footer-top__cell
+      %h2 国
+      %ul
+        = link_to root_path do
+          %li 日本
+        = link_to root_path do
+          %li United States
+  .footer-bottom
+    = link_to root_path do
+      .footer-logo
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?2334484240", size: "124x33"
+    .footer-copyright
+      .small © 2019 Mercari
