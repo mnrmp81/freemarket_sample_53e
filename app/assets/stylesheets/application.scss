@@ -21,10 +21,22 @@
 @import "reset";
 
 
+@import 'config/mypage/colors';
+@import 'config/mypage/font_style';
+@import 'config/mypage/opacity_style';
+
+@import 'mixins/mypage/link_style';
+@import 'mixins/mypage/mypage_main_box';
+@import 'mixins/mypage/position_absolute';
+@import 'mixins/mypage/tabs';
+@import 'mixins/mypage/user_header_style';
+
 @import "modules/shared/top_page/app-banner.scss";
 @import "modules/shared/top_page/footer.scss";
 @import "modules/shared/top_page/header.scss";
 @import "modules/shared/top_page/sell-fix-logo.scss";
+@import 'modules/shared/mypage/side_menu';
 
 @import "modules/posts/index.scss";
+@import 'modules/mypage/mypage_main';
 
