@@ -1,0 +1,40 @@
+.side-menu {
+  width: 21%;
+}
+
+.menu-lists {
+  background-color: $content_background;
+}
+
+.menu-link {
+  @include link_style();
+}
+
+.menu-text {
+  font-size: $links_font;
+  color: black;
+}
+
+.list-arrow-icon {
+  color: #bdbdbd;
+}
+
+.mer-pay {
+  margin-top: 30px;
+  h1 {
+    font-weight: $menu_title;
+  }
+  .menu-lists {
+    margin-top: 5px;
+  }
+}
+
+.settings {
+  margin-top: 30px;
+  h1 {
+    font-weight: $menu_title;
+  }
+  .menu-lists {
+    margin-top: 5px;
+  }
+}
