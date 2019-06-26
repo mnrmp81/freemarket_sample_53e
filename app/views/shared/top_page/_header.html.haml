@@ -1,13 +1,13 @@
 .header-pc
   .header-pc-inner
     .header-pc-inner__top
-      .header-pc-inner__top-logo
+      .header-pc-inner__top.logo
         = link_to root_path do
           = image_tag "top_page/mercari_logo_horizontal.png", size: "170x50"
-      .header-pc-inner__top-search
-        = form_with  url: root_path, method: :get,local: true do |form|
-          = form.text_field :text, class: "header-pc-inner__top-search-text", placeholder: "何かお探しですか?"
-          = button_tag type: 'submit', class: 'header-pc-inner__top-search-submit' do
+      .header-pc-inner__top.search
+        = form_with  url: root_path, method: :get,local: true, class: "header-pc-inner__top-search form" do |form|
+          = form.text_field :text, class: "header-pc-inner__top-search text", placeholder: "何かお探しですか?"
+          = button_tag type: 'submit', class: 'header-pc-inner__top-search submit' do
             %i.fa.fa-search.fa-lg
     .header-pc-inner__bottom
       %ul.search-menu

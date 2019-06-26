@@ -26,12 +26,11 @@
       }
       .inner-links {
         display: flex;
-        .innner-links__applink {
+        &__applink {
           margin: 0 0 0 24px;
           display: flex;
           li {
             margin: 10px 0 0 16px;
-            
           }
         }
       }
