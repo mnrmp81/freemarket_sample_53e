@@ -12,6 +12,7 @@
 @import 'mixins/mypage/position_absolute';
 @import 'mixins/mypage/tabs';
 @import 'mixins/mypage/user_header_style';
+@import 'mixins/posts_new/drop_down_icon';
 
 @import "modules/shared/top_page/app-banner.scss";
 @import "modules/shared/top_page/footer.scss";
@@ -22,4 +23,11 @@
 @import "modules/posts/index.scss";
 @import 'modules/mypage/mypage_main';
 
-@import 'modules/posts/new';
+@import 'modules/posts/new.scss';
+@import "modules/shared/posts_new/image_upload.scss";
+@import "modules/shared/posts_new/product_upload.scss";
+@import "modules/shared/posts_new/product_detail.scss";
+@import "modules/shared/posts_new/delivery_detail.scss";
+@import "modules/shared/posts_new/price_detail.scss";
+@import "modules/shared/posts_new/post_btn.scss";
+

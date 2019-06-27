@@ -1,0 +1,28 @@
+.delivery__post__content{
+  padding: 40px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  .post__container__sub__head{
+    color: #888;
+    font-size: 14px;
+  }
+  .post__form__box{
+    margin: 0;
+    width: 400px;
+    .form__content{
+      margin: 0;
+      label{
+        font-weight: 600;
+        display: inline-block;
+      }
+    }
+    .form__content__default{
+      margin: 40px 0 0;
+      label{
+        font-weight: 600;
+        display: inline-block;
+      }
+    }
+  }
+}

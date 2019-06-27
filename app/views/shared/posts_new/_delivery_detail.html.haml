@@ -8,20 +8,26 @@
       %span.require__form 必須
       %div
         .select__box
-          %select.select__box__format 送付料込み
-          %i.icon__arrow__bottom
+          %select.select__box__format
+            %option ---
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
     .form__content__default
       %label
         発送元の地域
         %span.require__form 必須
       %div
         .select__box
-          %select.select__box__format 北海道
-          %i.icon__arrow__bottom
+          %select.select__box__format
+            %option ---
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
     .form__content__default
       %label 発送までの日数
       %span.require__form 必須
       %div
         .select__box
-          %select.select__box__format 1〜2日で発送
-          %i.icon__arrow__bottom
+          %select.select__box__format
+            %option ---
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
