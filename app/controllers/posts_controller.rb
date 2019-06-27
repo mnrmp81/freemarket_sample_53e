@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @prefectures = Prefecture.all
   end
 
 end

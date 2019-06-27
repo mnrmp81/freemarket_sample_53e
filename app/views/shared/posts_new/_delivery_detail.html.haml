@@ -20,6 +20,9 @@
         .select__box
           %select.select__box__format
             %option ---
+            =@prefectures.each do |pre|
+              %option
+                =pre.name
           .drop-down-icon
             = icon('fas', 'chevron-down')
     .form__content__default
