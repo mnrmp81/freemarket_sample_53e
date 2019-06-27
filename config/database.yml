@@ -29,4 +29,5 @@ production:
   database: freemarket_sample_53e_production
   pool: 5
   username: root
-  password:
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
