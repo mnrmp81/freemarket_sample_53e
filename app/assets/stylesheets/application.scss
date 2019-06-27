@@ -12,6 +12,7 @@
 @import 'mixins/mypage/position_absolute';
 @import 'mixins/mypage/tabs';
 @import 'mixins/mypage/user_header_style';
+@import 'mixins/posts/show/link_styles';
 
 @import "modules/shared/top_page/app-banner.scss";
 @import "modules/shared/top_page/footer.scss";
@@ -22,3 +23,11 @@
 @import "modules/posts/index.scss";
 @import 'modules/mypage/mypage_main';
 @import 'modules/mypage/logout';
+
+@import 'modules/posts/show';
+@import 'modules/shared/posts/show/comments.scss';
+@import 'modules/shared/posts/show/images.scss';
+@import 'modules/shared/posts/show/other-posts.scss';
+@import 'modules/shared/posts/show/table.scss';
+
+@import 'modules/shared/pankuzu.scss';
