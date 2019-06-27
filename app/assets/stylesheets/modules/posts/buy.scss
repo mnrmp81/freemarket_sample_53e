@@ -1,0 +1,125 @@
+.buy-cheak-main {
+  background: #f5f5f5;
+}
+a:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+.buy-cheak-block {
+  background: #fff;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  width: 700px;
+  margin: 0 auto;
+  &__title {
+    padding: 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  &__content {
+    padding: 24px 12.5% 0;
+    border-top: 1px solid #f5f5f5;
+    .content-post {
+      max-width: 320px;
+      margin: 0 auto;
+      &__detail {
+        display: flex;
+        &__image {
+
+        }
+        &__name {
+          margin: 0 0 0 16px;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      }
+      &__buy-form {
+        margin: 8px 0 0;
+        .buy-post-price {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          &__fee {
+            font-size: 22px;
+          }
+          &__cost {
+            margin: 0 0 0 8px;
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
+        .buy-post-point {
+          background: #ccc;
+          margin: 16px 0 0;
+          text-align: center;
+          &__result {
+            padding: 14px;
+          }
+        }
+        .buy-post-payment {
+          .detail {
+            width: 100%;
+            padding: 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          &__fee {
+            font-size: 20px;
+          }
+          &__price {
+            font-size: 28px;
+          }
+        }
+        .buy-post-submit {
+          margin: 8px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          outline: 0;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &__address {
+    margin: 40px 0 0;
+    padding: 24px 12.5% 0;
+    border-top: 1px solid #f5f5f5;
+    .address-post {
+      max-width: 320px;
+      margin: 0 auto;
+      font-size: 14px;
+      &__info-text {
+        margin: 8px 0 0;
+      }
+      &__entry-bottom {
+        display: block;
+        text-align: right;
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+  }
+  &__pay {
+    margin: 40px 0 0;
+    padding: 24px 12.5% 40px;
+    border-top: 1px solid #f5f5f5;
+    .pay-post {
+      max-width: 320px;
+      margin: 0 auto;
+      font-size: 14px;
+      &__credit-number {
+        margin: 8px 0 0;
+      }
+      &__entry-bottom {
+        display: block;
+        text-align: right;
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+  }
+}
