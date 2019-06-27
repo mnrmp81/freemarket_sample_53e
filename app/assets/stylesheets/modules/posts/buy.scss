@@ -1,10 +1,11 @@
 .buy-cheak-main {
   background: #f5f5f5;
+  a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+  }
 }
-a:hover {
-  text-decoration: underline;
-  opacity: 0.7;
-}
+
 .buy-cheak-block {
   background: #fff;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
