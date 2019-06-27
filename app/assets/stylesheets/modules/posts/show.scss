@@ -1,0 +1,237 @@
+* {
+  font-family : 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #0099e8;  
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+.post-container {
+  background: rgb(245, 245, 245);
+  padding: 40px 0;
+  .post-content {
+    width: 700px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 24px 40px 40px 40px;
+    text-align: center;
+    background: #fff;
+    &__title-box {
+      .product-name {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+    &__upper-box {
+      margin-top: 15px;
+      &__left-side {
+        height: 420px;
+        width: 300px;
+        float: left;
+        .img-box {
+          &__current-img {
+            height: 300px;
+          }
+        }
+      }
+      &__right-side {
+        height: 420px;
+        width: 300px;
+        float: right;
+      }
+    }
+    &__price-box {
+      margin-top: 24px;
+      text-align: center;
+      .product-price {
+        font-size: 50px;
+        margin-right: 16px;
+      }
+      .tax {
+        font-size: 10px;
+      }
+      .delivery-fee {
+        font-size: 16px;
+      }
+    }
+    &__order-box {
+      margin: 16px 0 24px 0;
+      .order-btn {
+        display: block;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        background: #ea352d; 
+        opacity: 0.9;
+      }
+      .order-btn:hover {
+        opacity: 1.0;
+        text-decoration: none;
+      }
+    }
+    &__description-box {
+      padding-top: 32px;
+      font-size: 18px;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+    &__lower-box {
+      margin-top: 16px;
+      &__left-side {
+        float: left;
+        .post-btn {
+          border: 1px solid #f5f5f5;
+          background: #f5f5f5;
+          display: inline-block;
+          padding: 8px 16px;
+          border-radius: 40px;
+          .good-btn {
+            font-size: 14px;
+            line-height: 100%;
+            &__heart {
+              color: #ccc;
+              padding-right: 5px;
+            }
+            &__count {
+              padding-left: 5px;
+            }
+          }
+          .invalid-products-report-btn {
+            color: #333;
+            font-size: 14px;
+            line-height: 100%;
+            &__flag {
+              padding-right: 5px;
+            }
+          }
+          .invalid-products-report-btn:hover {
+            text-decoration: none;
+          }
+        }
+        .post-btn--right {
+          margin-left: 16px;
+        }
+      }
+      &__right-side {
+        float: right;
+        padding-top: 8px;
+        font-size: 14px;
+        .approach-to-safety-link {
+          &__lock {
+            padding-right: 5px;
+          }
+        }
+        .approach-to-safety-link:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .comment-content {
+    width: 700px;
+    margin: 8px auto;
+    box-sizing: border-box;
+    padding: 24px;
+    text-align: center;
+    background: #fff;
+    &__comments-container {
+      margin-bottom: 24px;
+    }
+    &__alert-box {
+      padding: 8px;
+      background: #fff6de;
+      font-size: 14px;
+      text-align: left;
+      line-height: 100%;
+    }
+    &__form-box {
+      &__text {
+        width: 652px;
+        height: 104px;
+        box-sizing: border-box;
+        margin-top: 8px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+      }
+      &__submit {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        line-height: 48px;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+        font-size: 14px;
+      }
+    }
+  }
+  .post-links{
+    width: 700px;
+    margin: 24px auto 0;
+    font-size: 14px;
+    line-height: 100%;
+    &__prev-post-link {
+      float: left;
+      max-width: 40%;
+      word-wrap: break-word;
+    }
+    &__next-post-link {
+      float: right;
+      max-width: 40%;
+      word-wrap: break-word;
+    }
+  }
+  .sns-links {
+    width: 700px;
+    margin: 24px auto;
+    box-sizing: border-box;
+    padding: 24px;
+    background: #fff;
+    &__link-box {
+      display: flex;
+      justify-content: center;
+      .sns-link {
+        &--fb {
+          margin-right: 8px;
+          color: #385185;
+        }
+        &--twitter {
+          margin-right: 8px;
+          color: #5d9dc9;
+        }
+        &--pinterest {
+          color: #aa262a;
+        }
+      }
+    }
+  }
+  .other-posts {
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 24px;
+    &__link{
+      margin-bottom: 8px;
+      font-size: 22px;
+      font-weight: bold;
+    } 
+  }
+}
