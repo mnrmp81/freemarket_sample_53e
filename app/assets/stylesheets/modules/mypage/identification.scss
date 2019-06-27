@@ -1,0 +1,138 @@
+.user-registration-info {
+
+  &__title {
+    padding: 8px 24px;
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 2px solid #eee;
+    h1 {
+      font-weight: bold;
+    }
+  }
+
+  &__content {
+    .user-registration-info-form {
+      
+      &__description {
+        width: 100%;
+        margin-top: 15px;
+        padding: 45px 0;
+        text-align: center;
+        font-size: 14px;
+        &--register {
+          margin-top: 0;
+          padding-top: 0;
+        }
+        p {
+          width: 85%;
+          text-align: left;
+          display: inline-block;
+        }
+        .about-upload-info {
+          width: 100%;
+          margin-top: 5px;
+          padding-right: 60px;
+          text-align: right;
+          display: inline-block;
+          a {
+            color: $guide_links;
+          }
+          a:hover {
+            opacity: $guide_links_opacity;
+            text-decoration: underline;
+          }
+        }
+      }
+  
+      .registration-form-group {
+        width: 85%;
+        margin: 0 auto;
+        padding-bottom: 40px;
+
+        p {
+          font-size: 14px;
+        }
+
+        &__label {
+          font-weight: 600;
+          font-size: 14px;
+        }
+
+        &__text-field {
+          width: 100%;
+          margin: 5px 0;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          outline: none;
+          &--number-field {
+            width: 20%;
+          }
+        }
+        &__text-field:focus {
+          border: 1px solid $guide_links;
+        }
+
+        &__require-badge {
+          padding: 3px 4px;
+          border-radius: 2px;
+          font-size: $require_badge;
+          color: $badge_font_color;
+          background-color: #ea352d;
+          &--optional {
+            background-color: #ccc;
+          }
+        }
+
+        &__birthday {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          position: relative;
+          .drop-down-arrow-icon {
+            position: absolute;
+            right: 86%;
+            bottom: 0;
+            top: 32%;
+            color: #bdbdbd;
+          }
+          .registration-form-unit {
+            margin-left: 5px;
+            font-size: 14px;
+            color: #888;
+          }
+        }
+
+        .registration-form-caution {
+          margin-top: 5px;
+          font-size: 14px;
+          color: #888;
+        }
+
+        &--prefecture {
+          position: relative;
+          .drop-down-arrow-icon {
+            position: absolute;
+            top: 35%;
+            bottom: 0;
+            right: 2%;
+            color: #bdbdbd;
+          }
+        }
+
+        &__register-btn {
+          width: 100%;
+          padding: 15px 0;
+          border: none;
+          outline: none;
+          color: $btn_font_color;
+          background-color: $red_btn;
+          cursor: pointer;
+        }
+        &__register-btn:hover {
+          background-color: $red_btn_hover;
+        }
+      }
+    }
+  }
+}
