@@ -3,6 +3,9 @@
   border: 1px solid #eee;
   font-size: 14px;
   text-align: left;
+  a:hover {
+    @include link_underline;
+  }
   th {
     background: #fafafa;
     padding: 10px;

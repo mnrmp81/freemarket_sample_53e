@@ -12,6 +12,7 @@
         color: #333;
         &:hover {
           color: #888;
+          @include link_underline;
         }
       }
       i {
