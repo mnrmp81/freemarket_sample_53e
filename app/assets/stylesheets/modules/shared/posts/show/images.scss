@@ -1,0 +1,19 @@
+.img-box {
+  &__images {
+    width: 300px;
+    height: 120px;
+    &__img {
+      //仮置き--ここから----------
+      background: pink;
+      //仮置き--ここまで----------
+      width: 20%;
+      height: 50%;
+      float: left;
+      opacity: 0.5;
+    }
+    &__img:hover {
+      opacity: 1.0;
+      cursor: pointer;
+    }
+  }
+}
