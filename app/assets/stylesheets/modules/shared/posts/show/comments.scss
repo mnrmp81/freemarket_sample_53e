@@ -1,0 +1,76 @@
+.comment-box {
+  text-align: left;
+  &__left-side {
+    width: 44px;
+    float: left;
+    .user-box {
+      &__user-avatar {
+        float: left;
+        border-radius: 50%;
+      }
+      &__user-avatar:hover {
+        opacity: 0.9;
+      }
+      &__user-name {
+        float: left;
+        padding-left: 10px;
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+        position: absolute;
+      }
+      &__seller {
+        float: left;
+        margin: 8px 0 0;
+        padding: 4px;
+        color: #333;
+        background: #eef0f4;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 100%;
+      }
+      &__seller:hover {
+        text-decoration: underline;
+        opacity: 0.9;
+      }
+    }
+  }
+  &__right-side {
+    float: left;
+    margin-bottom: 30px;
+    .comment-body {
+      margin-top: 20px;
+      &__speech-bubble {
+        width: 600px;
+        padding: 16px;
+        margin-left: 7px;
+        box-sizing: border-box;
+        background: #eef0f4;
+        border-radius: 15px;
+        &__text {
+          font-size: 14px;
+          line-height: 1.5;
+          color: rgb(51, 51, 51);
+          white-space: pre-wrap;
+        }
+        &__bottom {
+          margin-top: 8px;
+          font-size: 14px;
+          color: #aaa;
+          .comment-time {
+            display: inline-block;
+            .fa-clock {
+              font-size: 16px;
+            }
+          }
+          .invalid-products-report-btn {
+            float: right;
+            &__flag {
+              color: #aaa;
+            }
+          }
+        }
+      }
+    }
+  }
+}
