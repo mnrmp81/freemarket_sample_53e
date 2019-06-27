@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :mypages, only: :index do
     collection do
       get 'logout'
+      get 'identification'
     end
   end
   root 'posts#index'
