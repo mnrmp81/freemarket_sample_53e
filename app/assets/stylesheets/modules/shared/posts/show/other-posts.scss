@@ -3,11 +3,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  .post-box:hover {
-    text-decoration: none;
-    opacity: 1.0;
-  }
   .post-box{
+    &:hover {
+      text-decoration: none;
+      opacity: 1.0;
+    }
     //仮置き------ここから------
     background: pink;
     //仮置き------ここまで------

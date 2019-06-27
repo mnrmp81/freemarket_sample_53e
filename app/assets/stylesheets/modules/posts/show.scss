@@ -5,12 +5,12 @@
 a {
   text-decoration: none;
   color: #0099e8;  
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+  }
 }
 
-a:hover {
-  text-decoration: underline;
-  opacity: 0.7;
-}
 
 button {
   background-color: transparent;
@@ -80,10 +80,10 @@ button {
         color: #fff;
         background: #ea352d; 
         opacity: 0.9;
-      }
-      .order-btn:hover {
-        opacity: 1.0;
-        text-decoration: none;
+        &:hover {
+          opacity: 1.0;
+          text-decoration: none;
+        }
       }
     }
     &__description-box {
@@ -137,9 +137,9 @@ button {
           &__lock {
             padding-right: 5px;
           }
-        }
-        .approach-to-safety-link:hover {
-          text-decoration: none;
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
     }

@@ -10,9 +10,9 @@
     li {
       .pankuzu-list {
         color: #333;
-      }
-      .pankuzu-list:hover {
-        color: #888;
+        &:hover {
+          color: #888;
+        }
       }
       i {
         margin: 0 8px;
