@@ -1,0 +1,26 @@
+.pankuzu-lists {
+  height: 48px;
+  border-top: 1px solid #eee;
+  &__box {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 16px 0;
+    display: flex;
+    font-size: 13px;
+    li {
+      .pankuzu-list {
+        color: #333;
+      }
+      .pankuzu-list:hover {
+        color: #888;
+      }
+      i {
+        margin: 0 8px;
+        color: #888;
+      }
+    }
+    .current-page {
+      font-weight: bold;
+    }
+  }
+}

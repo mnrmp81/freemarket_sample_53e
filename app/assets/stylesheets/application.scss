@@ -22,6 +22,11 @@
 
 @import "modules/posts/index.scss";
 @import 'modules/mypage/mypage_main';
+@import 'modules/mypage/logout';
+
+@import "modules/posts/buy.scss";
+
+@import 'modules/mypage/identification';
 
 @import 'modules/posts/new.scss';
 @import "modules/shared/posts_new/image_upload.scss";

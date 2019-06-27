@@ -1,0 +1,52 @@
+.buy-cheak-main
+  .buy-cheak-block 
+    .buy-cheak-block__title
+      %h2 購入内容の確認
+    .buy-cheak-block__content
+      .content-post
+        .content-post__detail
+          .content-post__detail__image
+            = image_tag "https://static.mercdn.net/thumb/photos/m54692243137_1.jpg?1560996879", size: "64x64"
+          %p.content-post__detail__name
+            COACH コーチ ショルダーバッグ
+        = form_with  url: root_path, method: :get,local: true, class: "content-post__buy-form" do |form|
+          .buy-post-price
+            .buy-post-price__fee
+              ¥ 600
+            .buy-post-price__cost
+              送料込み
+          %ul.buy-post-point
+            %li
+              .buy-post-point__result
+                ポイントはありません
+          %ul.buy-post-payment
+            %li.buy-post-payment.detail
+              .buy-post-payment_fee
+                支払金額
+              .buy-post-payment_price
+                ¥ 600
+          = button_tag type: 'submit', class: "buy-post-submit" do
+            購入する
+    .buy-cheak-block__address
+      .address-post
+        %h3 配送先
+        %address.address-post__info-text
+          〒222-2222
+          %br
+          埼玉県川越市宮下町2-11-3
+        = link_to root_path, class: "address-post__entry-bottom" do
+          %span 変更する
+          %i.fas.fa-chevron-right
+
+    .buy-cheak-block__pay
+      .pay-post
+        %h3 配送先
+        .pay-post__credit-number
+          ************2345
+          %br
+          05 / 99
+        .pay-post__credit-image
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1905591235", size: "34x20"
+        = link_to root_path, class: "pay-post__entry-bottom" do
+          %span 変更する
+          %i.fas.fa-chevron-right

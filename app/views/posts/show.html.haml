@@ -1,0 +1,94 @@
+= render 'shared/top_page/header'
+= render 'shared/pankuzu'
+.post-container
+  .post-content
+    .post-content__title-box
+      %h1.product-name CHANELチェーンウォレット
+    .post-content__upper-box.clearfix
+      .post-content__upper-box__left-side
+        .img-box
+          .img-box__current-img
+            = image_tag 'post_show/post-img', size: "300x300", alt: "post-img"
+          .img-box__images.clearfix
+            = render 'shared/posts/show/images'     
+      .post-content__upper-box__right-side
+        = render 'shared/posts/show/table'
+    .post-content__price-box
+      %span.product-price ¥ 16,500
+      %span.tax (税込)
+      %span.delivery-fee 送料込み
+    .post-content__order-box
+      = link_to '購入画面に進む', '#', {class: "order-btn"}
+    .post-content__description-box
+      %p.prodict-description
+        即購入×値下げ不可
+
+        こちらで譲っていただきましたが使う機会がなく自宅保管していました。
+
+        ↓前出品者様の商品説明↓
+        パリのCHANEL本店で購入しました。
+        斜めがけにして使っていただけるチェーンウォレットです。
+        内側のファスナー(2ヶ所)の持ち手の皮の部分が取れてしまっています。他の部分も使用感があります。
+
+        写真にて状態ご確認ください(*_ _)
+        
+        
+        ※返品返金できません。
+        よろしくお願いいたします(൦◟̆◞̆൦)♡‧˚₊*̥
+    .post-content__lower-box.clearfix
+      .post-content__lower-box__left-side
+        %ul
+          %li.post-btn
+            %button.good-btn
+              %i.far.fa-heart.good-btn__heart
+              %span いいね!
+              %span.good-btn__count 5
+          %li.post-btn.post-btn--right
+            = link_to '#', {class: 'invalid-products-report-btn'} do
+              %i.far.fa-flag.invalid-products-report-btn__flag
+              %span 不適切な商品の報告
+      .post-content__lower-box__right-side
+        = link_to '#', {class: 'approach-to-safety-link'} do
+          %i.fas.fa-unlock-alt.approach-to-safety-link__lock
+          %span あんしん・あんぜんへの取り組み
+  .comment-content
+    .comment-content__comments-container.clearfix
+      = render 'shared/posts/show/comments'
+    %p.comment-content__alert-box
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %form.comment-content__form-box
+      %textarea.comment-content__form-box__text
+      %button.comment-content__form-box__submit{type: 'submit'} コメントする
+  %ul.post-links.clearfix
+    %li.post-links__prev-post-link
+      = link_to '#' do
+        %i.fas.fa-chevron-left
+        %span 【片付け読本】　メグメグのシンプルかわいい片づけ生活
+    %li.post-links__next-post-link
+      = link_to '#' do
+        %span コサージュ アレンジメント
+        %i.fas.fa-chevron-right
+  .sns-links
+    %ul.sns-links__link-box
+      %li.sns-link
+        = link_to '#' do
+          %i.fab.fa-facebook-square.fa-3x.sns-link--fb
+      %li.sns-link
+        = link_to '#' do
+          %i.fab.fa-twitter-square.fa-3x.sns-link--twitter
+      %li.sns-link
+        = link_to '#' do
+          %i.fab.fa-pinterest-square.fa-3x.sns-link--pinterest
+  .other-posts
+    %h2.other-posts__link
+      = link_to 'ゆきmamaさんのその他の商品' ,'#'
+    .post-boxes
+      = render 'shared/posts/show/other-posts'
+  .other-posts
+    %h2.other-posts__link
+      = link_to 'シャネルのバッグその他の商品' ,'#'
+    .post-boxes
+      = render 'shared/posts/show/other-posts'
+= render 'shared/top_page/app-banner'
+= render 'shared/top_page/footer'
+

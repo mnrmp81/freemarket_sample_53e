@@ -1,0 +1,15 @@
+= render "shared/top_page/header"
+
+.main-body
+  = render partial: 'shared/mypage/side_menu'
+
+  .mypage-main
+    .mypage-main-top.logout
+      .logout__box
+        -# ログアウト後はトップページへリダイレクト
+        = link_to '/' do
+          = button_tag 'ログアウト', class: 'logout-btn'
+
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"

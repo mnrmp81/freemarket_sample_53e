@@ -1,0 +1,49 @@
+%table.post-detail-table
+  %tbody
+    %tr
+      %th 出品者
+      %td
+        %p.user-nickname
+          = link_to 'ゆきmama', '#'
+        .evaluation
+          %i.fas.fa-laugh.ev-good
+          %span.ev-count 402
+        .evaluation
+          %i.fas.fa-meh.ev-normal
+          %span.ev-count 3
+        .evaluation
+          %i.fas.fa-frown.ev-bad
+          %span.ev-count 0
+    %tr
+      %th カテゴリー
+      %td.td-category
+        %p.first-category
+          = link_to 'レディース', '#'
+        %p.second-category
+          = link_to '#' do
+            %i.fas.fa-chevron-right
+            %span バッグ
+        %p.third-category
+          = link_to '#' do
+            %i.fas.fa-chevron-right
+            %span ショルダーバッグ
+    %tr
+      %th ブランド
+      %td
+        = link_to 'シャネル', '#'
+    %tr
+      %th 商品の状態
+      %td 傷や汚れあり
+    %tr
+      %th 配送料の負担
+      %td 送料込み(出品者負担)
+    %tr
+      %th 配送の方法
+      %td らくらくメルカリ便
+    %tr
+      %th 配送元地域
+      %td
+        = link_to '茨城県', '#'
+    %tr
+      %th 配送日の目安
+      %td 2~3日で発送

@@ -6,4 +6,9 @@ class PostsController < ApplicationController
     @prefectures = Prefecture.all
   end
 
+  def show
+  end
+
+  def buy
+  end
 end

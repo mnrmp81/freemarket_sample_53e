@@ -1,0 +1,40 @@
+.post-detail-table {
+  width: 100%;
+  border: 1px solid #eee;
+  font-size: 14px;
+  text-align: left;
+  th {
+    background: #fafafa;
+    padding: 10px;
+  }
+  td {
+    padding: 10px;
+    line-height: 1.8em;
+    .evaluation {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .ev-good {
+      color: #ef5185;
+      font-size: 16px;
+    }
+    .ev-normal {
+      color: #fba933;
+      font-size: 16px;
+    }
+    .ev-bad {
+      color: #6ab5d8;
+      font-size: 16px;
+    }
+    .ev-count {
+      line-height: 16px;
+    }
+  }
+  .td-category {
+    line-height: 125%;
+  } 
+}
+
+tr ,td {
+  border: 1px solid #eee;
+}

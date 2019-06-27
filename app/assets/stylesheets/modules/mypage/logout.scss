@@ -1,0 +1,20 @@
+.logout {
+  padding: 64px;
+  &__box {
+    margin: 0 auto;
+    text-align: center;
+    .logout-btn {
+      width: 55%;
+      padding: 12px 30px;
+      font-size: $links_font;
+      color: $btn_font_color;
+      background-color: $red_btn;
+      border: none;
+      outline: 0;
+      cursor: pointer;
+    }
+    .logout-btn:hover {
+      background-color: $red_btn_hover;
+    }
+  }
+}
