@@ -10,16 +10,12 @@ a {
   background: rgb(245, 245, 245);
   padding: 40px 0;
   .post-content {
-    width: 700px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 24px 40px 40px 40px;
-    text-align: center;
-    background: $white;
+    @include content_box($pad:24px 40px 40px 40px);
     &__title-box {
       .product-name {
         font-size: 24px;
         font-weight: bold;
+        text-align: center;
       }
     }
     &__upper-box {
@@ -62,6 +58,7 @@ a {
         line-height: 60px;
         font-size: 24px;
         font-weight: bold;
+        text-align: center;
         color: $white;
         background: #ea352d; 
         opacity: 0.9;
@@ -75,7 +72,6 @@ a {
       padding-top: 32px;
       font-size: 18px;
       white-space: pre-wrap;
-      text-align: left;
     }
     &__lower-box {
       margin-top: 16px;
@@ -131,12 +127,7 @@ a {
     }
   }
   .comment-content {
-    width: 700px;
-    margin: 8px auto;
-    box-sizing: border-box;
-    padding: 24px;
-    text-align: center;
-    background: $white;
+    @include content_box($mar:8px auto);
     &__comments-container {
       margin-bottom: 24px;
     }
@@ -151,7 +142,6 @@ a {
       &__text {
         width: 652px;
         height: 104px;
-        box-sizing: border-box;
         margin-top: 8px;
         padding: 10px;
         border: 1px solid #ccc;
@@ -193,11 +183,7 @@ a {
     }
   }
   .sns-links {
-    width: 700px;
-    margin: 24px auto;
-    box-sizing: border-box;
-    padding: 24px;
-    background: $white;
+    @include content_box($mar:24px auto);
     &__link-box {
       display: flex;
       justify-content: center;
@@ -220,9 +206,7 @@ a {
     }
   }
   .other-posts {
-    width: 700px;
-    margin: 0 auto;
-    padding-top: 24px;
+    @include content_box($pad:24px 0 0 0, $col:inherit);
     &__link{
       margin-bottom: 8px;
       font-size: 22px;
