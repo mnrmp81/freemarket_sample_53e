@@ -11,13 +11,13 @@
       .pankuzu-list {
         color: $links_color;
         &:hover {
-          color: #888;
+          color: $pankuzu_color;
           @include link_underline;
         }
       }
       i {
         margin: 0 8px;
-        color: #888;
+        color: $pankuzu_color;
       }
     }
     .current-page {
