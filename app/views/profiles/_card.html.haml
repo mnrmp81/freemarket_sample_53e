@@ -13,36 +13,8 @@
       = f.label '有効期限', class: 'form-group__expiration_date'
       %span.form-group__required--expiration_date 必須
       %br
-      %select.card-form-group__select-box
-        %option{value: "01"} 01
-        %option{value: "02"} 02
-        %option{value: "03"} 03       
-        %option{value: "04"} 04
-        %option{value: "05"} 05 
-        %option{value: "06"} 06
-        %option{value: "07"} 07
-        %option{value: "08"} 08
-        %option{value: "09"} 09
-        %option{value: "10"} 10
-        %option{value: "11"} 11
-        %option{value: "12"} 12
-      %span.form-group__cardmonth 月
-    .card-form-group
-      %select.card-form-group__select-box
-        %option{value: "19"} 19
-        %option{value: "20"} 20
-        %option{value: "21"} 21
-        %option{value: "22"} 22
-        %option{value: "23"} 23
-        %option{value: "24"} 24
-        %option{value: "25"} 25
-        %option{value: "26"} 26
-        %option{value: "27"} 27
-        %option{value: "28"} 28
-        %option{value: "29"} 29
-        %option{value: "30"} 30
-        %option{value: "31"} 31
-      %span.form-group__cardyear 年
+      = f.date_select class: "card-form-group__select-box"
+      
     .card-form-group
       = f.label 'セキュリティコード', class: 'orm-group__security_code'
       %span.form-group__required--security_code 必須
