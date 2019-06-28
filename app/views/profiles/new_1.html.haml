@@ -1,7 +1,4 @@
-.backscreen
-  .top_logo
-    %a{href: "/", class: "top_logo__link"}
-      =image_tag "profiles/mercari_logo.jpg", class: "top_logo__link__image"
+= render partial: 'shared/user_registration/form-header'
 
   .how_registration_select
     %p.how_registration_select__title
@@ -25,14 +22,4 @@
           %a{class: "how_registration_select__box__googlebutton__title"}
             Googleでログイン
 
-  .caution
-    %a{href: "/", class: "caution__article"}
-      プライバシーポリシー
-    %a{href: "/", class: "caution__article"}
-      メルカリ利用規約
-    %a{href: "/", class: "caution__article"}
-      特定商取引に関する表記
-
-  .end_logo   
-    %a{href: "/"}
-      =image_tag "profiles/end_logo.jpg", class: "end_image"
+  = render partial: 'shared/user_registration/form-footer'
