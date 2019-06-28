@@ -15,7 +15,7 @@ a {
     box-sizing: border-box;
     padding: 24px 40px 40px 40px;
     text-align: center;
-    background: #fff;
+    background: $white;
     &__title-box {
       .product-name {
         font-size: 24px;
@@ -62,7 +62,7 @@ a {
         line-height: 60px;
         font-size: 24px;
         font-weight: bold;
-        color: #fff;
+        color: $white;
         background: #ea352d; 
         opacity: 0.9;
         &:hover {
@@ -136,7 +136,7 @@ a {
     box-sizing: border-box;
     padding: 24px;
     text-align: center;
-    background: #fff;
+    background: $white;
     &__comments-container {
       margin-bottom: 24px;
     }
@@ -165,7 +165,7 @@ a {
         line-height: 48px;
         background: $comment_font_color;
         border: 1px solid #aaa;
-        color: #fff;
+        color: $white;
         font-size: 14px;
       }
     }
@@ -197,7 +197,7 @@ a {
     margin: 24px auto;
     box-sizing: border-box;
     padding: 24px;
-    background: #fff;
+    background: $white;
     &__link-box {
       display: flex;
       justify-content: center;
