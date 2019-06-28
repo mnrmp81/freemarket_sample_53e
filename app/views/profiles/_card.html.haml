@@ -1,0 +1,26 @@
+.member_information__new_5
+  %h3 支払い方法
+.form-group__new_5
+  = form_with url: '#', class: 'card-register-form' do |f|
+    .card-form-group
+      = f.label 'カード番号', class: 'form-group__card'
+      %span.form-group__required 必須
+      %br
+      = f.number_field :aaa, class: 'form-group__input', placeholder: '半角英数字のみ'
+    .card-form-group.card-form-group__photo2
+      =image_tag  "profiles/20.15.42.png", class: "photo2"
+    .card-form-group
+      = f.label '有効期限', class: 'form-group__expiration_date'
+      %span.form-group__required--expiration_date 必須
+      %br
+      = f.date_select class: "card-form-group__select-box"
+      
+    .card-form-group
+      = f.label 'セキュリティコード', class: 'orm-group__security_code'
+      %span.form-group__required--security_code 必須
+      %br
+      %input.form-group__input{placeholder: "カード背面4桁もしくは3桁の番号"}/
+    .card-form-group.card-form-group__submit
+      = link_to '/profiles/new_6' do
+        = f.submit '次へ進む', class: 'card-form-group__next-form'
+    
