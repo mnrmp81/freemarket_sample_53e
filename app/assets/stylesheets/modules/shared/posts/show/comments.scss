@@ -56,6 +56,7 @@
           white-space: pre-wrap;
         }
         &__bottom {
+          @include btn_style;
           margin-top: 8px;
           font-size: 14px;
           color: $comment_font_color;
