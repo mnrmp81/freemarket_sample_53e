@@ -14,7 +14,7 @@
       &__user-name {
         float: left;
         padding-left: 10px;
-        font-size: 14px;
+        font-size: $links_font;
         color: $links_color;
         font-weight: bold;
         position: absolute;
@@ -46,7 +46,6 @@
         width: 600px;
         padding: 16px;
         margin-left: 7px;
-        box-sizing: border-box;
         background: $comment_bg_color;
         border-radius: 15px;
         &__text {
@@ -58,7 +57,7 @@
         &__bottom {
           @include btn_style;
           margin-top: 8px;
-          font-size: 14px;
+          font-size: $links_font;
           color: $comment_font_color;
           .comment-time {
             display: inline-block;

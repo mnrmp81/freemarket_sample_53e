@@ -81,7 +81,7 @@ a {
           border-radius: 40px;
           .good-btn {
             @include btn_style;
-            font-size: 14px;
+            font-size: $links_font;
             line-height: 100%;
             &__heart {
               color: $heart_color;
@@ -93,7 +93,7 @@ a {
           }
           .invalid-products-report-btn {
             color: $links_color;
-            font-size: 14px;
+            font-size: $links_font;
             line-height: 100%;
             &__flag {
               padding-right: 5px;
@@ -110,7 +110,7 @@ a {
       &__right-side {
         float: right;
         padding-top: 8px;
-        font-size: 14px;
+        font-size: $links_font;
         .approach-to-safety-link {
           &__lock {
             padding-right: 5px;
@@ -152,14 +152,14 @@ a {
         background: $comment_font_color;
         border: 1px solid #aaa;
         color: $white;
-        font-size: 14px;
+        font-size: $links_font;
       }
     }
   }
   .post-links{
     width: 700px;
     margin: 24px auto 0;
-    font-size: 14px;
+    font-size: $links_font;
     line-height: 100%;
     &__prev-post-link {
       @include post_links();

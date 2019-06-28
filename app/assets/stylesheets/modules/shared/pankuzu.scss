@@ -6,7 +6,7 @@
     margin: 0 auto;
     padding: 16px 0;
     display: flex;
-    font-size: 13px;
+    font-size: $links_font;
     li {
       .pankuzu-list {
         color: $links_color;
