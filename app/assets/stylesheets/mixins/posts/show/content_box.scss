@@ -1,0 +1,6 @@
+@mixin content_box($mar:0 auto, $pad:24px, $col:#fff) {
+  width: 700px;
+  margin: $mar;
+  padding: $pad;
+  background: $col;
+}

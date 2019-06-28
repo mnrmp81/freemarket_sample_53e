@@ -1,0 +1,8 @@
+@mixin link_underline() {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+@mixin link_only_opacity() {
+  opacity: 0.7;
+}

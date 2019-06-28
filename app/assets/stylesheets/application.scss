@@ -7,11 +7,19 @@
 @import 'config/mypage/colors';
 @import 'config/mypage/font_style';
 @import 'config/mypage/opacity_style';
+@import 'config/posts/show/colors';
+@import 'config/posts/show/solid';
+@import 'config/posts/show/font_style';
 
 @import 'mixins/mypage/link_style';
 @import 'mixins/mypage/position_absolute';
 @import 'mixins/mypage/tabs';
 @import 'mixins/mypage/user_header_style';
+@import 'mixins/posts/show/link_styles';
+@import 'mixins/posts/show/btn_styles';
+@import 'mixins/posts/show/content_box';
+@import 'mixins/posts/show/post_links';
+@import 'mixins/posts/show/upper_box';
 @import 'mixins/posts_new/drop_down_icon';
 
 @import "modules/shared/top_page/app-banner.scss";
@@ -24,6 +32,13 @@
 @import 'modules/mypage/mypage_main';
 @import 'modules/mypage/logout';
 
+@import 'modules/posts/show';
+@import 'modules/shared/posts/show/comments.scss';
+@import 'modules/shared/posts/show/images.scss';
+@import 'modules/shared/posts/show/other-posts.scss';
+@import 'modules/shared/posts/show/table.scss';
+
+@import 'modules/shared/pankuzu.scss';
 @import "modules/posts/buy.scss";
 
 @import 'modules/mypage/identification';

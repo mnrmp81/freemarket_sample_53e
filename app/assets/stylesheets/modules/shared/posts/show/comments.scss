@@ -9,29 +9,31 @@
         border-radius: 50%;
       }
       &__user-avatar:hover {
-        opacity: 0.9;
+        @include link_only_opacity;
       }
       &__user-name {
         float: left;
         padding-left: 10px;
-        font-size: 14px;
-        color: #333;
+        font-size: $links_font;
+        color: $links_color;
         font-weight: bold;
         position: absolute;
+        &:hover {
+          @include link_only_opacity;
+        }
       }
       &__seller {
         float: left;
         margin: 8px 0 0;
         padding: 4px;
-        color: #333;
-        background: #eef0f4;
+        color: $links_color;
+        background: $comment_bg_color;
         border-radius: 2px;
         font-size: 12px;
         line-height: 100%;
-      }
-      &__seller:hover {
-        text-decoration: underline;
-        opacity: 0.9;
+        &:hover {
+          @include link_underline;
+        }
       }
     }
   }
@@ -44,8 +46,7 @@
         width: 600px;
         padding: 16px;
         margin-left: 7px;
-        box-sizing: border-box;
-        background: #eef0f4;
+        background: $comment_bg_color;
         border-radius: 15px;
         &__text {
           font-size: 14px;
@@ -54,9 +55,10 @@
           white-space: pre-wrap;
         }
         &__bottom {
+          @include btn_style;
           margin-top: 8px;
-          font-size: 14px;
-          color: #aaa;
+          font-size: $links_font;
+          color: $comment_font_color;
           .comment-time {
             display: inline-block;
             .fa-clock {
@@ -66,7 +68,7 @@
           .invalid-products-report-btn {
             float: right;
             &__flag {
-              color: #aaa;
+              color: $comment_font_color;
             }
           }
         }

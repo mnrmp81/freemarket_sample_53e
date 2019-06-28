@@ -1,22 +1,23 @@
 .pankuzu-lists {
   height: 48px;
-  border-top: 1px solid #eee;
+  border-top: $solid_style;
   &__box {
     width: 1020px;
     margin: 0 auto;
     padding: 16px 0;
     display: flex;
-    font-size: 13px;
+    font-size: $links_font;
     li {
       .pankuzu-list {
-        color: #333;
-      }
-      .pankuzu-list:hover {
-        color: #888;
+        color: $links_color;
+        &:hover {
+          color: $pankuzu_color;
+          @include link_underline;
+        }
       }
       i {
         margin: 0 8px;
-        color: #888;
+        color: $pankuzu_color;
       }
     }
     .current-page {

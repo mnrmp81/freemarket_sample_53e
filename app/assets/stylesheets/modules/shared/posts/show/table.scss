@@ -1,10 +1,12 @@
 .post-detail-table {
   width: 100%;
-  border: 1px solid #eee;
-  font-size: 14px;
+  font-size: $links_font;
   text-align: left;
+  a:hover {
+    @include link_underline;
+  }
   th {
-    background: #fafafa;
+    background: $table_bg_color;
     padding: 10px;
   }
   td {
@@ -16,15 +18,15 @@
     }
     .ev-good {
       color: #ef5185;
-      font-size: 16px;
+      font-size: $icons_font;
     }
     .ev-normal {
       color: #fba933;
-      font-size: 16px;
+      font-size: $icons_font;
     }
     .ev-bad {
       color: #6ab5d8;
-      font-size: 16px;
+      font-size: $icons_font;
     }
     .ev-count {
       line-height: 16px;
@@ -36,5 +38,5 @@
 }
 
 tr ,td {
-  border: 1px solid #eee;
+  border: $solid_style;
 }

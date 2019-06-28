@@ -10,10 +10,10 @@
       height: 50%;
       float: left;
       opacity: 0.5;
-    }
-    &__img:hover {
-      opacity: 1.0;
-      cursor: pointer;
+      &:hover {
+        opacity: 1.0;
+        cursor: pointer;
+      }
     }
   }
 }
