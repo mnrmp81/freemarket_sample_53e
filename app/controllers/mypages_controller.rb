@@ -4,4 +4,7 @@ class MypagesController < ApplicationController
 
   def logout
   end
+
+  def identification
+  end
 end
