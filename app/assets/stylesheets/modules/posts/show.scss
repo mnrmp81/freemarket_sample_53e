@@ -21,9 +21,7 @@ a {
     &__upper-box {
       margin-top: 15px;
       &__left-side {
-        height: 420px;
-        width: 300px;
-        float: left;
+        @include upper_box();
         .img-box {
           &__current-img {
             height: 300px;
@@ -31,9 +29,7 @@ a {
         }
       }
       &__right-side {
-        height: 420px;
-        width: 300px;
-        float: right;
+        @include upper_box(right);
       }
     }
     &__price-box {

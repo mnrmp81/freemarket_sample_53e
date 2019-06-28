@@ -1,0 +1,5 @@
+@mixin upper_box($float:left) {
+  height: 420px;
+  width: 300px;
+  float: $float;
+}
