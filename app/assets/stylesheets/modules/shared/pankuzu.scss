@@ -9,7 +9,7 @@
     font-size: 13px;
     li {
       .pankuzu-list {
-        color: #333;
+        color: $links_color;
         &:hover {
           color: #888;
           @include link_underline;

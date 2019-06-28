@@ -7,7 +7,7 @@
     @include link_underline;
   }
   th {
-    background: #fafafa;
+    background: $table_bg_color;
     padding: 10px;
   }
   td {

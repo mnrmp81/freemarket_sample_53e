@@ -92,7 +92,7 @@ button {
         float: left;
         .post-btn {
           border: 1px solid #f5f5f5;
-          background: #f5f5f5;
+          background: $btn_bg_color;
           display: inline-block;
           padding: 8px 16px;
           border-radius: 40px;
@@ -100,7 +100,7 @@ button {
             font-size: 14px;
             line-height: 100%;
             &__heart {
-              color: #ccc;
+              color: $heart_color;
               padding-right: 5px;
             }
             &__count {
@@ -108,7 +108,7 @@ button {
             }
           }
           .invalid-products-report-btn {
-            color: #333;
+            color: $links_color;
             font-size: 14px;
             line-height: 100%;
             &__flag {
@@ -171,7 +171,7 @@ button {
         width: 100%;
         margin-top: 8px;
         line-height: 48px;
-        background: #aaa;
+        background: $comment_font_color;
         border: 1px solid #aaa;
         color: #fff;
         font-size: 14px;
