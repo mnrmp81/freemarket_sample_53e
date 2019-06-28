@@ -1,0 +1,22 @@
+.backscreen
+  .header
+    .header__logo
+      %a{href: "/"}
+        =image_tag "profiles/mercari_logo.jpg", class: "header__logo__image"
+      %a
+        =image_tag "profiles/progress_1.jpg", class: "header__progress1__image"
+
+  .input_user_registration--new_2
+    =render 'member_info'
+    
+  .caution
+    %a{href: "/", class: "caution__article"}
+      プライバシーポリシー
+    %a{href: "/", class: "caution__article"}
+      メルカリ利用規約
+    %a{href: "/", class: "caution__article"}
+      特定商取引に関する表記
+
+  .end_logo   
+    %a{href: "/"}
+      =image_tag "profiles/end_logo.jpg", class: "end_image"

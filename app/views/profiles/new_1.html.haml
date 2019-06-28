@@ -1,0 +1,38 @@
+.backscreen
+  .top_logo
+    %a{href: "/", class: "top_logo__link"}
+      =image_tag "profiles/mercari_logo.jpg", class: "top_logo__link__image"
+
+  .how_registration_select
+    %p.how_registration_select__title
+      新規会員登録
+    .how_registration_select__box
+      %a{href: "/profiles/new_2", class: "how_registration_select__box__mail"}
+        %button{type: "submit", class: "how_registration_select__box__mailbutton"}
+          .btn-text
+            %i.fa.fa-envelope
+            %p メールアドレスで登録
+      %br
+      %a{href: "/", class: "how_registration_select__fbook"}
+        %button{type: "submit", class: "how_registration_select__box__fbookbutton"}
+          =image_tag "profiles/facebook_logo.jpg", class: "how_registration_select__box__fbookbutton__logo"
+          %a{class: "how_registration_select__box__fbookbutton__title"}
+            Facebookでログイン
+      %br
+      %a{href: "/", class: "how_registration_select__box__google"}
+        %button{type: "submit", class: "how_registration_select__box__googlebutton"}
+          =image_tag "profiles/Google_logo.jpg", class: "how_registration_select__box__googlebutton__logo"
+          %a{class: "how_registration_select__box__googlebutton__title"}
+            Googleでログイン
+
+  .caution
+    %a{href: "/", class: "caution__article"}
+      プライバシーポリシー
+    %a{href: "/", class: "caution__article"}
+      メルカリ利用規約
+    %a{href: "/", class: "caution__article"}
+      特定商取引に関する表記
+
+  .end_logo   
+    %a{href: "/"}
+      =image_tag "profiles/end_logo.jpg", class: "end_image"

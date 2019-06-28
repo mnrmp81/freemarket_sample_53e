@@ -1,0 +1,42 @@
+.backscreen
+  .header
+    .header__logo
+      %a{href: "/"}
+        =image_tag "profiles/mercari_logo.jpg", class: "header__logo__image"
+
+      %a
+        =image_tag "profiles/progress_2.jpg", class: "header__progress1__image"
+
+  .input_user_registration
+    %p.input_user_registration__title 
+      電話番号の確認
+    .input_user_registration__form
+      %a.input_user_registration__form__cellphonenumber 携帯電話の番号
+      = form_tag( root_path, method: :get ) do
+        = text_field :number, params[:number], { placeholder: "携帯電話の番号を入力", class: "input_user_registration__form__cellphonenumber_input" } 
+        %br
+      %a.input_user_registration__form__attention_1
+        本人確認のため、携帯電話のSMS(ショートメッセージ)を利用して認証を行います。
+      %br
+    .input_user_registration__button
+      %a{href: "/profiles/new_4"}
+        = submit_tag "SMSを送信する", {class: "input_user_registration__button__cellphonenumber_button"} 
+      %br
+      %a.input_user_registration__button__attention_2
+        ※電話番号は本人確認や不正利用防止のために利用します。
+        他のユーザに公開されることはありません。
+      %br
+      %a{href: "/",class:"input_user_registration__button__reason"}
+        電話番号確認が必要な理由＞
+    
+  .caution
+    %a{href: "/", class: "caution__article"}
+      プライバシーポリシー
+    %a{href: "/", class: "caution__article"}
+      メルカリ利用規約
+    %a{href: "/", class: "caution__article"}
+      特定商取引に関する表記
+
+  .end_logo   
+    %a{href: "/"}
+      =image_tag "profiles/end_logo.jpg", class: "end_image"

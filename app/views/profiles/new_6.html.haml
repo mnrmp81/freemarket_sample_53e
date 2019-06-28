@@ -1,0 +1,33 @@
+.backscreen_sh
+  .header_sh
+    .header_sh__logo
+      %a{href: "/"}
+        =image_tag "profiles/mercari_logo.jpg", class: "header_sh__logo__image"
+      %br
+      %a
+        =image_tag "profiles/progress_5.jpg", class: "header_sh__logo__progress1__image"
+
+  .input_user_registration_sh__new_6
+    %p.input_user_registration_sh__title 
+      会員登録完了
+    %p.input_user_registration_sh__comment
+      ありがとうございました。
+      %br
+      会員登録が完了しました。
+      %br
+    %button.start_button 
+      %p メルカリをはじめる
+
+  .caution_sh
+    %a{href: "/", class: "caution_sh__article"}
+      プライバシーポリシー
+    %br
+    %a{href: "/", class: "caution_sh__article"}
+      メルカリ利用規約
+    %br
+    %a{href: "/", class: "caution_sh__article"}
+      特定商取引に関する表記
+
+    .caution_sh___logo
+      %a{href: "/"}
+        =image_tag "profiles/end_logo.jpg", class: "caution_sh__logo__end_image"
