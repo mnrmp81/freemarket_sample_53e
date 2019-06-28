@@ -166,20 +166,10 @@ a {
     font-size: 14px;
     line-height: 100%;
     &__prev-post-link {
-      float: left;
-      max-width: 40%;
-      word-wrap: break-word;
-      &:hover {
-        @include link_underline;
-      }
+      @include post_links();
     }
     &__next-post-link {
-      float: right;
-      max-width: 40%;
-      word-wrap: break-word;
-      &:hover {
-        @include link_underline;
-      }
+      @include post_links(right);
     }
   }
   .sns-links {

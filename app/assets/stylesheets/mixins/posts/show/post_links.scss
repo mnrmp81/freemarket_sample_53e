@@ -1,0 +1,8 @@
+@mixin post_links ($float:left) {
+  float: $float;
+  max-width: 40%;
+  word-wrap: break-word;
+  &:hover {
+    @include link_underline;
+  }
+}
