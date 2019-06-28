@@ -1,0 +1,260 @@
+.member_information {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-bottom: 7%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  border-bottom: solid #f5f5f5;
+  &__new_2 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 7%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-bottom: solid #f5f5f5;
+    
+  }
+ }
+ 
+ .form-group {
+  //  position: relative;
+   right: -300px;
+   
+
+  .form{
+    width: 300px;
+    margin:0 auto;
+  }
+
+  &__form{
+    .birthday-text{
+      margin-left: 50px;
+    }
+    .birthday-text-field {
+      display: flex;
+      margin-left: 50px;
+    }
+  }
+ 
+  &__name {
+  font-weight: bold;
+  // position: relative;
+
+  }
+
+  &__birthday{
+    // position: relative;
+    
+  }
+
+  &__person_information{
+    padding-bottom: 10%;
+    padding-left: 23%;
+  }
+
+  &__required {
+    background: red;
+    color: white;
+    // position: relative;
+    
+    &--familyname {
+      background: red;
+      color: white;
+      // position: relative;
+    }
+    &--firstname {
+      background: red;
+      color: white;
+      // position: relative;
+    }
+    &--birthday {
+      background: red;
+      color: white;
+      // position: relative;
+    }
+    &--address {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -100px;
+    }
+    &--expiration_date {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -85px;
+    }
+    &--security_code {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -60px;
+    }
+  }
+
+  &__input {
+  height: 50px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  margin-bottom: 10%;
+
+  }
+  &__email {
+  font-weight: bold;
+  // position: relative;
+ }
+  &__password1 {
+  font-weight: bold;
+  // position:relative;
+  }
+  &__password2{
+  font-weight: bold;
+  // position:relative;
+ }
+  &__dentification{
+    padding: 0 50px;
+    margin-bottom: 4%;
+    font-weight: bolder;
+    // position: relative;
+    
+    top: -30px;
+
+    &--comment {
+      font-weight:normal;
+      // position: relative;
+      padding: 0;
+    
+    }
+
+    &--text{
+      margin: 0 auto;
+      width: 400px;
+      font-weight: normal;
+      font-size: 13px;
+    }
+    
+  }
+  &__dentification--text {
+    width: 300px;
+    margin-bottom: 20px;
+    // position: relative;
+    right: -10px;
+  
+  }
+
+    
+ 
+  
+ 
+  &__familyname--kanji {
+  font-weight: bold;
+  // position: relative;
+ }
+ 
+  &__firstname--kanji {
+  font-weight: bold;
+  // position: relative;
+  }
+ 
+  &__familyname--kana {
+  font-weight: bold;
+  // position: relative;
+  }
+ 
+  &__first_name--kana {
+  font-weight: bold;
+  // position: relative;
+  }
+ 
+  &__birthday {
+  font-weight: bold;
+  // position: relative;
+  
+   
+    &--text {
+      width: 300px;
+      margin:0 auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: #888;
+      text-align: center;
+      font-size: 13px;
+    }
+  }
+ 
+&__checkbox {
+  border: solid 1px gray;
+  width:300px;
+  padding: 10px;
+  margin:0 auto;
+  background: #f9f9f9;
+  margin-bottom: 20px;
+  padding: 2%;
+  box-sizing: border-box;
+  position: relative;
+
+    &__robot{
+      width: 60%;
+      height: 20%;
+      
+    }
+
+    &__notrobot{
+      padding-left: 15%;
+      padding-top: 10%;
+    }
+
+    input[type=checkbox] {
+      transform: scale(2);
+      float: left;
+      margin-top: 20%;
+      box-sizing: border-box;
+    }
+
+    &__link {
+      font-size: 5px;
+      display: flex;
+      justify-content: flex-end;
+      a {
+        color: #888;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      p {
+        color: #888;
+      }
+    }
+    .photo {
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      right: 3%;
+      top: 3%;
+    }
+   }
+ 
+  &__next {
+    background:#ea352d;
+    width: 300px;
+    text-align: center;
+    margin:0 auto;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-top:30px;
+    a {
+      color: white;
+    }
+  }
+}
+
+ .photo2 {
+  width:350px;
+  height: 50px;
+ }
+
+
+ 

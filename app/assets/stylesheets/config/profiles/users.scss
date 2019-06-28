@@ -1,0 +1,384 @@
+
+.member_information {
+  width: 100%;
+  text-align: center;
+  // margin:0 auto;
+  font-weight: bolder;
+  font-size: 20px;
+  // margin-left: 120px;
+  margin-bottom: 50px;
+  // position: relative;
+  left: -450px;
+  &__new_5 {
+    width: 100%;
+    margin: 30px auto;
+    padding-bottom: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.form-group {
+  width: 100vw;
+  &__address {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    .address-register-form {
+      text-align: left;
+      width: 100%;
+      margin-left: 15%;
+    }
+  }
+  &__address-register {
+    width: 100%;
+    margin-bottom: 20px;
+    &--next-form {
+      width: 73%;
+      line-height: 48px;
+      color: $btn_font_color;
+      background-color: #ea352d;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+  left: -440px;
+  margin-left: 120px;
+  &__new_5 {
+    width: 100%;
+    .card-register-form {
+      width: 100%;
+      margin-left: 5%;
+      .card-form-group {
+        text-align: left;
+        &__select-box {
+          width: 30%;
+        }
+        &__submit {
+          margin-top: 50px;
+        }
+        &__next-form {
+          width: 90%;
+          line-height: 48px;
+          color: $btn_font_color;
+          background-color: #ea352d;
+          outline: none;
+          cursor: pointer;
+        }
+        .form-group__input {
+          width: 90%;
+        }
+      }
+    }
+  }
+  &__new_2 {
+    position: relative;
+    .new-user-form {
+      margin-left: 10%;
+      margin-bottom: 20px;
+    }
+    .form{
+      margin-left: 50px;
+      // margin: 0 auto;
+    }
+    &__name {
+    font-weight: bold; 
+    // position: relative;
+    
+  
+    }
+  }
+
+ 
+  &__required {
+    background: red;
+    color: white;
+    // position: relative;
+    left: -76px;
+    &--name {
+      background: red;
+      color: white;
+      // position: relative;
+     
+    }
+    &--email {
+      background: red;
+      color: white;
+      // position: relative;
+
+    }
+    &--familyname {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -100px;
+    }
+    &--firstname {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -100px;
+    }
+    &--birthday {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -100px;
+    }
+    &--address {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -100px;
+    }
+    &--expiration_date {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -85px;
+    }
+    &--security_code {
+      background: red;
+      color: white;
+      // position: relative;
+      left: -60px;
+    }
+    &--password1 {
+      background: red;
+      color: white;
+      // position: relative;
+    }
+    &--password2 {
+      background: red;
+      color: white;
+      // position: relative;
+    }
+
+} 
+  &__input {
+  height: 57px;
+  width: 310px;
+  margin: 0;
+  border-radius: 5px;
+  border: solid 1px lightgray
+
+
+
+}
+  &__email {
+  font-weight: bold;
+  // position: relative;
+ 
+}
+  &__password1 {
+  font-weight: bold;
+  // position:relative;
+ 
+  }
+  &__password2{
+  font-weight: bold;
+  // position:relative;
+  
+}
+  
+  &__f--text {
+  width: 400px;
+  text-align: center;
+  margin:0 auto;
+  margin-bottom: 20px;
+}
+
+  &__familyname--kanji {
+  font-weight: bold;
+  // position: relative;
+  // left: -100px;
+  
+}
+
+  &__firstname--kanji {
+  font-weight: bold;
+  // position: relative;
+  left: -100px;
+}
+
+  &__familyname--kana {
+  font-weight: bold;
+  // position: relative;
+  left: -80px;
+}
+
+  &__first_name--kana {
+  font-weight: bold;
+  // position: relative;
+  left: -80px;
+}
+
+  &__birthday {
+  font-weight: bold;
+  // position: relative;
+  // left: -100px;
+    &--year {
+  width: 20%;
+  display: flex;
+  p {
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+}
+    &--month {
+  width: 23%;
+  display: flex;
+  select {
+    margin-left: 20px;
+  }
+  p {
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+}
+
+    &--day {
+  width: 23%;
+  display: flex;
+  select {
+    margin-left: 20px;
+  }
+  p {
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+}
+
+    &--text {
+  width: 400px;
+  text-align: center;
+  margin:0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+  }
+
+  &__checkbox {
+ border: solid 1px gray;
+ width:300px;
+ padding: 10px;
+ text-align: center;
+ margin:0 auto;
+ background: lightgray;
+ margin-bottom: 20px;
+ 
+}
+
+  &__next {
+  background: red;
+  width: 300px;
+  color: white;
+  text-align: center;
+  margin:0 auto;
+  padding: 20px;
+  margin-bottom: 30px;
+  margin-top:30px;
+}
+
+  &__person_information {
+  // position: relative;
+  right: -80px;
+}
+  &__postal_code {
+    font-weight: bold;
+    // position: relative;
+    left: -110px;
+  }
+  &__address{
+  font-weight: bold;
+  // position: relative;
+  left: -100px;
+}
+  &__optional {
+    background: gray;
+    color: white;
+    // position: relative;
+    left: -100px;
+  }
+  &__municipality {
+    font-weight: bold;
+    // position: relative;
+    left: -110px;
+  }
+  &__block {
+    font-weight: bold;
+    // position: relative;
+    left: -118px;
+  }
+  &__building_name {
+    font-weight: bold;
+    // position: relative;
+    left: -110px;
+  }
+  &__card {
+    font-weight: bold;
+  }
+  &__expiration_date {
+    font-weight: bold;
+    // position: relative;
+    left: -100px;
+  }
+  &__card--month {
+    position: relative;
+    left: -110px;
+    margin-bottom: 10px;
+    height: 30px;
+  }
+  &__card--year {
+    // position: relative;
+    left: -110px;
+    margin-bottom: 10px;
+  }
+  &__security_code {
+    // position: relative;
+    left: -110px;
+    margin-bottom: 10px;
+  }
+  &__cardmonth {
+    // position: relative;
+    top: -23px;
+    left: -55px;
+    
+    
+  }
+  &__cardyear {
+    // position: relative;
+    top: -55px;
+    right: -30px;
+    margin-bottom: -30px;
+    
+    
+  }
+  &__security_code {
+    font-weight: bold;
+    // position: relative;
+    left: -74px;
+  }
+}
+
+select {
+	padding: 7px 30px 7px 10px;
+	font-size: 100%;
+	line-height: 1.1em;
+	background-repeat: no-repeat;
+	background-size: 12px 10px;
+	background-position: right 10px center;
+  background-color:white;
+  border: 1px solid lightgray;
+  height: 60px;
+  width: 310px;
+}
+.photo {
+  width: 60px;
+  height: 60px;
+}
+.photo2 {
+  width:350px;
+  height: 50px;
+}
