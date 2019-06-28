@@ -77,3 +77,6 @@ gem 'devise'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'mysql2'
+gem 'active_hash'
+
