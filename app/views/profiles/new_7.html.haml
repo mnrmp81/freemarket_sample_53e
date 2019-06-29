@@ -20,11 +20,10 @@
           =image_tag "profiles/Google_logo.jpg", class: "edit_registration__second__g_loginbutton__logo"
           %a{class: "edit_registration__second__f_loginbutton__title"}
             Googleでログイン
-    
-      = form_tag( root_path, method: :get, class: 'login-form') do
-        = text_field :email, params[:email], { placeholder: "メールアドレス", class: "edit_registration__second__email" }
+      = form_with model: @user,scope: 'user', url: user_session_path, id: 'new_user', class: 'new_user login-form', local: true do |f|
+        = f.email_field :email ,placeholder: "メールアドレス", class: "edit_registration__second__email", autofocus: true, autocomplete: "email"
         %br
-        = text_field :password, params[:password], { placeholder: "パスワード", class: "edit_registration__second__password" }
+        = f.password_field :password, placeholder: "パスワード", class: "edit_registration__second__password", autocomplete: "current-password"
         %br
         .form-group__checkbox.form-group__checkbox--login
           .form-group__checkbox__robot
@@ -38,7 +37,7 @@
             %a{href: ""} プライバシー
             %p ・
             %a{href: ""} 利用規約
-        =submit_tag "ログイン", {class: "input_user_registration__second__subbutton"}
+        = f.submit "ログイン", class: "input_user_registration__second__subbutton"
         %br
         %a{href: "/", class: "edit_registration__second__fogetpass"}
           パスワードをお忘れの方

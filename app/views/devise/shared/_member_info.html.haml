@@ -1,27 +1,30 @@
 .member_information__new_2
   %h3 会員情報入力
 .form-group__new_2
-  = form_with url: '#', class: 'address-register-form' do |f|
+  = form_with model: @user,scope: 'user', url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
     .new-user-form
-      = f.label 'ニックネーム', class: 'form-group__name'
+      = f.label "ニックネーム", class: 'form-group__name'
       %span.form-group__required--name 必須
       %br
-      = f.text_field :aaa, class: 'form-group__input', placeholder: '例) メルカリ太郎'
+      = f.text_field :nickname, class: 'form-group__input', placeholder: '例) メルカリ太郎', autofocus: true, autocomplete: "nickname"
     .new-user-form
-      = f.label 'メールアドレス', class: 'form-group__email'
+      = f.label "メールアドレス", class: 'form-group__email'
       %span.form-group__required--email 必須 
       %br
-      = f.text_field :aaa, class: 'form-group__input', placeholder: 'PC・携帯どちらでも可'
+      = f.email_field :email, class: 'form-group__input', placeholder: 'PC・携帯どちらでも可', autofocus: true, autocomplete: "email"
     .new-user-form
-      = f.label 'パスワード', class: 'form-group__password1'
+      = f.label "パスワード", class: 'form-group__password1'
       %span.form-group__required--password1 必須 
       %br
-      = f.text_field :aaa, class: 'form-group__input', placeholder: '6文字以上'
+      = f.password_field :password, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
     .new-user-form
-      = f.label 'パスワード (確認)', class: 'form-group__password2'
+      = f.label "パスワード（確認用）", class: 'form-group__password2'
       %span.form-group__required--password2 必須 
       %br
-      = f.text_field :aaa, class: 'form-group__input', placeholder: '6文字以上'
+      = f.password_field :password_confirmation, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
+    .actions
+      = f.submit "Sign up"
+  = form_with url: '#', class: 'address-register-form' do |f|
     .form-group__dentification 
       本人確認
       %p.form-group__dentification--comment

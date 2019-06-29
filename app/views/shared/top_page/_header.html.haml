@@ -20,19 +20,31 @@
             %i.fa.fa-bars
             ブランドから探す
       %ul.user-information
-        %li.user-information__list
-          = link_to root_path do
-            %i.far.fa-heart
-            %span.list-name お気に入り
-        %li.user-information__list
-          = link_to root_path do
-            %i.far.fa-bell
-            %span.list-name お知らせ
-        %li.user-information__list
-          = link_to root_path do
-            %i.fas.fa-check
-            %span.list-name やることリスト
-        %li.user-information__list
-          = link_to root_path do
-            = image_tag asset_path("top_page/avater.jpeg"), class: "avater-image", size: "30x30"
-            %span.list-name マイページ
+        - if user_signed_in?
+          %li.user-information__list-login
+            = link_to root_path do
+              %i.far.fa-heart
+              %span.list-name お気に入り
+          %li.user-information__list-login
+            = link_to root_path do
+              %i.far.fa-bell
+              %span.list-name お知らせ
+          %li.user-information__list-login
+            = link_to root_path do
+              %i.fas.fa-check
+              %span.list-name やることリスト
+          %li.user-information__list-login
+            = link_to root_path do
+              = image_tag asset_path("top_page/avater.jpeg"), class: "avater-image", size: "30x30"
+              %span.list-name マイページ
+          //以下、仮置きのログアウトボタン
+          %li.user-information__list-login
+            = link_to destroy_user_session_path, class: "list-name", method: :delete do
+              ログアウト          
+        - else
+          %li.user-information__list-nologin
+            = link_to new_user_registration_path, class: "list-name-red" do
+              新機会員登録
+          %li.user-information__list-nologin
+            = link_to new_user_session_path, class: "list-name-blue" do
+              ログイン

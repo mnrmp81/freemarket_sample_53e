@@ -71,7 +71,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        &__list {
+        &__list-login {
           line-height: 44px;
           display: flex;
           padding: 0 11px;
@@ -87,6 +87,25 @@
           }
           .avater-image {
             border-radius: 50%;
+          }
+        }
+        &__list-nologin{
+          margin: 0 0 0 13px;
+          .list-name-red {
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            line-height: 30px;
+            padding: 7px 10px;
+            border-radius: 4px;
+          }
+          .list-name-blue {
+            background: #fff;
+            border: 1px solid #0099e8;
+            color: #0099e8;
+            line-height: 30px;
+            padding: 7px 10px;
+            border-radius: 4px;
           }
         }
       }
