@@ -106,6 +106,9 @@
 - add_index posts, :prduct_name
 
 ### enum
+- enum product_size
+- enum product_condition
+- enum delivery_fee
 - enum delivery_date
 - enum product_status
 
