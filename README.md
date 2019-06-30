@@ -85,9 +85,9 @@
 |second_category_id|integer|null: false|
 |third_category_id|integer||
 |brand_id|references|foreign_key: true|
-|product_size|string||
-|product_condition|string|null: false|
-|delivery_fee|string|null: false|
+|product_size|integer||
+|product_condition|integer|null: false|
+|delivery_fee|integer|null: false|
 |delivery_former_area|string|null: false|
 |delivery_date|integer|null: false|
 |product_price|integer|null: false|
