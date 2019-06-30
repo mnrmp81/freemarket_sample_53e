@@ -1,0 +1,31 @@
+ja:
+  enums:
+    post:
+      product_size:
+        xxs_or_less: XXS以下
+        xs: XS(SS)
+        small: S
+        middle: M
+        large: L
+        xl: XL(LL)
+        xxl: 2XL(3L)
+        xxxl: 3XL(4L)
+        xxxxl_or_more: 4XL(5L)以上
+        free: "FREE SIZE"
+
+      product_condition:
+        cond_s: 新品、未使用
+        cond_a: 未使用に近い
+        cond_b: 目立った傷や汚れなし
+        cond_c: やや傷や汚れあり
+        cond_d: 傷や汚れあり
+        cond_e: 全体的に状態が悪い
+        
+      delivery_fee:
+        included: 送料込み(出品者負担)
+        cash_on_delivery: 着払い(購入者負担)
+
+      delivery_date:
+        one_or_two_days: 1~2日で発送
+        two_or_three_days: 2~3日で発送
+        within_a_week: 4~7日で発送

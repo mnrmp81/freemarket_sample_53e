@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_06_30_072422) do
+ActiveRecord::Schema.define(version: 2019_06_28_113350) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,6 +23,11 @@ ActiveRecord::Schema.define(version: 2019_06_30_072422) do
     t.string "building", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,6 +44,22 @@ ActiveRecord::Schema.define(version: 2019_06_30_072422) do
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_name", null: false
+    t.text "product_description", null: false
+    t.integer "first_category_id", null: false
+    t.integer "second_category_id", null: false
+    t.integer "third_category_id"
+    t.integer "product_size"
+    t.integer "product_condition", null: false
+    t.integer "delivery_fee", null: false
+    t.string "delivery_former_area", null: false
+    t.integer "delivery_date", null: false
+    t.integer "product_price", null: false
+    t.integer "product_status", null: false
+    t.bigint "brand_id"
+    t.bigint "user_id"
+    t.index ["brand_id"], name: "index_posts_on_brand_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,4 +92,6 @@ ActiveRecord::Schema.define(version: 2019_06_30_072422) do
   add_foreign_key "addresses", "users"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "posts", "brands"
+  add_foreign_key "posts", "users"
 end
