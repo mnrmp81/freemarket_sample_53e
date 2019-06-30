@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   enum product_condition:{ cond_s: 0, cond_a: 1, cond_b: 2, cond_c: 3, cond_d: 4, cond_e: 5 }
   enum delivery_fee:{ included: 0, cash_on_delivery: 1 }
   enum delivery_date:{ one_or_two_days: 0, two_or_three_days: 1, within_a_week:2 }
+  enum product_status:{ listing: 0, stopping_listing: 1, in_transaction: 2, sold: 3 }
 end
