@@ -11,10 +11,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
-  end
-
-  def create
     @post = Post.new(post_params)
     if @post.save
       redirect_to 'root_path', notice: '出品が完了しました'
