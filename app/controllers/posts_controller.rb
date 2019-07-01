@@ -4,6 +4,11 @@ class PostsController < ApplicationController
 
   def new
     @prefectures = Prefecture.all
+    @post = Post.new
+  end
+
+  def create
+    binding.pry    
     # 以下仮作成
     @first_categories = FirstCategory.all
     @second_categories = SecondCategory.all
@@ -24,6 +29,7 @@ class PostsController < ApplicationController
 
   def buy
   end
+
 
   private
   

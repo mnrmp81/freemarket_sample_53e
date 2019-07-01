@@ -8,6 +8,6 @@
       .post__upload__items__container__items__item
         %ul
     .post__drop__box
-      %input.post__drop__box__file
+      =f.file_field :image, class: "post__drop__box__file"
       %pre.text-visible ドラッグアンドドロップまたはクリックしてファイルをアップロード
       %i.fas.fa-camera
