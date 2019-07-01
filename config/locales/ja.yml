@@ -35,3 +35,11 @@ ja:
         stopping_listing: 出品停止中
         in_transaction: 取引中
         sold: SOLD
+
+  date:
+    month_names: [~, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+    order:
+      - :year
+      - :month
+      - :day

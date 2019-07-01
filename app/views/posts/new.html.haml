@@ -1,16 +1,19 @@
 %body
-  .post__container
-    %main.main
-      %section.main__post__container
-        .post__container
-          .post__container__inner
-            %h2.post__container__head 商品の情報を入力
-            %form.post__form
-              =render 'shared/posts_new/image_upload'
-              =render 'shared/posts_new/product_upload'
-              =render 'shared/posts_new/product_detail'
-              =render 'shared/posts_new/delivery_detail'
-              =render 'shared/posts_new/price_detail'
-              -# .modal
-              =render 'shared/posts_new/post_btn'
-            -# .overlay
+  .backscreen
+    =render 'shared/user_registration/form-header'
+    .post__container   
+      %main.main
+        %section.main__post__container
+          .post__container
+            .post__container__inner
+              %h2.post__container__head 商品の情報を入力
+              %form.post__form
+                =render 'shared/posts_new/image_upload'
+                =render 'shared/posts_new/product_upload'
+                =render 'shared/posts_new/product_detail'
+                =render 'shared/posts_new/delivery_detail'
+                =render 'shared/posts_new/price_detail'
+                -# .modal
+                =render 'shared/posts_new/post_btn'
+              -# .overlay
+    =render 'shared/user_registration/form-footer'
