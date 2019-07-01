@@ -1,12 +1,10 @@
 .product__post__content
   .form__content__name
-    %label 
-      商品名
-      %span.require__form 必須
+    =f.label :product_name, "商品名"
+    %span.require__form 必須
     %div
-      %input.input__form{placeholder: '商品名(必須40文字まで)'}
+      = f.text_field :product_name, placeholder: "商品名(必須40文字まで)", class: "input__form"
   .form__content__description
-    %label 
-      商品の説明                    
-      %span.require__form 必須
-    %textarea.textarea__form{placeholder: '商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
+    =f.label :product_description, "商品の説明"
+    %span.require__form 必須
+    = f.text_area :product_description, placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "textarea__form"

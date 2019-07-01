@@ -4,38 +4,26 @@
     %a.question__form ?
   .post__form__box
     .form__content
-      %label 配送料の負担
+      =f.label :delivery_fee, "配送料の負担"
       %span.require__form 必須
       %div
         .select__box
-          %select.select__box__format
-            %option ---
-            %option 送料込み(出品者負担)
-            %option 着払い(購入者負担)
+          = f.select :delivery_fee, Post.delivery_fees_i18n.invert, {:selected=>Post.delivery_dates[@post.delivery_date], prompt: "---"} ,class: "select__box__format"
           .drop-down-icon
             = icon('fas', 'chevron-down')
     .form__content__default
-      %label
-        発送元の地域
-        %span.require__form 必須
-      %div
-        .select__box
-          %select.select__box__format
-            %option ---
-            =@prefectures.each do |pre|
-              %option
-                =pre.name
-          .drop-down-icon
-            = icon('fas', 'chevron-down')
-    .form__content__default
-      %label 発送までの日数
+      =f.label :delivery_former_area, "発送元の地域"
       %span.require__form 必須
       %div
         .select__box
-          %select.select__box__format
-            %option ---
-            %option 1日〜2日で発送
-            %option 2日〜3日で発送
-            %option 4日〜7日で発送
+          = f.collection_select :delivery_former_area, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
+    .form__content__default
+      =f.label :delivery_date, "発送までの日数"
+      %span.require__form 必須
+      %div
+        .select__box
+          = f.select :delivery_date, Post.delivery_dates_i18n.invert, {:selected=>Post.delivery_dates[@post.delivery_date], prompt: "---"}, class: "select__box__format"
           .drop-down-icon
             = icon('fas', 'chevron-down')
