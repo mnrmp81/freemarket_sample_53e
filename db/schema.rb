@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_06_30_072422) do
-ActiveRecord::Schema.define(version: 2019_06_28_113350) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -91,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_06_28_113350) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "credit_cards", "users"
-  add_foreign_key "profiles", "users"
   add_foreign_key "posts", "brands"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
 end
