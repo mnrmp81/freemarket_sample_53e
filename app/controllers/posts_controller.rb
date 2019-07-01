@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 
   def new
     @prefectures = Prefecture.all
+    # 以下仮作成
+    @first_categories = FirstCategory.all
+    @second_categories = SecondCategory.all
   end
 
   def create
