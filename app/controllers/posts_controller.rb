@@ -12,7 +12,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to '#', notice: '出品が完了しました'
+      redirect_to 'root_path', notice: '出品が完了しました'
+      # パスは仮置き
     else
       render :new
     end
