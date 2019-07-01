@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
+    binding.pry    
   end
 
   def show
@@ -16,4 +16,6 @@ class PostsController < ApplicationController
 
   def buy
   end
+
+
 end
