@@ -92,7 +92,7 @@
 |delivery_date|integer|null: false|
 |product_price|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
-|product_status|integer|null: false|
+|product_status|integer|default: 0|
 
 ### Assosiation
 - belongs_to :user
