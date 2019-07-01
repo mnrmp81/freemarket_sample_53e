@@ -4,6 +4,11 @@ class PostsController < ApplicationController
 
   def new
     @prefectures = Prefecture.all
+    @post = Post.new
+  end
+
+  def create
+    binding.pry
   end
 
   def show

@@ -2,54 +2,43 @@
   %h3.post__container__sub__head 商品の詳細
   .post__form__box
     .form__content
-      %label
-        カテゴリー
-        %span.require__form 必須
-      %div
-        .select__box
-          %select.select__box__format
-            %option ---
-          .drop-down-icon
-            = icon('fas', 'chevron-down')
-        .select__box
-          %select.select__box__format
-            %option ---
-          .drop-down-icon
-            = icon('fas', 'chevron-down')
-        .select__box
-          %select.select__box__format
-            %option ---
-          .drop-down-icon
-            = icon('fas', 'chevron-down')
-    .form__content__deafult
-      %label
-        サイズ
-        %span.require__form 必須
-      %div
-        .select__box
-          %select.select__box__format
-            %option ---
-          .drop-down-icon
-            = icon('fas', 'chevron-down')
-    .form__content__deafult
-      %label
-        ブランド
-        %span.any__form 任意
-      %div
-        .select__box
-          %input.select__box__format{placeholder: '例)シャネル'}
-    .form__content__deafult
-      %label 商品の状態
+      =f.label :first_category_id, "カテゴリー"
       %span.require__form 必須
       %div
         .select__box
           %select.select__box__format
-            %option --- 
-            %option 新品、未使用
-            %option 未使用に近い
-            %option 目立った傷や汚れなし
-            %option やや傷や汚れあり
-            %option 傷や汚れあり
-            %option 全体的に状態が悪い
+            %option ---
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
+        .select__box
+          %select.select__box__format
+            %option ---
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
+        .select__box
+          %select.select__box__format
+            %option ---
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
+    .form__content__deafult
+      =f.label :product_size, "サイズ"
+      %span.require__form 必須
+      %div
+        .select__box
+          =f.select :product_size, Post.product_sizes_i18n.invert, {:selected=>Post.product_conditions[@post.product_condition],prompt: "---"}, class: "select__box__format"
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
+    .form__content__deafult
+      =f.label :brand_id, "ブランド"
+      %span.any__form 任意
+      %div
+        .select__box
+          %input.select__box__format{placeholder: '例)シャネル'}
+    .form__content__deafult
+      =f.label :product_condition, "商品の状態"
+      %span.require__form 必須
+      %div
+        .select__box
+          = f.select :product_condition, Post.product_conditions_i18n.invert, {:selected=>Post.product_conditions[@post.product_condition], prompt: "---"}, class: "select__box__format"
           .drop-down-icon
             = icon('fas', 'chevron-down')
