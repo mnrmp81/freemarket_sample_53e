@@ -3,15 +3,15 @@ class PostsController < ApplicationController
   end
 
   def new
-    @prefectures = Prefecture.all
     @post = Post.new
-  end
-
-  def create
-    binding.pry    
+    @prefectures = Prefecture.all
     # 以下仮作成
     @first_categories = FirstCategory.all
     @second_categories = SecondCategory.all
+  end
+
+  def create
+    binding.pry
   end
 
   def create
