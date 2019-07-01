@@ -29,6 +29,12 @@ ja:
         one_or_two_days: 1~2日で発送
         two_or_three_days: 2~3日で発送
         within_a_week: 4~7日で発送
+      
+      product_status:
+        listing: 出品中
+        stopping_listing: 出品停止中
+        in_transaction: 取引中
+        sold: SOLD
 
   date:
     month_names: [~, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]

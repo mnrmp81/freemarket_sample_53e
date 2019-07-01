@@ -9,11 +9,17 @@
         .select__box
           %select.select__box__format
             %option ---
+            =@first_categories.each do |fir|
+              %option
+                =fir.name
           .drop-down-icon
             = icon('fas', 'chevron-down')
         .select__box
           %select.select__box__format
             %option ---
+            =@second_categories.each do |sec|
+              %option
+                =sec.name
           .drop-down-icon
             = icon('fas', 'chevron-down')
         .select__box
