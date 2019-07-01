@@ -79,4 +79,4 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'active_hash'
 gem 'enum_help'
-
+gem 'jquery-rails'
