@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    10.times { @post.images.build }
+    5.times { @post.images.build }
   end
 
   def create
