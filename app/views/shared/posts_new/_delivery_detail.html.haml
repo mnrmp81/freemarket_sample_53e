@@ -8,7 +8,7 @@
       %span.require__form 必須
       %div
         .select__box
-          = f.select :delivery_fee, Post.delivery_fees_i18n.invert, {:selected=>Post.delivery_dates[@post.delivery_date], prompt: "---"} ,class: "select__box__format"
+          = f.select :delivery_fee, Post.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
     .form__content__default
@@ -24,6 +24,6 @@
       %span.require__form 必須
       %div
         .select__box
-          = f.select :delivery_date, Post.delivery_dates_i18n.invert, {:selected=>Post.delivery_dates[@post.delivery_date], prompt: "---"}, class: "select__box__format"
+          = f.select :delivery_date, Post.delivery_dates_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')

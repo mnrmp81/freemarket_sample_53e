@@ -6,19 +6,11 @@
       %span.require__form 必須
       %div
         .select__box
-          %select.select__box__format
-            %option ---
-            =@first_categories.each do |fir|
-              %option
-                =fir.name
+          = f.collection_select :first_category_id, FirstCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
         .select__box
-          %select.select__box__format
-            %option ---
-            =@second_categories.each do |sec|
-              %option
-                =sec.name
+          = f.collection_select :second_category_id, SecondCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
         .select__box
@@ -31,7 +23,7 @@
       %span.require__form 必須
       %div
         .select__box
-          =f.select :product_size, Post.product_sizes_i18n.invert, {:selected=>Post.product_conditions[@post.product_condition],prompt: "---"}, class: "select__box__format"
+          =f.select :product_size, Post.product_sizes_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
     .form__content__deafult
@@ -45,6 +37,6 @@
       %span.require__form 必須
       %div
         .select__box
-          = f.select :product_condition, Post.product_conditions_i18n.invert, {:selected=>Post.product_conditions[@post.product_condition], prompt: "---"}, class: "select__box__format"
+          = f.select :product_condition, Post.product_conditions_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')

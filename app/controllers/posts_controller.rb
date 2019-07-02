@@ -4,10 +4,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @prefectures = Prefecture.all
-    # 以下仮作成
-    @first_categories = FirstCategory.all
-    @second_categories = SecondCategory.all
   end
 
   def create
@@ -43,6 +39,6 @@ class PostsController < ApplicationController
                                  :delivery_date,
                                  :product_price,
                                  :user_id,
-                                 )
+                                 ).merge(user_id: current_user.id)
   end
 end
