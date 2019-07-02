@@ -81,3 +81,4 @@ gem 'active_hash'
 gem 'enum_help'
 gem 'gretel'
 
+gem 'jquery-rails'
