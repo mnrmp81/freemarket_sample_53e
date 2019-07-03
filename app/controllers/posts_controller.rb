@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :get_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    @posts = Post.order('id ASC').limit(32)
   end
 
   def new
@@ -11,7 +12,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @post = Post.new(post_params)
+    
     if @post.save
       redirect_to @post, notice: '出品が完了しました'
     else
@@ -67,7 +70,9 @@ class PostsController < ApplicationController
                                  :product_price,
                                  :product_status,
                                  :user_id,
+                                 :brand_name,
                                  [images_attributes: [:image]]
                                  ).merge(user_id: current_user.id)
   end
+
 end

@@ -84,7 +84,7 @@
 |first_category_id|integer|null: false|
 |second_category_id|integer|null: false|
 |third_category_id|integer||
-|brand_id|references|foreign_key: true|
+|brand_name|string||
 |product_size|integer||
 |product_condition|integer|null: false|
 |delivery_fee|integer|null: false|
@@ -137,7 +137,7 @@
 - belongs_to :user
 
 
-## categories
+<!-- ## categories
 
 |Column|Type|Options|
 |------|----|-------|
@@ -145,29 +145,29 @@
 |tree_parent|integer||
 
 ### Assosiation
-- belongs_to :post
+- belongs_to :post -->
 
 
-## brands
+<!-- ## brands
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Assosiation
 - has_many :genres, through: :brand_genres
-- has_many :brand_genres, dependent: :destroy
+- has_many :brand_genres, dependent: :destroy -->
 
 
-## genres
+<!-- ## genres
 |Column|Type|Options|
 |------|----|-------|
 |genre|string|null: false|
 
 ### Assosiation
 - has_many :brands, through: :brand_genres
-- has_many :brand_genres, dependent: :destroy
+- has_many :brand_genres, dependent: :destroy -->
 
-
+<!-- 
 ## brand_genres
 |Column|Type|Options|
 |------|----|-------|
@@ -176,4 +176,4 @@
 
 ### Assosiation
 - belongs_to :brand
-- belongs_to :genre
+- belongs_to :genre -->
