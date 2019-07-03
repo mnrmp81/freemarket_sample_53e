@@ -4,19 +4,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  # GET /resource/sign_up
-  def new
-    @user = User.new
-    @user.build_profile
-    super
-  end
+  # # GET /resource/sign_up
+  # def new
+  #   @user = User.new
+  #   @user.build_profile
+  #   super
+  # end
 
-  # POST /resource
-  def create
-    super
-    user = User.new(configure_sign_up_params)
-    user.save
-  end
+  # # POST /resource
+  # def create
+  #   super
+  #   user = User.new(configure_sign_up_params)
+  #   user.save
+  # end
 
   # GET /resource/edit
   # def edit
@@ -46,9 +46,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # private
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [profile_attributes: [:profile, :family_name, :first_name, :family_name_kana, :first_name_kana, :phone_number]])
-  end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: 
+  #     [profile_attributes: [:profile, :family_name, :first_name, :family_name_kana, :first_name_kana, :phone_number],
+  #      address_attributes: [:pstal_cord, :prefecture, :city, :block, :building]
+  #      creditcards_attributes: [:pstal_cord, :prefecture, :city, :block, :building]
+  #     ])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

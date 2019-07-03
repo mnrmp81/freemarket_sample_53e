@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       get 'new_5'
       get 'new_6'
       get 'new_7'
+      post 'new_5', to: 'sessions#session_address'
+      post 'new_6', to: 'sessions#session_credit_card'
     end
   end
     

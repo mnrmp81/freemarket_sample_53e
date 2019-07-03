@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def new_4
+    @user_address = User.new
   end
 
   def new_5
