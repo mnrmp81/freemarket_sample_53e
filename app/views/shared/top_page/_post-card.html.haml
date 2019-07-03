@@ -1,12 +1,16 @@
-.item-box
-  = link_to root_path do
-    .item-box__image
-      = image_tag "top_page/item.jpg", size: "213x213"
-    .item-box__boby
-      %h3.item-title ネックレスああああああああああああああああああああああああああああああああああ
-      .item-detail
-        .item-detail__price ¥ 2,000
-        .item-detail__heart
-          %i.far.fa-heart
-          %span 3
-      %p.item-tax (税込)
+- @posts.each do |post|
+  .item-box
+    %a{href: "/posts/#{post.id}"}
+      .item-box__image
+        = image_tag "top_page/item.jpg", size: "213x213"
+        -# .thumbnail__figure{style: "background-image:url(#{post.image_url})"}
+        -# imageカラムが出来てから表示するため
+      .item-box__boby
+        = post.product_name
+        .item-detail
+          .item-detail__price ¥#{post.product_price.to_s(:delimited, delimiter: ',')}
+          .item-detail__heart
+            %i.far.fa-heart
+            %span 3
+        %p.item-tax (税込)
+
