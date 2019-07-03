@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -82,3 +83,5 @@ gem 'enum_help'
 gem 'gretel'
 
 gem 'jquery-rails'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
