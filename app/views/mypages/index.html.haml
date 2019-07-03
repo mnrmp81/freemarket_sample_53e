@@ -1,4 +1,7 @@
 = render "shared/top_page/header"
+- breadcrumb :mypages
+%p.bread
+  = breadcrumbs separator: "&rsaquo;"
 
 .main-body
   = render partial: 'shared/mypage/side_menu'

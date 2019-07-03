@@ -66,12 +66,12 @@ ActiveRecord::Schema.define(version: 2019_07_02_110845) do
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "profile", null: false
+    t.text "profile"
     t.string "family_name", null: false
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.string "phone_number", null: false
+    t.string "phone_number"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_110845) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "images", "posts"
   add_foreign_key "posts", "brands"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"

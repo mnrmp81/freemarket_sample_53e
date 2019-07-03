@@ -5,9 +5,11 @@
   %p 最大10枚までアップロードできます
   .post__drop__box__container
     .post__upload__items__container__items
-      .post__upload__items__container__items__item
-        %ul
-    .post__drop__box
-      =f.file_field :image, class: "post__drop__box__file"
-      %pre.text-visible ドラッグアンドドロップまたはクリックしてファイルをアップロード
-      %i.fas.fa-camera
+      %ul.hidden-boxes
+        %pre.text-visible
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード
+        = f.fields_for :images do |image|
+          = image.label :image do
+            %li.hidden-box
+          = image.file_field :image , class: "hidden-field"

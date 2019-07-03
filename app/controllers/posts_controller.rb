@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    5.times { @post.images.build }
   end
 
   def create
@@ -11,7 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     
     if @post.save
-      redirect_to 'root_path', notice: '出品が完了しました'
+      redirect_to @post, notice: '出品が完了しました'
       # パスは仮置き
     else
       render :new
@@ -42,6 +43,7 @@ class PostsController < ApplicationController
                                  :product_price,
                                  :user_id,
                                  :brand_name,
+                                 [images_attributes: [:image]]
                                  ).merge(user_id: current_user.id)
   end
 
