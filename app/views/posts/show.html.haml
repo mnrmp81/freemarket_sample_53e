@@ -43,6 +43,14 @@
         = link_to '#', {class: 'approach-to-safety-link'} do
           %i.fas.fa-unlock-alt.approach-to-safety-link__lock
           %span あんしん・あんぜんへの取り組み
+  - if @post.user_id == current_user.id
+    .edit-content
+      = link_to '商品の編集', edit_post_path(@post), class: 'edit-btn'
+      %p or
+      = form_for(@post) do |f|
+        = f.text_field :product_status, value: 'stopping_listing', class: 'hidden-field'
+        = f.submit '出品を一旦停止する', class: 'stopping-listing-btn'
+      = link_to 'この商品を削除する', post_path(@post), method: :delete, class: 'destroy-btn'
   .comment-content
     .comment-content__comments-container.clearfix
       = render 'shared/posts/show/comments'
