@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   # extend ActiveHash::Associations::ActiveRecordExtensions
   #   belongs_to_active_hash :prefecture
   belongs_to :user
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 
   enum product_size:{ xxs_or_less: 0, xs: 1, small: 2, middle: 3, large: 4, xl: 5, xxl: 6, xxxl: 7, xxxxl_or_more: 8, free: 9 }
