@@ -8,7 +8,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @post = Post.new(post_params)
+    
     if @post.save
       redirect_to @post, notice: '出品が完了しました'
       # パスは仮置き
@@ -40,7 +42,9 @@ class PostsController < ApplicationController
                                  :delivery_date,
                                  :product_price,
                                  :user_id,
+                                 :brand_name,
                                  [images_attributes: [:image]]
                                  ).merge(user_id: current_user.id)
   end
+
 end
