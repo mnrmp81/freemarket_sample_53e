@@ -19,6 +19,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @other_posts = @post.user.posts.limit(6)
+    @image = Image.find_by(post_id: @post.id)
   end
 
   def buy
