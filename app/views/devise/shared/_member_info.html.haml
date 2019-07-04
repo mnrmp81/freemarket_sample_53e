@@ -269,7 +269,7 @@
 .member_information__new_2
   %h3 会員情報入力
 .form-group__new_2
-  = form_with model: @user, scope: 'user', url: '/users', id: 'new_user', class: 'new_user', local: true do |f|
+  = form_with scope: 'user', url: '/create_sessions/create_user_session', method: :get, id: 'new_user', class: 'new_user', local: true do |f|
     .new-user-form
       = f.label "ニックネーム", class: 'form-group__name'
       %span.form-group__required--name 必須
