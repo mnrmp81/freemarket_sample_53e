@@ -81,7 +81,7 @@ gem 'fog-aws'
 gem 'active_hash'
 gem 'enum_help'
 gem 'gretel'
-
 gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
+gem 'rails-i18n'
