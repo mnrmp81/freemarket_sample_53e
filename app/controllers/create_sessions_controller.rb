@@ -1,5 +1,33 @@
 class CreateSessionsController < ApplicationController
   def create_user_session
+    # 送られてきたユーザー情報の中に空の値がないか判定
+    user_session_params.each do |key, value|
+      if value == ""
+        redirect_to '/users/sign_up'
+        return
+      end
+    end
+
+    # 送られてきたプロフィール情報の中に空の値がないかを判定
+    profile_session_params.each do |key, value|
+      if value == ""
+        redirect_to '/users/sign_up'
+        return
+      end
+    end
+
+    # パスワードが英数字6文字以上かどうかを判定
+    unless user_session_params[:password].match(/[a-zA-Z0-9]{6,}/)
+      redirect_to '/users/sign_up'
+      return
+    end
+
+    # passwordとpassword_confirmationが一致しているかどうかを判定
+    if user_session_params[:password] != user_session_params[:password_confirmation]
+      redirect_to '/users/sign_up'
+      return
+    end
+
     session[:nickname] = user_session_params[:nickname]
     session[:email] = user_session_params[:email]
     session[:password] = user_session_params[:password]
@@ -14,6 +42,16 @@ class CreateSessionsController < ApplicationController
   end
 
   def session_address
+    # 送られてきた住所情報の中に空の値がないかを判定(building以外)
+    address_session_params.each do |key, value|
+      if key != 'building'
+        if value == ""
+          redirect_to '/profiles/new_4'
+          return
+        end
+      end
+    end
+
     session[:postal_code] = address_session_params[:postal_code]
     session[:prefecture] = address_session_params[:prefecture]
     session[:city] = address_session_params[:city]
