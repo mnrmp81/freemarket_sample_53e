@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
    registrations: 'users/registrations'
  }
- 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :posts do
     collection do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :create_sessions do
+  resources :user_session do
     collection do
       get 'create_user_session'
       post 'session_address'
