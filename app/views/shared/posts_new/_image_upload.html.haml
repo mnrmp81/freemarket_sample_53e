@@ -13,3 +13,4 @@
           = image.label :image do
             %li.hidden-box
           = image.file_field :image , class: "hidden-field"
+      = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :images}

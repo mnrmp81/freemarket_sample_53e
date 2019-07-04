@@ -43,3 +43,17 @@ ja:
       - :year
       - :month
       - :day
+
+  activerecord:
+    attributes:
+      post:
+        images: "画像"
+        product_name: "商品名"
+        product_description: "商品説明"
+        first_category_id: ""
+        second_category_id: ""
+        product_condition: ""
+        delivery_fee: ""
+        delivery_former_area: ""
+        delivery_date: ""
+        product_price: "値段"

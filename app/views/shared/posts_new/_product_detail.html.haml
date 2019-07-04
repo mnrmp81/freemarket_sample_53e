@@ -9,10 +9,12 @@
           = f.collection_select :first_category_id, FirstCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
+        = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :first_category_id}
         .select__box
           = f.collection_select :second_category_id, SecondCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
+        = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :second_category_id}
         .select__box
           %select.select__box__format
             %option ---
@@ -40,3 +42,4 @@
           = f.select :product_condition, Post.product_conditions_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
+        = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :product_condition}

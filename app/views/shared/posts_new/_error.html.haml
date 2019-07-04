@@ -1,0 +1,4 @@
+- if post.errors.any?
+  - post.errors.full_messages_for(attr).each do |message|
+    %p.error-message
+      = message
