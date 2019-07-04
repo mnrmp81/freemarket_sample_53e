@@ -12,6 +12,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     # super
+    credit_card_params.each do |key, value|
+      if value == ""
+        redirect_to '/profiles/new_5'
+        return
+      end
+    end
 
     user = User.new(nickname: session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation])
     if user.save
