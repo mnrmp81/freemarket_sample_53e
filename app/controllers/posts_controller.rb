@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :get_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.order('id ASC').limit(32)
   end
@@ -14,20 +17,43 @@ class PostsController < ApplicationController
     
     if @post.save
       redirect_to @post, notice: '出品が完了しました'
-      # パスは仮置き
     else
       render :new
     end
   end 
 
   def show
+    @other_posts = @post.user.posts.limit(6)
+    @image = Image.find_by(post_id: @post.id)
   end
 
   def buy
   end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to root_path, notice: '出品を停止しました'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @post.destroy
+      redirect_to root_path, notice: '出品を削除しました'
+    else
+      render @post
+    end
+  end
+
 
   private
+  def get_post
+    @post = Post.find(params[:id])
+  end
   
   def post_params
     params.require(:post).permit(:product_name,
@@ -42,6 +68,7 @@ class PostsController < ApplicationController
                                  :delivery_former_area,
                                  :delivery_date,
                                  :product_price,
+                                 :product_status,
                                  :user_id,
                                  :brand_name,
                                  [images_attributes: [:image]]
