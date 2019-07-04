@@ -18,6 +18,8 @@ class Post < ApplicationRecord
     validates :product_price
   end
 
+  validates :product_price, numericality: { only_integer: true, greater_than_or_equal_to: 300 , less_than_or_equal_to: 9999999}
+
   # validate :add_error_sample
  
   # def add_error_sample
