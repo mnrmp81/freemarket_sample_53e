@@ -3,19 +3,23 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
    registrations: 'users/registrations'
  }
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :posts do
     collection do
       get 'buy'
     end
   end
+
   resources :mypages, only: :index do
     collection do
       get 'logout'
       get 'identification'
     end
   end
+
   root 'posts#index'
+
   resources :profiles do
     collection do
       get 'new_1'
@@ -25,7 +29,14 @@ Rails.application.routes.draw do
       get 'new_5'
       get 'new_6'
       get 'new_7'
+      post 'new_5', to: 'sessions#session_address'
     end
   end
-    
+
+  resources :create_sessions do
+    collection do
+      get 'create_user_session'
+      post 'session_address'
+    end
+  end
 end
