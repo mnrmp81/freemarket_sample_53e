@@ -11,6 +11,7 @@
         .right__input
           %span ￥
           = f.text_field :product_price, placeholder: "例)300", class: "input__format", id: "price_form"
+          = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :product_price}
       %li.clearfix__normal
         .left__label 販売手数料 (10%)
         .right__label#sales_fee -
