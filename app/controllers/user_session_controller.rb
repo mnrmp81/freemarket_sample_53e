@@ -3,7 +3,7 @@ class UserSessionController < ApplicationController
     # 送られてきたユーザー情報の中に空の値がないか判定
     user_session_params.each do |key, value|
       if value == ""
-        redirect_to '/users/sign_up'
+        redirect_to new_user_registration_path
         return
       end
     end
@@ -11,20 +11,20 @@ class UserSessionController < ApplicationController
     # 送られてきたプロフィール情報の中に空の値がないかを判定
     profile_session_params.each do |key, value|
       if value == ""
-        redirect_to '/users/sign_up'
+        redirect_to new_user_registration_path
         return
       end
     end
 
     # パスワードが英数字6文字以上かどうかを判定
     unless user_session_params[:password].match(/[a-zA-Z0-9]{6,}/)
-      redirect_to '/users/sign_up'
+      redirect_to new_user_registration_path
       return
     end
 
     # passwordとpassword_confirmationが一致しているかどうかを判定
     if user_session_params[:password] != user_session_params[:password_confirmation]
-      redirect_to '/users/sign_up'
+      redirect_to new_user_registration_path
       return
     end
 
