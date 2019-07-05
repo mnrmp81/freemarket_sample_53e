@@ -80,3 +80,7 @@ gem 'fog-aws'
 gem 'active_hash'
 gem 'enum_help'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'
