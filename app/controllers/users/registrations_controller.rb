@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # super
     credit_card_params.each do |key, value|
       if value == ""
-        redirect_to '/profiles/new_5'
+        redirect_to new_5_profiles_path
         return
       end
     end
@@ -27,9 +27,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       address.save
       card = user.credit_cards.build(credit_card_params)
       card.save
-      redirect_to '/profiles/new_6'
+      redirect_to new_6_profiles_path
     else
-      redirect_to '/users/sign_up'
+      redirect_to new_user_registration_path
     end
   end
 
