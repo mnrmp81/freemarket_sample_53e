@@ -92,4 +92,5 @@ gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'rails-i18n'
-
+gem 'mini_magick'
+gem 'aws-sdk-s3', require: false
