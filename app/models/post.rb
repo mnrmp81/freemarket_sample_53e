@@ -8,9 +8,9 @@ class Post < ApplicationRecord
   validate :add_error_message
  
   def add_error_message
-    if images.blank?
-      errors[:images] << "がありません"
-    end
+    # if images.blank?
+    #   errors[:images] << "がありません"
+    # end
 
     if product_name.blank?
       errors[:product_name] << "を入力して下さい"
