@@ -6,15 +6,15 @@
     %ul.price__form__box__content
       %li.form-content.clearfix
         .left__input
-          %label.left__label
-            価格
+          =f.label :product_price, "価格", class: "left__label"
           %span.require__form 必須
         .right__input
           %span ￥
-          %input.input__format{placeholder:  "例)300"}
+          = f.text_field :product_price, placeholder: "例)300", class: "input__format", id: "price_form"
+          = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :product_price}
       %li.clearfix__normal
         .left__label 販売手数料 (10%)
-        .right__label -
+        .right__label#sales_fee -
       %li.clearfix.bold
         .left__label 販売利益
-        .right__label -
+        .right__label#sales_profit -

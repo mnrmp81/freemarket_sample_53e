@@ -1,40 +1,32 @@
 = render 'shared/top_page/header'
-= render 'shared/pankuzu'
+- breadcrumb :show_post, @post
+= breadcrumbs separator: " &rsaquo; "
+
 .post-container
   .post-content
     .post-content__title-box
-      %h1.product-name CHANELチェーンウォレット
+      %h1.product-name
+        = @post.product_name
     .post-content__upper-box.clearfix
       .post-content__upper-box__left-side
-        .img-box
-          .img-box__current-img
-            = image_tag 'post_show/post-img', size: "300x300", alt: "post-img"
-          .img-box__images.clearfix
-            = render 'shared/posts/show/images'     
+        - if @post.images.present?
+          .img-box
+            .img-box__current-img
+              = image_tag @image.image.url size: "300x300", alt: "post-img"
+            .img-box__images.clearfix
+              = render partial: 'shared/posts/show/images', collection: @post.images, as: 'image'
       .post-content__upper-box__right-side
-        = render 'shared/posts/show/table'
+        = render 'shared/posts/show/table', {post: @post, first: @first}
     .post-content__price-box
-      %span.product-price ¥ 16,500
+      %span.product-price ¥#{@post.product_price}
       %span.tax (税込)
-      %span.delivery-fee 送料込み
+      %span.delivery-fee
+        = @post.delivery_fee_i18n
     .post-content__order-box
       = link_to '購入画面に進む', '#', {class: "order-btn"}
     .post-content__description-box
       %p.prodict-description
-        即購入×値下げ不可
-
-        こちらで譲っていただきましたが使う機会がなく自宅保管していました。
-
-        ↓前出品者様の商品説明↓
-        パリのCHANEL本店で購入しました。
-        斜めがけにして使っていただけるチェーンウォレットです。
-        内側のファスナー(2ヶ所)の持ち手の皮の部分が取れてしまっています。他の部分も使用感があります。
-
-        写真にて状態ご確認ください(*_ _)
-        
-        
-        ※返品返金できません。
-        よろしくお願いいたします(൦◟̆◞̆൦)♡‧˚₊*̥
+        = @post.product_description
     .post-content__lower-box.clearfix
       .post-content__lower-box__left-side
         %ul
@@ -51,6 +43,14 @@
         = link_to '#', {class: 'approach-to-safety-link'} do
           %i.fas.fa-unlock-alt.approach-to-safety-link__lock
           %span あんしん・あんぜんへの取り組み
+  - if @post.user_id == current_user.id
+    .edit-content
+      = link_to '商品の編集', edit_post_path(@post), class: 'edit-btn'
+      %p or
+      = form_for(@post) do |f|
+        = f.text_field :product_status, value: 'stopping_listing', class: 'hidden-field'
+        = f.submit '出品を一旦停止する', class: 'stopping-listing-btn'
+      = link_to 'この商品を削除する', post_path(@post), method: :delete, class: 'destroy-btn'
   .comment-content
     .comment-content__comments-container.clearfix
       = render 'shared/posts/show/comments'
@@ -81,14 +81,15 @@
           %i.fab.fa-pinterest-square.fa-3x.sns-link--pinterest
   .other-posts
     %h2.other-posts__link
-      = link_to 'ゆきmamaさんのその他の商品' ,'#'
+      = link_to '#' do
+        #{@post.user.nickname}さんのその他の商品
     .post-boxes
-      = render 'shared/posts/show/other-posts'
+      = render partial: 'shared/posts/show/other-posts', collection: @other_posts, as: 'other_post'
   .other-posts
     %h2.other-posts__link
       = link_to 'シャネルのバッグその他の商品' ,'#'
     .post-boxes
-      = render 'shared/posts/show/other-posts'
+      = render partial: 'shared/posts/show/other-posts', collection: @other_posts, as: 'other_post'
 = render 'shared/top_page/app-banner'
 = render 'shared/top_page/footer'
 

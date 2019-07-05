@@ -10,9 +10,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+
+  def create
+    # super
+    credit_card_params.each do |key, value|
+      if value == ""
+        redirect_to new_5_profiles_path
+        return
+      end
+    end
+
+    user = User.new(nickname: session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation])
+    if user.save
+      profile = user.build_profile(family_name: session[:family_name], first_name: session[:first_name], family_name_kana: session[:family_name_kana], first_name_kana: session[:first_name_kana])
+      profile.save
+      address = user.build_address(postal_code: session[:postal_code], prefecture: session[:prefecture], city: session[:city], block: session[:block], building: session[:building])
+      address.save
+      card = user.credit_cards.build(credit_card_params)
+      card.save
+      redirect_to new_6_profiles_path
+    else
+      redirect_to new_user_registration_path
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,12 +58,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+
+  protected
+  # private
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
+
+  def credit_card_params
+    card_param = params[:credit_card]
+    date = card_param["expiration_date(2i)"] + card_param["expiration_date(3i)"]
+    year = card_param["expiration_date(1i)"]
+    params.require(:credit_card).permit(:card_number, :security_code).merge(expiration_date: date, expiration_year: year)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

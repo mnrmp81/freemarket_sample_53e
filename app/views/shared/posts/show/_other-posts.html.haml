@@ -1,18 +1,13 @@
-= link_to '#', {class: 'post-box'} do
+= link_to post_path(other_post), {class: 'post-box'} do
   .post-box__image
     = image_tag 'post_show/post-img', size: "220x220", alt: "post-img"
   .post-box__body
     .post-name
-      お値下げ！パンプスパンプスパンプス
+      = other_post.product_name
     .post-num.clearfix
-      .post-num__price ¥ 5,100
+      .post-num__price
+        = other_post.product_price
       .post-num__like
         %i.far.fa-heart.post-num__like__heart
         %span.post-num__like__count 3
     .post-tax (税込)
-//以下仮置き-----------------------------------
-.post-box
-.post-box
-.post-box
-.post-box
-.post-box

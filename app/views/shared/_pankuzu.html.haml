@@ -1,6 +1,7 @@
 .pankuzu-lists
   %ul.pankuzu-lists__box
     %li
-      = link_to 'メルカリ', '#', {class: 'pankuzu-list'}
+      = link_to 'メルカリ', root_path , {class: 'pankuzu-list'}
       %i.fas.fa-chevron-right
-    %li.current-page CHANELチェーンウォレット
+    %li.current-page
+      = post.product_name
