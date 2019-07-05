@@ -33,10 +33,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_session do
-    collection do
-      get 'create_user_session'
-      post 'session_address'
-    end
-  end
+  resources :user_session, only: :create
+  resources :address_session, only: :create
 end
