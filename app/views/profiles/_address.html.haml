@@ -3,29 +3,29 @@
 .form-group.form-group__address
   = form_with url: address_session_index_path, class: 'address-register-form' do |f|
     .form-group__address-register
-      = f.label '郵便番号', class: 'form-group__postal_code'
-      %span.form-group__required--address 必須
-      %br
+      .form-group__address-register__label
+        = f.label '郵便番号', class: 'form-group__postal_code'
+        %span.form-group__required--address 必須
       = f.text_field :postal_code, placeholder: '例）123-4567', class: 'form-group__input'
     .form-group__address-register
-      = f.label '都道府県', class: 'form-group__address'
-      %span.form-group__required--address 必須
-      %br
+      .form-group__address-register__label
+        = f.label '都道府県', class: 'form-group__address'
+        %span.form-group__required--address 必須
       =f.collection_select :prefecture, Prefecture.all, :id, :name
     .form-group__address-register
-      = f.label '市町村', class: 'form-group__municipality'
-      %span.form-group__required--address 必須
-      %br
+      .form-group__address-register__label
+        = f.label '市町村', class: 'form-group__municipality'
+        %span.form-group__required--address 必須
       = f.text_field :city, class: 'form-group__input', placeholder: '横浜市緑区'
     .form-group__address-register
-      = f.label '番地', class: 'form-group__block'
-      %span.form-group__required--address 必須
-      %br
+      .form-group__address-register__label
+        = f.label '番地', class: 'form-group__block'
+        %span.form-group__required--address 必須
       = f.text_field :block, class: 'form-group__input', placeholder: '例）青山１-1-1'
     .form-group__address-register
-      = f.label '建物名', class: 'form-group__building_name'
-      %span.form-group__optional 任意
-      %br
+      .form-group__address-register__label
+        = f.label '建物名', class: 'form-group__building_name'
+        %span.form-group__optional 任意
       = f.text_field :building, class: 'form-group__input', placeholder: '例）柳ビル103'
-    .form-group__address-register
+    .form-group__address-register.form-group__address-register--submit
       = f.submit '次へ進む', class: 'form-group__address-register--next-form'
