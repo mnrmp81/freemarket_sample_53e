@@ -1,5 +1,5 @@
 class UserSessionController < ApplicationController
-  def create_user_session
+  def create
     # 送られてきたユーザー情報の中に空の値がないか判定
     user_session_params.each do |key, value|
       if value == ""
