@@ -1,7 +1,6 @@
 = render 'shared/top_page/header'
--# - breadcrumb :show_post, @post
--# = breadcrumbs separator: " &rsaquo; "
--# カラムを入力してから表示するため
+- breadcrumb :show_post, @post
+= breadcrumbs separator: " &rsaquo; "
 
 .post-container
   .post-content

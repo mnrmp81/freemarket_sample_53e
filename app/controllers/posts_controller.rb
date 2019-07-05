@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :get_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.order('id ASC').limit(32)
+    @posts = Post.order('id DESC').limit(32)
   end
 
   def new
