@@ -4,21 +4,21 @@
       =image_tag "profiles/mercari_logo.jpg", class: "top_logo__link__image"
   .edit_registration
     .edit_registration__first
-      %a{href: "/", class: "edit_registration__first__signup"}
+      %a{href: "user_facebook_omniauth_authorize_path", class: "edit_registration__first__signup"}
         アカウントをお持ちでない方はこちら
         %button{type: "submit", class: "edit_registration__first__signupbutton"}
           新規会員登録
     .edit_registration__second
-      %a{href: "/", class: "edit_registration__second__f"}
+      = link_to user_facebook_omniauth_authorize_path, class: "edit_registration__second__f" do
         %button{type: "submit", class: "edit_registration__second__f_loginbutton"}
           =image_tag "profiles/facebook_logo.jpg", class: "edit_registration__second__f_loginbutton__logo"
-          %a{class: "edit_registration__second__f_loginbutton__title"}
+          .edit_registration__second__f_loginbutton__title
             Facebookでログイン
       %br
-      %a{href: "/", class: "edit_registration__second__g"}
+      = link_to user_google_oauth2_omniauth_authorize_path, class: "edit_registration__second__g" do
         %button{type: "submit", class: "edit_registration__second__g_loginbutton"}
           =image_tag "profiles/Google_logo.jpg", class: "edit_registration__second__g_loginbutton__logo"
-          %a{class: "edit_registration__second__f_loginbutton__title"}
+          .edit_registration__second__f_loginbutton__title
             Googleでログイン
       = form_with model: @user,scope: 'user', url: user_session_path, id: 'new_user', class: 'new_user login-form', local: true do |f|
         = f.email_field :email ,placeholder: "メールアドレス", class: "edit_registration__second__email", autofocus: true, autocomplete: "email"
