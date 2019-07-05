@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_110845) do
+ActiveRecord::Schema.define(version: 2019_07_04_071524) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,12 +33,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_110845) do
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "card_number", null: false
-    t.integer "expiration_date", null: false
-    t.integer "expiration_year", null: false
-    t.integer "security_code", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_credit_cards_on_user_id"
+    t.integer "user_id", null: false
+    t.string "card_id", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,7 +97,6 @@ ActiveRecord::Schema.define(version: 2019_07_02_110845) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "posts"
   add_foreign_key "posts", "brands"
   add_foreign_key "posts", "users"
