@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
+
   def create
     # super
     credit_card_params.each do |key, value|
@@ -57,6 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+
   protected
   # private
 
@@ -86,5 +88,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
 end

@@ -81,8 +81,15 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'active_hash'
 gem 'enum_help'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'
+
 gem 'gretel'
 gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'rails-i18n'
+
