@@ -1,0 +1,2 @@
+class AddressSessionController < ApplicationController
+end
