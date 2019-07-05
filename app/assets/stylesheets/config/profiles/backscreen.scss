@@ -24,13 +24,12 @@
   }
   .input_user_registration_sh{
     background: white;
-    height: 85%;
+    height: 100%;
     margin: 0 auto;
     margin-bottom: 5%;
     font-size: 0.9rem;
     text-align: center;
     bottom:-30px;
-    // height: 900px;
     &__new_5 {
       background: white;
       height: 30%;
@@ -100,7 +99,7 @@
     margin: 0 auto;
 
   &__end_image{
-    padding-top: 10%;
+    padding-top: 5%;
     height: 7%;
     width: 20%;
     }
