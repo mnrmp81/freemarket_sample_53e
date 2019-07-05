@@ -1,7 +1,7 @@
 .member_information
   %h3 住所入力
 .form-group.form-group__address
-  = form_with url: session_address_user_session_index_path, class: 'address-register-form' do |f|
+  = form_with url: address_session_index_path, class: 'address-register-form' do |f|
     .form-group__address-register
       = f.label '郵便番号', class: 'form-group__postal_code'
       %span.form-group__required--address 必須
