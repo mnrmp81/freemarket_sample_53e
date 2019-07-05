@@ -9,11 +9,12 @@
         = @post.product_name
     .post-content__upper-box.clearfix
       .post-content__upper-box__left-side
-        .img-box
-          .img-box__current-img
-            = image_tag @image.image.url size: "300x300", alt: "post-img"
-          .img-box__images.clearfix
-            = render partial: 'shared/posts/show/images', collection: @post.images, as: 'image'
+        - if @post.images.present?
+          .img-box
+            .img-box__current-img
+              = image_tag @image.image.url size: "300x300", alt: "post-img"
+            .img-box__images.clearfix
+              = render partial: 'shared/posts/show/images', collection: @post.images, as: 'image'
       .post-content__upper-box__right-side
         = render 'shared/posts/show/table', {post: @post, first: @first}
     .post-content__price-box
