@@ -18,21 +18,13 @@ $(function() {
   
   // プレビュー追加先（上段or下段）
   function buildPrev(i) {
-    var prevContent = (
-                        i < 5
-                      ? '.prev-content'
-                      : '.post__drop__box__container .prev-content:eq(1)'
-    );
+    var prevContent = (i < 5 ? '.prev-content' : '.post__drop__box__container .prev-content:eq(1)');
     return prevContent;
   }
 
   // ラベルボックスのwidth操作
   function buildLabel(i, prevContent) {
-    var labelWidth = (
-                      i == 4
-                      ? '620px'
-                      : 620 - $(prevContent).css('width').replace(/[^0-9]/g, '')
-    );
+    var labelWidth = (i == 4 ? '620px' : 620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
     return labelWidth;
   }
 
