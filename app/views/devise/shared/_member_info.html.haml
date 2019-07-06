@@ -269,26 +269,26 @@
 .member_information__new_2
   %h3 会員情報入力
 .form-group__new_2
-  = form_with model: @user, scope: 'user', url: '/users', id: 'new_user', class: 'new_user', local: true do |f|
+  = form_with scope: 'user', url: user_session_index_path, id: 'new_user', class: 'new_user', local: true do |f|
     .new-user-form
-      = f.label "ニックネーム", class: 'form-group__name'
-      %span.form-group__required--name 必須
-      %br
+      .new-user-form__label
+        = f.label "ニックネーム", class: 'form-group__name'
+        %span.form-group__required--name 必須
       = f.text_field :nickname, class: 'form-group__input', placeholder: '例) メルカリ太郎', autofocus: true, autocomplete: "nickname"
     .new-user-form
-      = f.label "メールアドレス", class: 'form-group__email'
-      %span.form-group__required--email 必須 
-      %br
+      .new-user-form__label
+        = f.label "メールアドレス", class: 'form-group__email'
+        %span.form-group__required--email 必須 
       = f.email_field :email, class: 'form-group__input', placeholder: 'PC・携帯どちらでも可', autofocus: true, autocomplete: "email"
     .new-user-form
-      = f.label "パスワード", class: 'form-group__password1'
-      %span.form-group__required--password1 必須 
-      %br
+      .new-user-form__label
+        = f.label "パスワード", class: 'form-group__password1'
+        %span.form-group__required--password1 必須 
       = f.password_field :password, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
     .new-user-form
-      = f.label "パスワード（確認用）", class: 'form-group__password2'
-      %span.form-group__required--password2 必須 
-      %br
+      .new-user-form__label
+        = f.label "パスワード（確認用）", class: 'form-group__password2'
+        %span.form-group__required--password2 必須 
       = f.password_field :password_confirmation, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
 
     .address-register-form
@@ -299,24 +299,46 @@
       
       = f.fields_for :profile, @user.build_profile do |profile|
         .new-user-form
-          = profile.label "姓 (全角)", class: "form-group__familyname--kanji"
-          %span.form-group__required--familyname 必須
-          %br
-          = profile.text_field :family_name, class: "input.form-group__input", placeholder: "例) 山田"
+          .new-user-form__label
+            = profile.label "姓 (全角)", class: "form-group__familyname--kanji"
+            %span.form-group__required--familyname 必須
+          = profile.text_field :family_name, class: "form-group__input", placeholder: "例) 山田"
         .new-user-form
-          = profile.label "名 (全角)", class: "form-group__firstname--kanji"
-          %span.form-group__required--firstname 必須
-          %br
+          .new-user-form__label
+            = profile.label "名 (全角)", class: "form-group__firstname--kanji"
+            %span.form-group__required--firstname 必須
           = profile.text_field :first_name, class: "form-group__input", placeholder: "例) 彩"
-        .new-user-form    
-          = profile.label "姓カナ (全角)", class: "form-group__familyname--kana"
-          %span.form-group__required 必須
-          %br
+        .new-user-form   
+          .new-user-form__label 
+            = profile.label "姓カナ (全角)", class: "form-group__familyname--kana"
+            %span.form-group__required 必須
           = profile.text_field :family_name_kana, class: "form-group__input", placeholder: "例) ヤマダ"
-        .new-user-form  
-          = profile.label "名カナ (全角)", class: "form-group__first_name--kana"  
-          %span.form-group__required 必須
-          %br
+        .new-user-form 
+          .new-user-form__label 
+            = profile.label "名カナ (全角)", class: "form-group__first_name--kana"  
+            %span.form-group__required 必須
           = profile.text_field :first_name_kana, class: "form-group__input", placeholder: "例) アヤ"
-      .actions
-      = f.submit "Sign up"
+
+      %p.form-group__birthday--text
+        ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .form-group__checkbox
+        .form-group__checkbox__robot
+          %input{name: "robot", type: "checkbox", value: "1"}>/
+          .form-group__checkbox__notrobot 
+            私はロボットでは
+            %br ありません
+        =image_tag  "profiles/18.18.00.png", class: "photo"
+        %br
+        .form-group__checkbox__link
+          %a{href: ""} プライバシー
+          %a{href: ""}  利用規約
+      
+      .form-group__dentification--text
+        %a「次へ進む」のボタンを押すことにより、
+        %br
+        %a{href: ""}利用規約
+        %a に同意したものとみなします。
+      .form-group__next
+        = f.submit '次へ進む'
+      .form-group__person_information
+        %a{href: ""} 本人情報の登録について＞

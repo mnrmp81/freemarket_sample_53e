@@ -11,6 +11,7 @@
           = f.select :delivery_fee, Post.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
+        = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :delivery_fee}
     .form__content__default
       =f.label :delivery_former_area, "発送元の地域"
       %span.require__form 必須
@@ -19,6 +20,7 @@
           = f.collection_select :delivery_former_area, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
+        = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :delivery_former_area}
     .form__content__default
       =f.label :delivery_date, "発送までの日数"
       %span.require__form 必須
@@ -27,3 +29,4 @@
           = f.select :delivery_date, Post.delivery_dates_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
+        = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :delivery_date}

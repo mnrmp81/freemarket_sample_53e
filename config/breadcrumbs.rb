@@ -7,10 +7,10 @@ crumb :mypages do
   parent :root
 end
 
-# crumb :show_post do |post|
-#   link post.name, post
-#   parent :root
-# end
+crumb :show_post do |post|
+  link post.product_name, post
+  parent :root
+end
 
 crumb :logout do
   link "ログアウト", logout_mypages_path
