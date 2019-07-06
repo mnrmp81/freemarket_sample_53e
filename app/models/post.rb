@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   # extend ActiveHash::Associations::ActiveRecordExtensions
   #   belongs_to_active_hash :prefecture
   belongs_to :user
-  has_one_attached :images, dependent: :destroy
+  has_many:images, dependent: :destroy
   accepts_nested_attributes_for :images
 
   validate :add_error_message
