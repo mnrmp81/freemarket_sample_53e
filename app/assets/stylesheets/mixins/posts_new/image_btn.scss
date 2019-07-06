@@ -1,0 +1,9 @@
+@mixin image_btn () {
+  color: #00b0ff;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  border: $solid_style;
+  background: #f5f5f5;
+  cursor: pointer;
+}
