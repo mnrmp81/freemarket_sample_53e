@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'identification'
+      get 'edit'
     end
   end
   root 'posts#index'

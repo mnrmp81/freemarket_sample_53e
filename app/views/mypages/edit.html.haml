@@ -1,0 +1,22 @@
+= render "shared/top_page/header"
+
+.main__container.clearfix
+  = render partial: 'shared/mypage/side_menu'
+
+  .main__content
+    %section.chapter__container
+      %h2.chapter__head プロフィール
+      %form
+        -# %input
+        .profile__icon
+          %figure
+            = image_tag asset_path("top_page/avater.jpeg"), class: "img", size: "60x60"
+          %input.input__deafult{placeholder: "shiro"}
+        .profile__content
+          %textarea.content__deafult{placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          -# %input
+          %button.btn__deafult 変更する
+    
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"

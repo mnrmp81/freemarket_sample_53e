@@ -20,5 +20,7 @@ class ProfilesController < ApplicationController
   def new_7
   end
 
+  def edit
+  end
 
 end
