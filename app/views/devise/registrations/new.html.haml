@@ -1,22 +1,26 @@
 .backscreen
-  .header
-    .header__logo
-      %a{href: "/"}
-        =image_tag "profiles/mercari_logo.jpg", class: "header__logo__image"
-      %a
-        =image_tag "profiles/progress_1.jpg", class: "header__progress1__image"
+  = render partial: 'shared/user_registration/form-header'
 
-  .input_user_registration--new_2
-    = render "devise/shared/member_info"
-    
-  .caution
-    %a{href: "/", class: "caution__article"}
-      プライバシーポリシー
-    %a{href: "/", class: "caution__article"}
-      メルカリ利用規約
-    %a{href: "/", class: "caution__article"}
-      特定商取引に関する表記
+  .how_registration_select
+    %p.how_registration_select__title
+      新規会員登録
+    .how_registration_select__box
+      = link_to new_profile_path, class: "how_registration_select__box__mail" do
+        %button{type: "submit", class: "how_registration_select__box__mailbutton"}
+          .btn-text
+            %i.fa.fa-envelope
+            %p メールアドレスで登録
+      %br
+      %a{href: "/", class: "how_registration_select__fbook"}
+        %button{type: "submit", class: "how_registration_select__box__fbookbutton"}
+          =image_tag "profiles/facebook_logo.jpg", class: "how_registration_select__box__fbookbutton__logo"
+          %a{class: "how_registration_select__box__fbookbutton__title"}
+            Facebookで登録
+      %br
+      %a{href: "/", class: "how_registration_select__box__google"}
+        %button{type: "submit", class: "how_registration_select__box__googlebutton"}
+          =image_tag "profiles/Google_logo.jpg", class: "how_registration_select__box__googlebutton__logo"
+          %a{class: "how_registration_select__box__googlebutton__title"}
+            Googleで登録
 
-  .end_logo   
-    %a{href: "/"}
-      =image_tag "profiles/end_logo.jpg", class: "end_image"
+  = render partial: 'shared/user_registration/form-footer'
