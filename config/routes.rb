@@ -21,17 +21,15 @@ Rails.application.routes.draw do
   end
 
   root 'posts#index'
+  
+  resources :credit_card, only: :new
+  resources :address, only: :new
+  resources :profiles, only: :new
 
-  resources :profiles do
+  resources :users, only: :index do
     collection do
-      get 'new_1'
-      get 'new_2'
-      get 'new_3'
-      get 'new_4'
-      get 'new_5'
-      get 'new_6'
-      get 'new_7'
-      post 'new_5', to: 'sessions#session_address'
+      get 'sms_confirmation'
+      get 'done'
     end
   end
 
