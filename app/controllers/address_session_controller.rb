@@ -4,7 +4,7 @@ class AddressSessionController < ApplicationController
     address_session_params.each do |key, value|
       if key != 'building'
         if value == ""
-          redirect_to new_4_profiles_path
+          redirect_to new_address_path
           return
         end
       end
@@ -16,7 +16,7 @@ class AddressSessionController < ApplicationController
     session[:block] = address_session_params[:block]
     session[:building] = address_session_params[:building]
 
-    redirect_to controller: :profiles, action: :new_5
+    redirect_to controller: :credit_card, action: :new
   end
 
   private
