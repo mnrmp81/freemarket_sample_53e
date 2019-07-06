@@ -4,13 +4,12 @@
     %span.require__form 必須
   %p 最大10枚までアップロードできます
   .post__drop__box__container
-    .post__upload__items__container__items
-      %ul.hidden-boxes
-        %pre.text-visible
+    .prev-content
+    .label-content
+      %label{for: "post_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+        %pre.label-box__text-visible
           ドラッグアンドドロップ
           またはクリックしてファイルをアップロード
-        = f.fields_for :images do |image|
-          = image.label :image do
-            %li.hidden-box
-          = image.file_field :image , class: "hidden-field"
-      = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :images}
+      = f.fields_for :images do |image|
+        = image.file_field :image , class: "hidden-field"
+    = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :images}
