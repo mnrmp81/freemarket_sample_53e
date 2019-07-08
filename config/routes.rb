@@ -36,7 +36,12 @@ Rails.application.routes.draw do
 
 
   resources :address, only: :new
-  resources :profiles, only: :new
+
+  resources :profiles, only: :new do
+      collection do
+        get 'edit_address_delivery'
+      end
+  end
 
   resources :users, only: :index do
     collection do

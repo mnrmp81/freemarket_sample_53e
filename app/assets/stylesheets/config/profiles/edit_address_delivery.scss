@@ -1,0 +1,126 @@
+.chapter__container__inner{
+  padding: 40px 40px 64px;
+  .form__main__container{
+    max-width: 343px;
+    margin: 0 auto;
+    .form__content{
+      margin: 0;
+      label{
+        font-weight: 600;
+        display: inline-block;
+      }
+      .require__form{
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .input__default{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+    .name__kana{
+      margin-top: 32px;
+    }
+    .form__content__default{
+      margin-top: 32px;
+      label{
+        font-weight: 600;
+        display: inline-block;
+      }
+      .require__form{
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .require__form-gray{
+        background: #ccc;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .input__default{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+    .form__content__prefecture{
+      margin-top: 32px;
+      label{
+        font-weight: 600;
+        display: inline-block;
+      }
+      .require__form{
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .select__content{
+        margin: 8px 0 0;
+        position: relative;
+        background: #fff;
+        .prefecture{
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none; 
+        }
+        .drop-down-icon{
+          @include drop_down_icon();
+        }
+      }
+    }
+    .red__btn{
+      margin-top: 32px;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+}

@@ -13,6 +13,9 @@ class ProfilesController < ApplicationController
       @profile = Profile.new
     end
 
+  def edit_address_delivery
+  end
+
     # セッションを削除
     session[:user] = nil
     session[:profile] = nil
