@@ -44,8 +44,8 @@ class PostsController < ApplicationController
     :amount => @post.product_price,
     :customer => card.customer_id,
     :currency => 'jpy',
-  )
-  redirect_to action: 'done'
+    )
+    redirect_to action: 'done'
   end
 
   def done
