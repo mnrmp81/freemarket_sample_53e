@@ -4,6 +4,22 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many:images, dependent: :destroy
   accepts_nested_attributes_for :images
+  
+
+  with_options presence: true do
+    validates :images
+    validates :product_name
+    validates :product_description
+    validates :first_category_id
+    validates :second_category_id
+    validates :product_condition
+    validates :delivery_fee
+    validates :delivery_former_area
+    validates :delivery_date
+    validates :product_price
+  end
+
+  validates :product_price, numericality: { only_integer: true, greater_than_or_equal_to: 300 , less_than_or_equal_to: 9999999}
 
   validate :add_error_message
  

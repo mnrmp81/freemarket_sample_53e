@@ -1,3 +1,5 @@
+= render "shared/user_registration/form-header"
+
 .buy-cheak-main
   .buy-cheak-block 
     .buy-cheak-block__title
@@ -6,13 +8,13 @@
       .content-post
         .content-post__detail
           .content-post__detail__image
-            = image_tag "https://static.mercdn.net/thumb/photos/m54692243137_1.jpg?1560996879", size: "64x64"
+            = image_tag @image.image.url, size: "64x64"
           %p.content-post__detail__name
-            COACH コーチ ショルダーバッグ
-        = form_with  url: root_path, method: :get,local: true, class: "content-post__buy-form" do |form|
+            = @post.product_name
+        = form_with  url: buy_post_path, method: :POST, local: true, class: "content-post__buy-form", id: "charge-form" do |form|
           .buy-post-price
             .buy-post-price__fee
-              ¥ 600
+              ¥ #{@post.product_price}
             .buy-post-price__cost
               送料込み
           %ul.buy-post-point
@@ -24,8 +26,8 @@
               .buy-post-payment_fee
                 支払金額
               .buy-post-payment_price
-                ¥ 600
-          = button_tag type: 'submit', class: "buy-post-submit" do
+                ¥ #{@post.product_price}
+          = button_tag type: 'submit', class: "buy-post-submit", id: "submit-button"  do
             購入する
     .buy-cheak-block__address
       .address-post
@@ -40,13 +42,20 @@
 
     .buy-cheak-block__pay
       .pay-post
-        %h3 配送先
+        %h3 クレジットカード情報
         .pay-post__credit-number
-          ************2345
-          %br
-          05 / 99
+          - if @default_card_information.blank?
+            %br 
+          - else
+            = "**** **** **** " + @default_card_information.last4
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
         .pay-post__credit-image
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1905591235", size: "34x20"
         = link_to root_path, class: "pay-post__entry-bottom" do
           %span 変更する
           %i.fas.fa-chevron-right
+
+= render "shared/user_registration/form-footer"

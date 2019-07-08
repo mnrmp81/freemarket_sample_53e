@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :posts do
-    collection do
-      get 'buy'
+    member do
+      get 'transaction'
+      post 'buy'
       get 'done'
     end
   end
@@ -18,14 +19,29 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'identification'
+      get 'edit'
     end
   end
 
   root 'posts#index'
   
-  resources :credit_card, only: :new
+  resources :credit_card, only: [:new, :show] do
+    collection do
+      get 'registration'
+      post 'show', to: 'credit_card#show'
+      post 'pay', to: 'credit_card#pay'
+      post 'delete', to: 'credit_card#delete'
+    end
+  end
+
+
   resources :address, only: :new
-  resources :profiles, only: :new
+
+  resources :profiles, only: :new do
+      collection do
+        get 'edit_address_delivery'
+      end
+  end
 
   resources :users, only: :index do
     collection do
