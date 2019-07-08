@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get 'logout'
       get 'identification'
       get 'edit'
+      get 'telephone_number'
     end
   end
 
