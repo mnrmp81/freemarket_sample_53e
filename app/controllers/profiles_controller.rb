@@ -1,11 +1,6 @@
 class ProfilesController < ApplicationController
-  def new_1
-  end
   
-  def new_2
-  end
-
-  def new_3
+  def new
   end
 
   def new_4

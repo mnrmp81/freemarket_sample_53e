@@ -19,7 +19,7 @@
         本人確認のため、携帯電話のSMS(ショートメッセージ)を利用して認証を行います。
       %br
     .input_user_registration__button
-      %a{href: "/profiles/new_4"}
+      = link_to new_address_path do
         = submit_tag "SMSを送信する", {class: "input_user_registration__button__cellphonenumber_button"} 
       %br
       %a.input_user_registration__button__attention_2
