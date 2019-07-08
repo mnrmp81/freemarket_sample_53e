@@ -53,11 +53,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_date|integer|null: false|
-|expiration_year|integer|null: false|
-|security_code|integer|null: false|
+
 |user_id|references|null: false, foreign_key: true|
+|costomer_id|integer|null: false|
+|card_id|integer|null: false|
 
 ### Assosiation
 - belongs_to :user
