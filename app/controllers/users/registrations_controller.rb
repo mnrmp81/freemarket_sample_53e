@@ -13,23 +13,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     # super
-    credit_card_params.each do |key, value|
-      if value == ""
-        redirect_to new_credit_card_path
-        return
-      end
-    end
-
-    user = User.new(nickname: session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation])
+    user = User.new(session[:user])
     if user.save
-      profile = user.build_profile(family_name: session[:family_name], first_name: session[:first_name], family_name_kana: session[:family_name_kana], first_name_kana: session[:first_name_kana])
+      profile = user.build_profile(session[:profile])
       profile.save
-      address = user.build_address(postal_code: session[:postal_code], prefecture: session[:prefecture], city: session[:city], block: session[:block], building: session[:building])
+      address = user.build_address(session[:address])
       address.save
-      card = user.credit_cards.build(credit_card_params)
-      card.save
+      # card = user.credit_cards.build(credit_card_params)
+      # card.save
+
+      # セッションを削除
+      reset_session
+
       redirect_to done_users_path
     else
+      reset_session
       redirect_to new_user_registration_path
     end
   end

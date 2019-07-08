@@ -33,6 +33,12 @@
     margin-bottom: 30px;
     &__label {
       margin-bottom: 10px;
+      font-weight: bold;
+    }
+    p {
+      margin-top: 5px;
+      text-align: left;
+      color: #ff0000;
     }
     &--submit {
       margin-bottom: 50px;
@@ -88,6 +94,11 @@
       }
       .form-group__input {
         padding-left: 5px;
+      }
+      p {
+        margin-top: 5px;
+        text-align: left;
+        color: #ff0000;
       }
     }
     .form{
@@ -310,11 +321,6 @@
     // position: relative;
     left: -110px;
   }
-  &__address{
-  font-weight: bold;
-  // position: relative;
-  left: -100px;
-}
   &__optional {
     background: gray;
     color: white;
