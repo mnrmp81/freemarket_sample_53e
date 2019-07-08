@@ -30,7 +30,7 @@ class CreditCardController < ApplicationController
 
   def delete
     card = current_user.credit_cards.first
-    unless card.blank?
+    if card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
@@ -41,12 +41,12 @@ class CreditCardController < ApplicationController
 
   def show
     card = current_user.credit_cards.first
-    if card.blank?
-      redirect_to action: "registration" 
-    else
+    if card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+    else
+      redirect_to action: "registration" 
     end
   end
   
