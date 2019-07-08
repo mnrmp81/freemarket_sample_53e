@@ -16,6 +16,9 @@ class ProfilesController < ApplicationController
   def edit_address_delivery
   end
 
+  def edit_create_payment
+  end
+  
     # セッションを削除
     session[:user] = nil
     session[:profile] = nil

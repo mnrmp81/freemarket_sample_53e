@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   resources :profiles, only: :new do
       collection do
         get 'edit_address_delivery'
+        get 'edit_create_payment'
       end
   end
 
