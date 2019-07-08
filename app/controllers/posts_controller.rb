@@ -28,7 +28,6 @@ class PostsController < ApplicationController
   def transaction
     @image = Image.find_by(post_id: @post.id)
     card = current_user.credit_cards.first
-    card = CreditCard.where(user_id: current_user.id).first
     if card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
