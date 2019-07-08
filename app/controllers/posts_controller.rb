@@ -48,6 +48,8 @@ class PostsController < ApplicationController
     end
   end
 
+  def done 
+  end
 
   private
   def get_post

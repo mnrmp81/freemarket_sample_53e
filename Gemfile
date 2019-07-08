@@ -46,6 +46,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -89,8 +91,6 @@ gem 'omniauth-google-oauth2'
 
 gem 'gretel'
 gem 'jquery-rails'
-gem 'rspec-rails'
-gem 'factory_bot_rails'
 gem 'rails-i18n'
 
 
