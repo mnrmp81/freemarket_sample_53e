@@ -23,7 +23,7 @@
       %span.delivery-fee
         = @post.delivery_fee_i18n
     .post-content__order-box
-      = link_to '購入画面に進む', '#', {class: "order-btn"}
+      = link_to '購入画面に進む', transaction_post_path(@post), {class: "order-btn"}
     .post-content__description-box
       %p.prodict-description
         = @post.product_description
