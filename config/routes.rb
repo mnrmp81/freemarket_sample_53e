@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       collection do
         get 'edit_address_delivery'
         get 'edit_create_payment'
+        get 'edit_create_payment_list'
       end
   end
 
