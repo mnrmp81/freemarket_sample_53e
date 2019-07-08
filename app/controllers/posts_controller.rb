@@ -41,9 +41,9 @@ class PostsController < ApplicationController
     card = current_user.credit_cards.first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => @post.product_price,
-    :customer => card.customer_id,
-    :currency => 'jpy',
+    amount: @post.product_price,
+    customer: card.customer_id,
+    currency: 'jpy'
     )
     redirect_to action: 'done'
   end
