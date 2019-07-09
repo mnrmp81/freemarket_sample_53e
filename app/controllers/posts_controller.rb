@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    
+    # binding.pry
     if @post.save
       redirect_to @post, notice: '出品が完了しました'
     else
