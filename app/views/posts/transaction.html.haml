@@ -11,7 +11,8 @@
             = image_tag @image.image.url, size: "64x64"
           %p.content-post__detail__name
             = @post.product_name
-        = form_with  url: buy_post_path, method: :POST, local: true, class: "content-post__buy-form", id: "charge-form" do |form|
+        = form_with  model: @post, url: buy_post_path, method: :POST, local: true, class: "content-post__buy-form", id: "charge-form" do |form|
+          = form.text_field :product_status, value: 'in_transaction', class: 'hidden-field'
           .buy-post-price
             .buy-post-price__fee
               ¥ #{@post.product_price}
@@ -27,22 +28,24 @@
                 支払金額
               .buy-post-payment_price
                 ¥ #{@post.product_price}
-          = button_tag type: 'submit', class: "buy-post-submit", id: "submit-button"  do
-            購入する
+          = form.submit '購入する', class: 'buy-post-submit', id: "submit-button"
     .buy-cheak-block__address
       .address-post
         %h3 配送先
         %address.address-post__info-text
-          〒222-2222
+          〒 #{current_user.address.postal_code}
           %br
-          埼玉県川越市宮下町2-11-3
+          = Prefecture.find(current_user.address.prefecture).name
+          = current_user.address.city
+          = current_user.address.block
+          = current_user.address.building
         = link_to root_path, class: "address-post__entry-bottom" do
           %span 変更する
           %i.fas.fa-chevron-right
 
     .buy-cheak-block__pay
       .pay-post
-        %h3 クレジットカード情報
+        %h3 支払い方法
         .pay-post__credit-number
           - if @default_card_information.blank?
             %br 
