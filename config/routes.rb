@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       get 'identification'
       get 'edit'
       get 'telephone_number'
+      get 'email_password'
+
     end
   end
 
