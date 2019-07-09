@@ -1,0 +1,17 @@
+%body
+  .backscreen
+    =render 'shared/user_registration/form-header'
+    .post__container
+      %main.main
+        %section.main__post__container
+          .post__container
+            .post__container__inner
+              %h2.post__container__head 商品の情報を入力
+              =form_for(@post, html: {class: "post__form"}) do |f|
+                =render partial: 'shared/posts/form/image_upload', locals: {post:post, f: f}
+                =render partial: 'shared/posts/form/product_upload', locals: {post:post, f: f}
+                =render partial: 'shared/posts/form/product_detail', locals: {post:post, f: f}
+                =render partial: 'shared/posts/form/delivery_detail', locals: {post:post, f: f}
+                =render partial: 'shared/posts/form/price_detail', locals: {post:post, f: f}
+                =render partial:'shared/posts/form/post_btn', locals: {post:post, f: f}
+    =render 'shared/user_registration/form-footer'
