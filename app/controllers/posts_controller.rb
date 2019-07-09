@@ -57,7 +57,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to root_path, notice: '出品を停止しました'
+      redirect_to root_path
     else
       render :edit
     end
