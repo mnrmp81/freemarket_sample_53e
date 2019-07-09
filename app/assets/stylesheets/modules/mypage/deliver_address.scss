@@ -1,3 +1,7 @@
+.header-pc{
+  background-color: white;
+}
+
 .chapter__container__inner{
   padding: 40px 40px 64px;
   .form__main__container{
@@ -30,8 +34,32 @@
         font-size: 16px;
       }
     }
-    .name__kana{
+    .form__name__kana{
       margin-top: 32px;
+      label{
+        font-weight: 600;
+        display: inline-block;
+      }
+      .require__form{
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .input__default{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
     }
     .form__content__default{
       margin-top: 32px;

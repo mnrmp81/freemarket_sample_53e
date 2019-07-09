@@ -1,0 +1,95 @@
+.chapter__container__inner{
+  padding: 40px 40px 64px;
+  .form__main__container{
+    max-width: 343px;
+    .form__content{
+      margin: 0;
+      label{
+        font-weight: 600;
+        display: inline-block;
+      }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      .card__list{
+        margin: 5px 0 0;
+        font-size: 0;
+        &__picture{
+          height: 30px;
+          width: 80%;
+          background-size: cover;
+          background-image: url("profiles/cardinfo.png");
+        }
+      }
+      .select__box{
+        margin: 8px 0 0;
+        &__half{
+          display: inline-block;
+          width: calc(50% - 2px);
+          .select__default{
+            width: calc(100% - 38px);
+            position: relative;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none; 
+          }
+          i{
+            font-size: 17px;
+            margin: 0 10px 0 -15px;
+            position: relative;
+            color: #888;
+            left: 2px;
+          }
+        }
+      }
+      .single__code{
+        position: relative;
+        margin: 8px 0 0;
+        text-align: right;
+        color: #0099e8;
+        .form__question{
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          line-height: 14px;
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
+    button{
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .top__margin{
+      margin-top: 32px;
+    }
+  }
+}
