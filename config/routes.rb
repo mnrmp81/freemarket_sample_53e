@@ -20,9 +20,13 @@ Rails.application.routes.draw do
       get 'logout'
       get 'identification'
       get 'edit'
+      get 'purchase'
+      get 'purchased'
+      get 'listing'
+      get 'in_transaction'
+      get 'completed_transaction'
       get 'telephone_number'
       get 'email_password'
-
     end
   end
 

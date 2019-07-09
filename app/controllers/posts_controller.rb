@@ -40,12 +40,22 @@ class PostsController < ApplicationController
   def buy
     card = current_user.credit_cards.first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
-    amount: @post.product_price,
-    customer: card.customer_id,
-    currency: 'jpy'
+    charge = Payjp::Charge.create(
+      amount: @post.product_price,
+      customer: card.customer_id,
+      currency: 'jpy'
     )
-    redirect_to action: 'done'
+    order = Order.new(
+      user_id: current_user.id,
+      post_id: @post.id,
+      charge_id: charge.id
+    )
+    @post.update(post_buy_params)
+    if order.save
+      redirect_to action: 'done'
+    else
+      redirect_to action: 'buy'
+    end
   end
 
   def done
@@ -99,4 +109,8 @@ class PostsController < ApplicationController
                                  ).merge(user_id: current_user.id)
   end
 
+  def post_buy_params
+    params.require(:post).permit(:product_status)
+  end
+  
 end

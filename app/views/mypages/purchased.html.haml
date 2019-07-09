@@ -1,0 +1,35 @@
+= render "shared/top_page/header"
+
+.main-body
+  = render partial: 'shared/mypage/side_menu'
+  .mypage-main
+    .mypage-main-bottom
+      .bought-product-header
+        %p 購入した商品
+      .tabs
+        %ul.tabs-lists
+          %li.tabs-list.tabs-list__past-trading 取引中
+          %li.tabs-list.tabs-list__in-transaction 過去の取引
+      .tabs-contents
+        - if @products.present?
+          - @products.each do |product|
+            - if product.post.product_status == "completed_transaction"
+              - image = get_image_url(product.post_id)
+              %ul.contents-lists
+                %li.contents-list
+                  = link_to '#' do
+                    .contents-list-
+                      = image_tag image.image.url, size: '48x48', alt: 'product-image'
+                    .contents-list-main
+                      .contents-list-main__top
+                        「 #{product.post.product_name} 」の取引中です。
+                    .list-arrow-icon
+                      = icon('fas', 'chevron-right')
+        - else
+          %ul.no-content-list
+            .no-content-box
+              %li.no-content-box__message.no-content-box__message--in-transaction 取引中の商品がありません
+
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"
