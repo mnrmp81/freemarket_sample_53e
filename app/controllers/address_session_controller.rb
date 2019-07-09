@@ -1,22 +1,23 @@
 class AddressSessionController < ApplicationController
   def create
-    # 送られてきた住所情報の中に空の値がないかを判定(building以外)
-    address_session_params.each do |key, value|
-      if key != 'building'
-        if value == ""
-          redirect_to new_address_path
-          return
-        end
-      end
+    session[:address] = address_session_params
+    
+    # addressのエラーメッセージを作成
+    address = Address.new(address_session_params)
+    address.valid?
+
+    # addressのエラーメッセージからkeyが:userの物を削除
+    address.errors.messages.delete(:user)
+
+    if address.errors.any?
+      # エラーメッセージがあった場合、flashにエラーメッセージを格納
+      # view側でキーを指定してエラーメッセージを取り出せるようにハッシュに変換
+      flash[:alert] = address.errors.keys.map { |key| [ key, address.errors.full_messages_for(key) ] }.to_h
+      redirect_to new_address_path
+    else
+      redirect_to controller: :credit_card, action: :new
     end
 
-    session[:postal_code] = address_session_params[:postal_code]
-    session[:prefecture] = address_session_params[:prefecture]
-    session[:city] = address_session_params[:city]
-    session[:block] = address_session_params[:block]
-    session[:building] = address_session_params[:building]
-
-    redirect_to controller: :credit_card, action: :new
   end
 
   private

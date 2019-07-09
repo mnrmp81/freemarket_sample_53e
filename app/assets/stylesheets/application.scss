@@ -33,6 +33,8 @@
 @import 'modules/mypage/mypage_main';
 @import 'modules/mypage/logout';
 @import 'modules/mypage/edit';
+@import 'modules/mypage/telephone_number';
+@import 'modules/mypage/email_password';
 
 @import 'modules/posts/show';
 @import 'modules/shared/posts/show/comments.scss';
@@ -42,7 +44,7 @@
 
 @import 'modules/shared/pankuzu.scss';
 @import "modules/posts/buy.scss";
-
+@import "modules/posts/done_buy.scss";
 @import 'modules/mypage/identification';
 
 @import 'modules/posts/new.scss';
@@ -61,4 +63,6 @@
 @import 'config/profiles/user_registration';
 @import 'config/profiles/users';
 @import 'config/profiles/backscreen';
+@import 'config/profiles/backscreen';
+@import 'config/profiles/edit_address_delivery.scss';
 

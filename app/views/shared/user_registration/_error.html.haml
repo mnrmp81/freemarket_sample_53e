@@ -1,0 +1,4 @@
+- if flash[:alert].present? && flash[:alert][key].present?
+  - flash[:alert][key].each do |message|
+    %p.user-registration-error-message
+      = message

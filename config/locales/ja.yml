@@ -57,3 +57,22 @@ ja:
         delivery_former_area: ""
         delivery_date: ""
         product_price: "値段"
+
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        nickname: ニックネーム
+
+      profile:
+        family_name: ""
+        first_name: ""
+        family_name_kana: ""
+        first_name_kana: ""
+
+      address:
+        postal_code: ""
+        prefecture: ""
+        city: ""
+        block: ""
+        building: 建物名

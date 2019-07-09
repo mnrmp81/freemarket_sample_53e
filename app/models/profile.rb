@@ -1,8 +1,10 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  validates :family_name, presence: true
-  validates :first_name, presence: true
-  validates :family_name_kana, presence: true
-  validates :first_name_kana, presence: true
+  validates :family_name, presence: { message: '入力してください' }
+  validates :first_name, presence: { message: '入力してください' }
+  validates :family_name_kana, presence: { message: '入力してください' }
+  validates :family_name_kana, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'カタカナで入力してください' }, if: ->(u) { u.family_name_kana.present? }
+  validates :first_name_kana, presence: { message: '入力してください' }
+  validates :first_name_kana, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'カタカナで入力してください' }, if: ->(u) { u.first_name_kana.present? }
 end

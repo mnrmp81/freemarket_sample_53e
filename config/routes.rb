@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       get 'listing'
       get 'in_transaction'
       get 'completed_transaction'
+      get 'telephone_number'
+      get 'email_password'
     end
   end
 
@@ -41,7 +43,12 @@ Rails.application.routes.draw do
 
 
   resources :address, only: :new
-  resources :profiles, only: :new
+
+  resources :profiles, only: :new do
+      collection do
+        get 'edit_address_delivery'
+      end
+  end
 
   resources :users, only: :index do
     collection do
