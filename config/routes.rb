@@ -20,6 +20,11 @@ Rails.application.routes.draw do
       get 'logout'
       get 'identification'
       get 'edit'
+      get 'purchase'
+      get 'purchased'
+      get 'listing'
+      get 'in_transaction'
+      get 'completed_transaction'
     end
   end
 
