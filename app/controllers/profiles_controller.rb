@@ -12,19 +12,7 @@ class ProfilesController < ApplicationController
     else
       @profile = Profile.new
     end
-
-  def edit_address_delivery
-  end
-
-  def edit_create_payment
-  end
-
-  def edit_create_payment_list
-  end
-
-  def edit_create_payment_show
-  end
-  
+     
     # セッションを削除
     session[:user] = nil
     session[:profile] = nil
