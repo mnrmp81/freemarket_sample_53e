@@ -17,9 +17,13 @@ Rails.application.routes.draw do
 
   resources :mypages, only: :index do
     collection do
+      get 'profile'
+      get 'deliver_address'
+      get 'verified_card'
+      get 'card'
+      get 'create_card'
       get 'logout'
       get 'identification'
-      get 'edit'
     end
   end
 
@@ -34,16 +38,9 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :address, only: :new
 
   resources :profiles, only: :new do
-      collection do
-        get 'edit_address_delivery'
-        get 'edit_create_payment'
-        get 'edit_create_payment_list'
-        get 'edit_create_payment_show'
-      end
   end
 
   resources :users, only: :index do

@@ -3,6 +3,7 @@
   max-width: 320px;
   margin: 0 auto;
   .card__list__picture{
+      margin-top: 12px;
       background-image: url("profiles/visa");
       background-size: cover;
       width: 200px;
@@ -29,7 +30,11 @@
   }
 }
 
-.not__regist{
+.how__not__regist{
   padding: 20px 0 0 0;
   border-top: 1px solid #eee;
+  display: block;
+  margin: 40px 0 0;
+  text-align: right;
+  color: #0099e8;
 }
