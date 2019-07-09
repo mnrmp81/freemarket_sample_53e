@@ -1,5 +1,8 @@
-class Address < ApplicationRecord
+class Address < ApplicationRecord  
   belongs_to :user
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 
   validates :postal_code, presence: true
   validates :prefecture, presence: true

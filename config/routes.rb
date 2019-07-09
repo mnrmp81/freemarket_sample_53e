@@ -15,11 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: :index do
-    collection do
+  resources :mypages do
+    member do
       get 'logout'
       get 'identification'
       get 'edit'
+      get 'index'
     end
   end
 
@@ -35,7 +36,12 @@ Rails.application.routes.draw do
   end
 
 
-  resources :address, only: :new
+  resources :address, only: :new do
+    member do
+      post "create"
+      post "update", to: 'address#update', as: 'update'
+    end
+  end
 
   resources :profiles, only: :new do
       collection do
