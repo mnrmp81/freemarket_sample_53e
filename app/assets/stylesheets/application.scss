@@ -37,6 +37,8 @@
 @import 'modules/mypage/verified_card';
 @import 'modules/mypage/card.scss';
 @import 'modules/mypage/create_card.scss';
+@import 'modules/mypage/telephone_number';
+@import 'modules/mypage/email_password';
 
 @import 'modules/posts/show';
 @import 'modules/shared/posts/show/comments.scss';
@@ -46,7 +48,7 @@
 
 @import 'modules/shared/pankuzu.scss';
 @import "modules/posts/buy.scss";
-
+@import "modules/posts/done_buy.scss";
 @import 'modules/mypage/identification';
 
 @import 'modules/posts/new.scss';

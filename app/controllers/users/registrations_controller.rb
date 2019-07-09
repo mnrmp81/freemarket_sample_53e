@@ -25,6 +25,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # セッションを削除
       reset_session
 
+      sign_in user
+
       redirect_to done_users_path
     else
       reset_session

@@ -2,7 +2,6 @@
 .member_information {
   width: 100%;
   text-align: center;
-  // margin:0 auto;
   font-weight: bolder;
   font-size: 20px;
   margin-bottom: 50px;
@@ -93,7 +92,7 @@
         margin-bottom: 10px;
       }
       .form-group__input {
-        padding-left: 5px;
+        padding-left: 10px;
       }
       p {
         margin-top: 5px;
@@ -103,103 +102,67 @@
     }
     .form{
       margin-left: 50px;
-      // margin: 0 auto;
     }
     &__name {
     font-weight: bold; 
     }
   }
 
- 
   &__required {
     background: red;
     color: white;
-    // position: relative;
-    left: -76px;
     &--name {
       background: red;
       color: white;
-      // position: relative;
-     
     }
     &--email {
       background: red;
       color: white;
-      // position: relative;
-
     }
     &--familyname {
       background: red;
       color: white;
-      // position: relative;
-      left: -100px;
     }
     &--firstname {
       background: red;
       color: white;
-      // position: relative;
-      left: -100px;
-    }
-    &--birthday {
-      background: red;
-      color: white;
-      // position: relative;
-      left: -100px;
     }
     &--address {
       background: red;
       color: white;
-      // position: relative;
-      left: -100px;
     }
     &--expiration_date {
       background: red;
       color: white;
-      // position: relative;
-      left: -85px;
     }
     &--security_code {
       background: red;
       color: white;
-      // position: relative;
-      left: -60px;
     }
     &--password1 {
       background: red;
       color: white;
-      // position: relative;
     }
     &--password2 {
       background: red;
       color: white;
-      // position: relative;
     }
 
 } 
   &__input {
   height: 57px;
-  // width: 310px;
   margin: 0;
   border-radius: 5px;
   border: solid 1px lightgray
-
-
-
 }
   &__email {
   font-weight: bold;
-  // position: relative;
- 
 }
   &__password1 {
   font-weight: bold;
-  // position:relative;
- 
   }
   &__password2{
   font-weight: bold;
-  // position:relative;
-  
 }
   
   &__f--text {
@@ -210,34 +173,23 @@
 }
 
   &__familyname--kanji {
-  font-weight: bold;
-  // position: relative;
-  // left: -100px;
-  
+  font-weight: bold;  
 }
 
   &__firstname--kanji {
   font-weight: bold;
-  // position: relative;
-  left: -100px;
 }
 
   &__familyname--kana {
   font-weight: bold;
-  // position: relative;
-  left: -80px;
 }
 
   &__first_name--kana {
   font-weight: bold;
-  // position: relative;
-  left: -80px;
 }
 
   &__birthday {
   font-weight: bold;
-  // position: relative;
-  // left: -100px;
     &--year {
   width: 20%;
   display: flex;
@@ -292,7 +244,6 @@
 
   &__next {
   width: 300px;
-  // color: white;
   text-align: center;
   margin:0 auto;
   padding: 20px;
@@ -307,84 +258,32 @@
     border: none;
     cursor: pointer;
   }
-  // a {
-  //   color: white;
-  // }
 }
 
-  &__person_information {
-  // position: relative;
-  right: -80px;
-}
   &__postal_code {
     font-weight: bold;
-    // position: relative;
-    left: -110px;
   }
   &__optional {
     background: gray;
     color: white;
-    // position: relative;
-    left: -100px;
   }
   &__municipality {
     font-weight: bold;
-    // position: relative;
-    left: -110px;
   }
   &__block {
     font-weight: bold;
-    // position: relative;
-    left: -118px;
   }
   &__building_name {
     font-weight: bold;
-    // position: relative;
-    left: -110px;
   }
   &__card {
     font-weight: bold;
   }
   &__expiration_date {
     font-weight: bold;
-    // position: relative;
-    left: -100px;
-  }
-  &__card--month {
-    position: relative;
-    left: -110px;
-    margin-bottom: 10px;
-    height: 30px;
-  }
-  &__card--year {
-    // position: relative;
-    left: -110px;
-    margin-bottom: 10px;
-  }
-  &__security_code {
-    // position: relative;
-    left: -110px;
-    margin-bottom: 10px;
-  }
-  &__cardmonth {
-    // position: relative;
-    top: -23px;
-    left: -55px;
-    
-    
-  }
-  &__cardyear {
-    // position: relative;
-    top: -55px;
-    right: -30px;
-    margin-bottom: -30px;
-    
-    
   }
   &__security_code {
     font-weight: bold;
-    // position: relative;
-    left: -74px;
   }
 }
 

@@ -24,6 +24,10 @@ Rails.application.routes.draw do
       get 'create_card'
       get 'logout'
       get 'identification'
+      get 'edit'
+      get 'telephone_number'
+      get 'email_password'
+
     end
   end
 
