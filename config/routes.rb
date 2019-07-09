@@ -42,6 +42,7 @@ Rails.application.routes.draw do
         get 'edit_address_delivery'
         get 'edit_create_payment'
         get 'edit_create_payment_list'
+        get 'edit_create_payment_show'
       end
   end
 
