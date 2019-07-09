@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :get_post, only: [:show, :edit, :update, :destroy]
+  before_action :get_post, only: [:show, :edit, :update, :destroy, :transaction, :buy, :done]
 
   def index
     @posts = Post.order('id DESC').limit(32)
@@ -13,7 +13,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # binding.pry
     if @post.save
       redirect_to @post, notice: '出品が完了しました'
     else
@@ -26,7 +25,31 @@ class PostsController < ApplicationController
     @image = Image.find_by(post_id: @post.id)
   end
 
+  def transaction
+    @image = Image.find_by(post_id: @post.id)
+    card = current_user.credit_cards.first
+    if card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    else
+      redirect_to controller: "credit_card", action: "registration"
+    end
+  end
+
   def buy
+    card = current_user.credit_cards.first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    amount: @post.product_price,
+    customer: card.customer_id,
+    currency: 'jpy'
+    )
+    redirect_to action: 'done'
+  end
+
+  def done
+    @image = Image.find_by(post_id: @post.id)
   end
 
   def edit
@@ -48,6 +71,8 @@ class PostsController < ApplicationController
     end
   end
 
+  def done 
+  end
 
   private
   def get_post

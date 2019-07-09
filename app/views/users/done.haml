@@ -16,8 +16,9 @@
       %br
       会員登録が完了しました。
       %br
-    %button.start_button 
-      %p メルカリをはじめる
+    = link_to posts_path do
+      %button.start_button 
+        %p メルカリをはじめる
 
   .caution_sh
     %a{href: "/", class: "caution_sh__article"}

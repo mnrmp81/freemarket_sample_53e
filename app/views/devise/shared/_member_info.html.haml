@@ -6,22 +6,26 @@
       .new-user-form__label
         = f.label "ニックネーム", class: 'form-group__name'
         %span.form-group__required--name 必須
-      = f.text_field :nickname, class: 'form-group__input', placeholder: '例) メルカリ太郎', autofocus: true, autocomplete: "nickname"
+      = f.text_field :nickname, class: 'form-group__input', placeholder: '例) メルカリ太郎', autofocus: true, autocomplete: "nickname", value: "#{@user.nickname}"
+      = render partial: 'shared/user_registration/error', locals: { key: "nickname" }
     .new-user-form
       .new-user-form__label
         = f.label "メールアドレス", class: 'form-group__email'
         %span.form-group__required--email 必須 
-      = f.email_field :email, class: 'form-group__input', placeholder: 'PC・携帯どちらでも可', autofocus: true, autocomplete: "email"
+      = f.email_field :email, class: 'form-group__input', placeholder: 'PC・携帯どちらでも可', autofocus: true, autocomplete: "email", value: "#{@user.email}"
+      = render partial: 'shared/user_registration/error', locals: { key: "email" }
     .new-user-form
       .new-user-form__label
         = f.label "パスワード", class: 'form-group__password1'
         %span.form-group__required--password1 必須 
       = f.password_field :password, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
+      = render partial: 'shared/user_registration/error', locals: { key: "password" }
     .new-user-form
       .new-user-form__label
         = f.label "パスワード（確認用）", class: 'form-group__password2'
         %span.form-group__required--password2 必須 
       = f.password_field :password_confirmation, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
+      = render partial: 'shared/user_registration/error', locals: { key: "password_confirmation" }
 
     .address-register-form
       .form-group__dentification 
@@ -33,22 +37,26 @@
         .new-user-form__label
           = f.label "姓 (全角)", class: "form-group__familyname--kanji"
           %span.form-group__required--familyname 必須
-        = f.text_field :family_name, class: "form-group__input", placeholder: "例) 山田"
+        = f.text_field :family_name, class: "form-group__input", placeholder: "例) 山田", value: "#{@profile.family_name}"
+        = render partial: 'shared/user_registration/error', locals: { key: "profile.family_name" }
       .new-user-form
         .new-user-form__label
           = f.label "名 (全角)", class: "form-group__firstname--kanji"
           %span.form-group__required--firstname 必須
-        = f.text_field :first_name, class: "form-group__input", placeholder: "例) 彩"
+        = f.text_field :first_name, class: "form-group__input", placeholder: "例) 彩", value: "#{@profile.first_name}"
+        = render partial: 'shared/user_registration/error', locals: { key: "profile.first_name" }
       .new-user-form   
         .new-user-form__label 
           = f.label "姓カナ (全角)", class: "form-group__familyname--kana"
           %span.form-group__required 必須
-        = f.text_field :family_name_kana, class: "form-group__input", placeholder: "例) ヤマダ"
+        = f.text_field :family_name_kana, class: "form-group__input", placeholder: "例) ヤマダ", value: "#{@profile.family_name_kana}"
+        = render partial: 'shared/user_registration/error', locals: { key: "profile.family_name_kana" }
       .new-user-form 
         .new-user-form__label 
           = f.label "名カナ (全角)", class: "form-group__first_name--kana"  
           %span.form-group__required 必須
-        = f.text_field :first_name_kana, class: "form-group__input", placeholder: "例) アヤ"
+        = f.text_field :first_name_kana, class: "form-group__input", placeholder: "例) アヤ", value: "#{@profile.first_name_kana}"
+        = render partial: 'shared/user_registration/error', locals: { key: "profile.first_name_kana" }
 
       %p.form-group__birthday--text
         ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
