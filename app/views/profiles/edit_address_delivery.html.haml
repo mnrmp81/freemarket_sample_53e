@@ -1,7 +1,7 @@
-= render "shared/top_page/header"
+= render partial: "shared/top_page/header", locals: { user: @user }
 
 .main__container.clearfix
-  = render partial: 'shared/mypage/side_menu'
+  = render partial: 'shared/mypage/side_menu', locals: { user: @user }
 
   .main__content
     %section.chapter__container

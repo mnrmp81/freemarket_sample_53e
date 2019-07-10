@@ -118,7 +118,7 @@
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to deliver_address_mypage_path, class: 'menu-link' do
+        = link_to  edit_address_delivery_profile_path(user) , class: 'menu-link' do
           .menu-text
             発送元・お届け先住所変更
           .list-arrow-icon

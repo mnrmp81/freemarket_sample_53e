@@ -17,4 +17,12 @@ class ProfilesController < ApplicationController
     session[:user] = nil
     session[:profile] = nil
   end
+
+  def edit_address_delivery
+    @user = User.find(params[:id]) 
+  end
+
+  def update
+  end
+
 end
