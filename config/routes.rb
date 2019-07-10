@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: :index do
+  resources :mypages do
     collection do
       get 'profile'
       get 'deliver_address'

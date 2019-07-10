@@ -1,7 +1,7 @@
 class MypagesController < ApplicationController
   before_action :get_user_has_posts, only: [:purchase, :purchased, :listing, :in_transaction, :completed_transaction]
   before_action :get_user_purchase_products, only: [:purchase, :purchased]
-
+  before_action :get_user_params, only: [:index, :identification]
   def index
   end
 
@@ -27,7 +27,6 @@ class MypagesController < ApplicationController
     @profile = Profile.where(user_id: current_user.id).first
     @address = Address.where(user_id: current_user.id).first
   end
-
 
   def edit
   
