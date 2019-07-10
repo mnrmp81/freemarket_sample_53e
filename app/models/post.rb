@@ -4,30 +4,16 @@ class Post < ApplicationRecord
   belongs_to :user
   has_one :order
   has_many:images, dependent: :destroy
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, allow_destroy: true
   
-
-  with_options presence: true do
-    validates :images
-    validates :product_name
-    validates :product_description
-    validates :first_category_id
-    validates :second_category_id
-    validates :product_condition
-    validates :delivery_fee
-    validates :delivery_former_area
-    validates :delivery_date
-    validates :product_price
-  end
-
   validates :product_price, numericality: { only_integer: true, greater_than_or_equal_to: 300 , less_than_or_equal_to: 9999999}
 
   validate :add_error_message
  
   def add_error_message
-    # if images.blank?
-    #   errors[:images] << "がありません"
-    # end
+    if images.blank?
+      errors[:images] << "がありません"
+    end
 
     if product_name.blank?
       errors[:product_name] << "を入力して下さい"

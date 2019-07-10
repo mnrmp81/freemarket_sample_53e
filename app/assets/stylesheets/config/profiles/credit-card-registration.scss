@@ -1,0 +1,32 @@
+.main__container--user-redistration {
+  .main__content {
+    width: 40%;
+    margin: 0 auto;
+    float: none;
+    .chapter__container {
+      .chapter__head {
+        font-size: 24px;
+        padding: 8px 24px;
+        margin-top: 20px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .chapter__container__inner {
+        .form__main__container {
+          .credit-card-submit {
+            background: #ea352d;
+            color: #fff;
+            width: 100%;
+            margin-top: 32px;
+            line-height: 48px;
+            font-size: 14px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

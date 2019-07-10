@@ -20,8 +20,8 @@
 @import 'mixins/posts/show/content_box';
 @import 'mixins/posts/show/post_links';
 @import 'mixins/posts/show/upper_box';
-@import 'mixins/posts_new/drop_down_icon';
-@import 'mixins/posts_new/image_btn';
+@import 'mixins/posts/form/drop_down_icon';
+@import 'mixins/posts/form/image_btn';
 
 @import "modules/shared/top_page/app-banner.scss";
 @import "modules/shared/top_page/footer.scss";
@@ -51,14 +51,14 @@
 @import "modules/posts/done_buy.scss";
 @import 'modules/mypage/identification';
 
-@import 'modules/posts/new.scss';
-@import "modules/shared/posts_new/image_upload.scss";
-@import "modules/shared/posts_new/product_upload.scss";
-@import "modules/shared/posts_new/product_detail.scss";
-@import "modules/shared/posts_new/delivery_detail.scss";
-@import "modules/shared/posts_new/price_detail.scss";
-@import "modules/shared/posts_new/post_btn.scss";
-@import "modules/shared/posts_new/error.scss";
+@import 'modules/shared/posts/form/form.scss';
+@import "modules/shared/posts/form/image_upload.scss";
+@import "modules/shared/posts/form/product_upload.scss";
+@import "modules/shared/posts/form/product_detail.scss";
+@import "modules/shared/posts/form/delivery_detail.scss";
+@import "modules/shared/posts/form/price_detail.scss";
+@import "modules/shared/posts/form/post_btn.scss";
+@import "modules/shared/posts/form/error.scss";
 
 @import 'config/profiles/edit_profile';
 @import 'config/profiles/member_info';
@@ -66,4 +66,5 @@
 @import 'config/profiles/user_registration_top';
 @import 'config/profiles/user_registration';
 @import 'config/profiles/users';
+@import 'config/profiles/credit-card-registration';
 @import 'config/profiles/backscreen';

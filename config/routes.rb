@@ -54,6 +54,10 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: :new do
+    member do
+      get "edit_address_delivery"
+      post "update"
+    end
   end
 
   resources :users, only: :index do

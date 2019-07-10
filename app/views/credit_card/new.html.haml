@@ -7,18 +7,19 @@
         %br
         %a
           =image_tag "profiles/progress_4.jpg", class: "header_sh__logo__progress1__image"
-  .input_user_registration_sh__new_5
-    = render "credit_card2"
+  .main-container.main__container--user-redistration
+    = render "credit-card"
     
-  .caution_sh
-    %a{href: "/", class: "caution_sh__article"}
-      プライバシーポリシー
-    %br
-    %a{href: "/", class: "caution_sh__article"}
-      メルカリ利用規約
-    %br
-    %a{href: "/", class: "caution_sh__article"}
-      特定商取引に関する表記
-    .caution_sh___logo
-      %a{href: "/"}
-        =image_tag "profiles/end_logo.jpg", class: "caution_sh__logo__end_image"
+  .user-registration-footer-second-type
+    .caution_sh
+      %a{href: "/", class: "caution_sh__article"}
+        プライバシーポリシー
+      %br
+      %a{href: "/", class: "caution_sh__article"}
+        メルカリ利用規約
+      %br
+      %a{href: "/", class: "caution_sh__article"}
+        特定商取引に関する表記
+      .caution_sh___logo
+        %a{href: "/"}
+          =image_tag "profiles/end_logo.jpg", class: "caution_sh__logo__end_image"
