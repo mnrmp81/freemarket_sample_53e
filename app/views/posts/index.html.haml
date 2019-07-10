@@ -1,4 +1,4 @@
-= render "shared/top_page/header"
+= render partial: "shared/top_page/header", locals: { user: @user }
 .main-pc
   %section.top-visual
     = image_tag "top_page/banner-6th-thanks.jpg", width: "100%"

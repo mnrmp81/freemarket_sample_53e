@@ -24,6 +24,12 @@ class MypagesController < ApplicationController
   end
 
   def identification
+    @profile = Profile.where(user_id: current_user.id).first
+    @address = Address.where(user_id: current_user.id).first
+  end
+
+
+  def edit
   
   end 
 
@@ -59,6 +65,10 @@ class MypagesController < ApplicationController
 
   def get_user_purchase_products
     @products = current_user.orders
+  end
+
+  def get_user_params
+    @user = User.find(params[:id])
   end
 
 end

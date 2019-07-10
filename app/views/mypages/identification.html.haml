@@ -1,132 +1,136 @@
-= render "shared/top_page/header"
+= render partial: "shared/top_page/header", locals: { user: @user }
 - breadcrumb :identification
 = breadcrumbs separator: " &rsaquo; "
 
 .main-body
-  = render partial: 'shared/mypage/side_menu'
+  = render partial: 'shared/mypage/side_menu', locals: { user: @user }
 
   .mypage-main
     .mypage-main-top.user-registration-info
       .user-registration-info__title
         %h1 本人情報の登録
-      .user-registration-info__content
-        = form_with url: '#', class: 'user-registration-info-form' do |f|
-          .user-registration-info-form__description
-            %p 
-              お客様の本人情報をご登録ください。
+      -if @address.present?
+        .user-registration-info__content
+          = form_with scope: 'address',url: update_address_path(@address), class: 'user-registration-info-form' do |f|
+            .user-registration-info-form__description
+              %p 
+                お客様の本人情報をご登録ください。
+                %br
+                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              %p.about-upload-info
+                = link_to '#' do
+                  本人確認書類のアップロードについて
+                  = icon('fas', 'chevron-right')
+
+            -# 名前、生年月日等が登録済みの場合
+            .registration-form-group
+              = f.label 'お名前', class: 'registration-form-group__label'
+              %p 
+                = "#{@profile.family_name} #{@profile.first_name}"
+            .registration-form-group
+              = f.label 'お名前カナ', class: 'registration-form-group__label'
+              %p 
+                = "#{@profile.family_name_kana} #{@profile.first_name_kana}"
+            -# 生年月日登録ある？
+            .registration-form-group
+              = f.label '生年月日', class: 'registration-form-group__label'
+              %p 1992/05/07
+
+            .registration-form-group
+              = f.label '郵便番号', class: 'registration-form-group__label'
+              %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
               %br
-              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-            %p.about-upload-info
-              = link_to '#' do
-                本人確認書類のアップロードについて
-                = icon('fas', 'chevron-right')
+              = f.text_field :postal_code, class: 'registration-form-group__text-field'
+            .registration-form-group.registration-form-group--prefecturel
+              = f.label '都道府県', class: 'registration-form-group__label'
+              %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+              %br
+              =f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'registration-form-group__text-field', selected: "#{@address.prefecture_id}"
+            .registration-form-group
+              = f.label '市区町村', class: 'registration-form-group__label'
+              %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+              %br
+              = f.text_field :city, class: 'registration-form-group__text-field'
+            .registration-form-group
+              = f.label '番地', class: 'registration-form-group__label'
+              %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+              %br
+              = f.text_field :block, class: 'registration-form-group__text-field'
+            .registration-form-group
+              = f.label '建物名', class: 'registration-form-group__label'
+              %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+              %br
+              = f.text_field :building, class: 'registration-form-group__text-field'
 
-          -# 名前、生年月日等が登録済みの場合
-          .registration-form-group
-            = f.label 'お名前', class: 'registration-form-group__label'
-            %p 山田 彩
-          .registration-form-group
-            = f.label 'お名前カナ', class: 'registration-form-group__label'
-            %p ヤマダ アヤ
-          .registration-form-group
-            = f.label '生年月日', class: 'registration-form-group__label'
-            %p 1992/05/07
-          .registration-form-group
-            = f.label '郵便番号', class: 'registration-form-group__label'
-            %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-            %br
-            = f.text_field :postal_code, placeholder: '例）1234567', class: 'registration-form-group__text-field'
-          .registration-form-group.registration-form-group--prefecture
-            = f.label '都道府県', class: 'registration-form-group__label'
-            %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-            %br
-            =f.collection_select :prefecture, Prefecture.all, :id, :name, class: 'registration-form-group__collection-select'
-            .drop-down-arrow-icon
-              = icon('fas', 'chevron-down')
-          .registration-form-group
-            = f.label '市区町村', class: 'registration-form-group__label'
-            %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-            %br
-            = f.text_field :city, placeholder: '例) 横浜市緑区', class: 'registration-form-group__text-field'
-          .registration-form-group
-            = f.label '番地', class: 'registration-form-group__label'
-            %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-            %br
-            = f.text_field :block, placeholder: '例) 青山1−1−1', class: 'registration-form-group__text-field'
-          .registration-form-group
-            = f.label '建物名', class: 'registration-form-group__label'
-            %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-            %br
-            = f.text_field :building, placeholder: '例) 柳ビル103', class: 'registration-form-group__text-field'
+            .registration-form-group
+              = f.submit '登録する', class: 'registration-form-group__register-btn'
+            .user-registration-info-form__description.user-registration-info-form__description--register
+              %p.about-upload-info.about-upload-info--register
+                = link_to '#' do
+                  本人情報の登録について
+                  = icon('fas', 'chevron-right')
+          
+      -# -else
+      -#   .user-registration-info__content
+      -#     = form_with model: @address, scope: 'address',url: address_path(@user), class: 'user-registration-info-form' do |f|
+      -#       .user-registration-info-form__description
+      -#         %p 
+      -#           お客様の本人情報をご登録ください。
+      -#           %br
+      -#           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      -#         %p.about-upload-info
+      -#           = link_to '#' do
+      -#             本人確認書類のアップロードについて
+      -#             = icon('fas', 'chevron-right')
 
-          -# 名前、生年月日等を登録していない人には以下のコメントアウト部分を表示
-          -# .registration-form-group
-          -#   = f.label 'お名前', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge 必須
-          -#   %br
-          -#   = f.text_field :family_name, placeholder: '例）山田', class: 'registration-form-group__text-field'
-          -#   %br
-          -#   = f.text_field :first_name, placeholder: '例）彩', class: 'registration-form-group__text-field'
-          -# .registration-form-group
-          -#   = f.label 'お名前カナ', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge 必須
-          -#   %br
-          -#   = f.text_field :family_name_kana, placeholder: '例）ヤマダ', class: 'registration-form-group__text-field'
-          -#   %br
-          -#   = f.text_field :first_name_kana, placeholder: '例）アヤ', class: 'registration-form-group__text-field'
-          -# .registration-form-group
-          -#   = f.label '生年月日', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge 必須
-          -#   .registration-form-group__birthday
-          -#     = f.number_field :birth_year, placeholder: '--', class: 'registration-form-group__text-field registration-form-group__text-field--number-field'
-          -#     .drop-down-arrow-icon
-          -#       = icon('fas', 'chevron-down')
-          -#     %p.registration-form-unit 年
-          -#   .registration-form-group__birthday
-          -#     = f.number_field :birth_month, placeholder: '--', class: 'registration-form-group__text-field registration-form-group__text-field--number-field'
-          -#     .drop-down-arrow-icon
-          -#       = icon('fas', 'chevron-down')
-          -#     %p.registration-form-unit 月
-          -#   .registration-form-group__birthday
-          -#     = f.number_field :birth_day, placeholder: '--', class: 'registration-form-group__text-field registration-form-group__text-field--number-field'
-          -#     .drop-down-arrow-icon
-          -#       = icon('fas', 'chevron-down')
-          -#     %p.registration-form-unit 日
-          -#   %p.registration-form-caution ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
-          -# .registration-form-group
-          -#   = f.label '郵便番号', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-          -#   %br
-          -#   = f.text_field :postal_code, placeholder: '例）1234567', class: 'registration-form-group__text-field'
-          -# .registration-form-group.registration-form-group--prefecture
-          -#   = f.label '都道府県', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-          -#   %br
-          -#   = f.text_field :prefecture, placeholder: '--', class: 'registration-form-group__text-field'
-          -#   .drop-down-arrow-icon
-          -#     = icon('fas', 'chevron-down')
-          -# .registration-form-group
-          -#   = f.label '市区町村', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-          -#   %br
-          -#   = f.text_field :city, placeholder: '例) 横浜市緑区', class: 'registration-form-group__text-field'
-          -# .registration-form-group
-          -#   = f.label '番地', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-          -#   %br
-          -#   = f.text_field :block, placeholder: '例) 青山1−1−1', class: 'registration-form-group__text-field'
-          -# .registration-form-group
-          -#   = f.label '建物名', class: 'resistration-form-group__label'
-          -#   %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-          -#   %br
-          -#   = f.text_field :building, placeholder: '例) 柳ビル103', class: 'registration-form-group__text-field'
-          .registration-form-group
-            = f.submit '登録する', class: 'registration-form-group__register-btn'
-          .user-registration-info-form__description.user-registration-info-form__description--register
-            %p.about-upload-info.about-upload-info--register
-              = link_to '#' do
-                本人情報の登録について
-                = icon('fas', 'chevron-right')
+      -#       -# 名前、生年月日等が登録済みの場合
+      -#       .registration-form-group
+      -#         = f.label 'お名前', class: 'registration-form-group__label'
+      -#         %p 
+      -#           = "#{@profile.family_name} #{@profile.first_name}"
+      -#       .registration-form-group
+      -#         = f.label 'お名前カナ', class: 'registration-form-group__label'
+      -#         %p 
+      -#           = "#{@profile.family_name_kana} #{@profile.first_name_kana}"
+      -#       -# 生年月日登録ある？
+      -#       .registration-form-group
+      -#         = f.label '生年月日', class: 'registration-form-group__label'
+      -#         %p 1992/05/07
+
+      -#       .registration-form-group
+      -#         = f.label '郵便番号', class: 'registration-form-group__label'
+      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+      -#         %br
+      -#         = f.text_field :postal_code, class: 'registration-form-group__text-field', placeholder: '例）123-4567'
+      -#       .registration-form-group.registration-form-group--prefecturel
+      -#         = f.label '都道府県', class: 'registration-form-group__label'
+      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+      -#         %br
+      -#         =f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'registration-form-group__text-field'
+      -#       .registration-form-group
+      -#         = f.label '市区町村', class: 'registration-form-group__label'
+      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+      -#         %br
+      -#         = f.text_field :city, placeholder: "例) 横浜市緑区", class: 'registration-form-group__text-field'
+      -#       .registration-form-group
+      -#         = f.label '番地', class: 'registration-form-group__label'
+      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+      -#         %br
+      -#         = f.text_field :block, placeholder: '例) 青山1−1−1', class: 'registration-form-group__text-field'
+      -#       .registration-form-group
+      -#         = f.label '建物名', class: 'registration-form-group__label'
+      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
+      -#         %br
+      -#         = f.text_field :building, placeholder: '例) 柳ビル103', class: 'registration-form-group__text-field'
+
+      -#       .registration-form-group
+      -#         = f.submit '登録する', class: 'registration-form-group__register-btn'
+      -#       .user-registration-info-form__description.user-registration-info-form__description--register
+      -#         %p.about-upload-info.about-upload-info--register
+      -#           = link_to '#' do
+      -#             本人情報の登録について
+      -#             = icon('fas', 'chevron-right')
+
 
 = render "shared/top_page/sell-fix-logo"
 = render "shared/top_page/app-banner"

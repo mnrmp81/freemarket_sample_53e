@@ -27,12 +27,11 @@ describe PostsController, type: :controller do
         response.status.should eql 200
       end
 
-      # it "match " do
-      #   posts = create_list(:post, 3) 
-        # # expect(assigns(:post)).to eq posts
-        # binding.pry
-        # expect(assigns(:post)).to match(posts.sort{ |a, b| b.created_at <=> a.created_at } )
-      # end
+      it "match " do
+        posts = create_list(:post, 3) 
+        binding.pry
+        expect(assigns(:posts)).to match(posts.sort{ |a, b| b.created_at <=> a.created_at } )
+      end
     end
   end
 end

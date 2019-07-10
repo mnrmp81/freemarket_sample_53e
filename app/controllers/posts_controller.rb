@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order('id DESC').limit(32)
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    end
   end
 
   def new

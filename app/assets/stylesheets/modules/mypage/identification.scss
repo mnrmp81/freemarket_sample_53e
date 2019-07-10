@@ -11,6 +11,12 @@
     }
   }
 
+  select#address_prefecture_id{
+    width: 100%;
+    height: 40px;
+    margin-top: 1%;
+  }
+
   &__content {
     .user-registration-info-form {
       
