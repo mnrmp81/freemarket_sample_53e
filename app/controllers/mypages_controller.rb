@@ -2,6 +2,7 @@ class MypagesController < ApplicationController
   before_action :get_user_has_posts, only: [:purchase, :purchased, :listing, :in_transaction, :completed_transaction]
   before_action :get_user_purchase_products, only: [:purchase, :purchased]
   before_action :get_user_params, only: [:index, :identification]
+  
   def index
   end
 
@@ -9,15 +10,6 @@ class MypagesController < ApplicationController
   end
 
   def deliver_address
-  end
-
-  def verified_card
-  end
-
-  def card
-  end
-
-  def create_card
   end
 
   def logout
