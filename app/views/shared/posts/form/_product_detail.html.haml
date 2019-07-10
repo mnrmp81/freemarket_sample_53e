@@ -8,8 +8,8 @@
         = f.collection_select :first_category_id, FirstCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
         .drop-down-icon
           = icon('fas', 'chevron-down')
-      = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :first_category_id}
-      = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :second_category_id}
+      = render partial: 'shared/posts/form/error', locals: { post: @post, attr: :first_category_id}
+      = render partial: 'shared/posts/form/error', locals: { post: @post, attr: :second_category_id}
     .form__content__deafult#size-content
     .form__content__deafult#brand-content
     .form__content__deafult
@@ -20,4 +20,4 @@
           = f.select :product_condition, Post.product_conditions_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
-        = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :product_condition}
+        = render partial: 'shared/posts/form/error', locals: { post: @post, attr: :product_condition}

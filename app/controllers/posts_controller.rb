@@ -69,8 +69,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
-      redirect_to root_path, notice: '出品を停止しました'
+    if @post.update(update_post_params)
+      redirect_to root_path
     else
       render :edit
     end
@@ -109,6 +109,26 @@ class PostsController < ApplicationController
                                  :user_id,
                                  :brand_name,
                                  [images_attributes: [:image]]
+                                 ).merge(user_id: current_user.id)
+  end
+
+  def update_post_params
+    params.require(:post).permit(:product_name,
+                                 :product_description,
+                                 :first_category_id,
+                                 :second_category_id,
+                                 :third_category_id,
+                                 :brand_id,
+                                 :product_size,
+                                 :product_condition,
+                                 :delivery_fee,
+                                 :delivery_former_area,
+                                 :delivery_date,
+                                 :product_price,
+                                 :product_status,
+                                 :user_id,
+                                 :brand_name,
+                                 [images_attributes: [:image, :_destroy, :id]]
                                  ).merge(user_id: current_user.id)
   end
 
