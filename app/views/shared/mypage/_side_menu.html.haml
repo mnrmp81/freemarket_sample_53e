@@ -124,7 +124,7 @@
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to card_mypage_path(current_user), class: 'menu-link' do
+        = link_to credit_card_path, action: :show, class: 'menu-link' do
           .menu-text
             お支払い方法
           .list-arrow-icon
