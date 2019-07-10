@@ -14,18 +14,19 @@
         %span.form-group__required--email 必須 
       = f.email_field :email, class: 'form-group__input', placeholder: 'PC・携帯どちらでも可', autofocus: true, autocomplete: "email", value: "#{@user.email}"
       = render partial: 'shared/user_registration/error', locals: { key: "email" }
-    .new-user-form
-      .new-user-form__label
-        = f.label "パスワード", class: 'form-group__password1'
-        %span.form-group__required--password1 必須 
-      = f.password_field :password, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
-      = render partial: 'shared/user_registration/error', locals: { key: "password" }
-    .new-user-form
-      .new-user-form__label
-        = f.label "パスワード（確認用）", class: 'form-group__password2'
-        %span.form-group__required--password2 必須 
-      = f.password_field :password_confirmation, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
-      = render partial: 'shared/user_registration/error', locals: { key: "password_confirmation" }
+    - if @user.provider.blank?
+      .new-user-form
+        .new-user-form__label
+          = f.label "パスワード", class: 'form-group__password1'
+          %span.form-group__required--password1 必須 
+        = f.password_field :password, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
+        = render partial: 'shared/user_registration/error', locals: { key: "password" }
+      .new-user-form
+        .new-user-form__label
+          = f.label "パスワード（確認用）", class: 'form-group__password2'
+          %span.form-group__required--password2 必須 
+        = f.password_field :password_confirmation, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
+        = render partial: 'shared/user_registration/error', locals: { key: "password_confirmation" }
 
     .address-register-form
       .form-group__dentification 
