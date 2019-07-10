@@ -39,6 +39,10 @@ class Post < ApplicationRecord
       errors[:delivery_fee] << "選択して下さい"
     end
 
+    if delivery_method.blank?
+      errors[:delivery_method] << "選択して下さい"
+    end
+
     if delivery_former_area.blank?
       errors[:delivery_former_area] << "選択して下さい"
     end

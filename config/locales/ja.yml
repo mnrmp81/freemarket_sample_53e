@@ -54,6 +54,7 @@ ja:
         second_category_id: ""
         product_condition: ""
         delivery_fee: ""
+        delivery_method: ""
         delivery_former_area: ""
         delivery_date: ""
         product_price: "値段"
