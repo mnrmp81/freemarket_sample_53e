@@ -16,15 +16,16 @@ Rails.application.routes.draw do
   end
 
   resources :mypages do
-    collection do
+    member do
+      get 'logout'
+      get 'identification'
+      get 'edit'
+      get 'index'
       get 'profile'
       get 'deliver_address'
       get 'verified_card'
       get 'card'
       get 'create_card'
-      get 'logout'
-      get 'identification'
-      get 'edit'
       get 'purchase'
       get 'purchased'
       get 'listing'
@@ -32,12 +33,6 @@ Rails.application.routes.draw do
       get 'completed_transaction'
       get 'telephone_number'
       get 'email_password'
-    end
-    member do
-      get 'logout'
-      get 'identification'
-      get 'edit'
-      get 'index'
     end
   end
 

@@ -4,9 +4,9 @@
     %span.require__form 必須
     %div
       = f.text_field :product_name, placeholder: "商品名(必須40文字まで)", class: "input__form"
-      = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :product_name}
+      = render partial: 'shared/posts/form/error', locals: { post: @post, attr: :product_name}
   .form__content__description
     =f.label :product_description, "商品の説明"
     %span.require__form 必須
     = f.text_area :product_description, placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "textarea__form"
-    = render partial: 'shared/posts_new/error', locals: { post: @post, attr: :product_description}
+    = render partial: 'shared/posts/form/error', locals: { post: @post, attr: :product_description}
