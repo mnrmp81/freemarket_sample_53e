@@ -34,13 +34,9 @@
               %i.fas.fa-check
               %span.list-name やることリスト
           %li.user-information__list-login
-            = link_to root_path do
+            = link_to mypages_path do
               = image_tag asset_path("top_page/avater.jpeg"), class: "avater-image", size: "30x30"
               %span.list-name マイページ
-          //以下、仮置きのログアウトボタン
-          %li.user-information__list-login
-            = link_to destroy_user_session_path, class: "list-name", method: :delete do
-              ログアウト          
         - else
           %li.user-information__list-nologin
             = link_to new_user_registration_path, class: "list-name-red" do
