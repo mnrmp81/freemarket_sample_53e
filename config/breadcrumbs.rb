@@ -32,10 +32,10 @@ crumb :telephone_number do
   parent :mypages
 end
 
-crumb :profile do
-  link "プロフィール", edit_mypages_path
-  parent :mypages
-end
+# crumb :profile do
+#   link "プロフィール", edit_mypages_path(@user)
+#   parent :mypages
+# end
 
 crumb :email_password do
   link "メール/パスワード", email_password_mypages_path

@@ -12,7 +12,7 @@
             %h3.sub__head クレジットカード一覧
         .add__card
           .payment__list__content
-            = link_to create_card_mypages_path, class: "red__btn" do
+            = link_to create_card_mypage_path(current_user), class: "red__btn" do
               %i
               = icon('fas', 'credit-card', class: "card__icon")
               クレジットカードを追加する
