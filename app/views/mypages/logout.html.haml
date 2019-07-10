@@ -9,7 +9,7 @@
     .mypage-main-top.logout
       .logout__box
         -# ログアウト後はトップページへリダイレクト
-        = link_to '/' do
+        = link_to destroy_user_session_path, method: :delete do
           = button_tag 'ログアウト', class: 'logout-btn'
 
 = render "shared/top_page/sell-fix-logo"

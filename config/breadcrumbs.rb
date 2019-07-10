@@ -37,6 +37,11 @@ crumb :profile do
   parent :mypages
 end
 
+crumb :email_password do
+  link "メール/パスワード", email_password_mypages_path
+  parent :mypages
+end
+
 
 
 # crumb :projects do
