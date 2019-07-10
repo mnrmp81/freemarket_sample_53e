@@ -1,0 +1,53 @@
+= render "shared/top_page/header"
+
+.main__container.clearfix
+  = render partial: 'shared/mypage/side_menu'
+
+  .main__content
+    %section.chapter__container
+      %h2.chapter__head 発送元・お届け先住所変更
+      %form.chapter__container__inner
+        .form__main__container
+          .form__content
+            %label.name お名前
+            %span.require__form 必須
+            %input.input__default{placeholder: "例) 山田"}
+            %input.input__default{placeholder: "例) 彩"}
+          .form__content.name__kana
+            %label.name お名前カナ
+            %span.require__form 必須
+            %input.input__default{placeholder: "例) ヤマダ"}
+            %input.input__default{placeholder: "例) アヤ"}
+          .form__content__default
+            %label.name 郵便番号
+            %span.require__form 必須
+            %input.input__default{placeholder: "例) 123-456"}
+          .form__content__prefecture
+            %label.prefecture 都道府県
+            %span.require__form 必須
+            .select__content
+              %select.prefecture
+              .drop-down-icon
+                = icon('fas', 'chevron-down')
+          .form__content__default 
+            %label.name 市区町村
+            %span.require__form 必須
+            %input.input__default{placeholder: "例) 横浜市緑区"}
+          .form__content__default 
+            %label.name 番地
+            %span.require__form 必須
+            %input.input__default{placeholder: "例) 青山1-1-1"}
+          .form__content__default 
+            %label.name 建物名
+            %span.require__form-gray 任意
+            %input.input__default{placeholder: "例) 柳ビル103"}
+          .form__content__default 
+            %label.name 電話
+            %span.require__form-gray 任意
+            %input.input__default{placeholder: "例) 09012345678"}
+          %button.red__btn 変更する
+
+    
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"
