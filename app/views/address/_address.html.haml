@@ -6,7 +6,7 @@
       .form-group__address-register__label
         = f.label '郵便番号', class: 'form-group__postal_code'
         %span.form-group__required--address 必須
-      = f.text_field :postal_code, placeholder: '例）123-4567', class: 'form-group__input', value: "#{@address.postal_code}"
+      = f.text_field :postal_code, placeholder: '例）1234567', class: 'form-group__input', value: "#{@address.postal_code}"
       = render partial: 'shared/user_registration/error', locals: { key: "postal_code" }
     .form-group__address-register
       .form-group__address-register__label
