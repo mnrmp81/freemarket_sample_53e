@@ -1,5 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  # has_one : address
+  # accepts_nested_attributes_for :addresses
 
   validates :family_name, presence: { message: '入力してください' }
   validates :first_name, presence: { message: '入力してください' }
