@@ -1,18 +1,15 @@
 class CreditCardController < ApplicationController
 
   def new
-
   end
 
-  def registration
-    card = current_user.credit_cards
-    redirect_to action: "show" if card.exists?
+  def edit
   end
 
-  def pay
+  def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
-      redirect_to action: "registration"
+      redirect_to action: "edit", id: current_user.id
     else
       customer = Payjp::Customer.create(
       email: current_user.email,
@@ -23,7 +20,7 @@ class CreditCardController < ApplicationController
       if @card.save
         redirect_to action: "show"
       else
-        redirect_to action: "pay"
+        redirect_to action: "edit", id: current_user.id
       end
     end
   end
@@ -36,7 +33,7 @@ class CreditCardController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "registration"
+      redirect_to action: "confirmation", id: current_user.id
   end
 
   def show
@@ -46,8 +43,12 @@ class CreditCardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     else
-      redirect_to action: "registration" 
+      redirect_to action: "confirmation", id: current_user.id
     end
   end
-  
+
+  def confirmation
+    card = current_user.credit_cards
+    redirect_to action: "show" if card.exists?
+  end
 end

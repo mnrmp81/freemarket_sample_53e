@@ -35,7 +35,7 @@
         %address.address-post__info-text
           〒 #{current_user.address.postal_code}
           %br
-          = Prefecture.find(current_user.address.prefecture).name
+          = Prefecture.find(current_user.address.prefecture_id).name
           = current_user.address.city
           = current_user.address.block
           = current_user.address.building

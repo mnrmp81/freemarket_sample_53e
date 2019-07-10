@@ -23,9 +23,6 @@ Rails.application.routes.draw do
       get 'index'
       get 'profile'
       get 'deliver_address'
-      get 'verified_card'
-      get 'card'
-      get 'create_card'
       get 'purchase'
       get 'purchased'
       get 'listing'
@@ -38,12 +35,13 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   
-  resources :credit_card, only: [:new, :show] do
+  resources :credit_card, only: [:new, :create, :show, :edit] do
     collection do
-      get 'registration'
-      post 'show', to: 'credit_card#show'
-      post 'pay', to: 'credit_card#pay'
       post 'delete', to: 'credit_card#delete'
+      post 'show'
+    end
+    member do
+      get 'confirmation'
     end
   end
 
