@@ -6,14 +6,6 @@
   font-size: 20px;
   margin-bottom: 50px;
   left: -450px;
-  &__new_5 {
-    width: 100%;
-    margin: 30px auto;
-    padding-bottom: 20px;
-    font-weight: bolder;
-    font-size: 20px;
-    border-bottom: 1px solid #eee;
-  }
 }
 
 .form-group {
@@ -54,34 +46,7 @@
   }
   left: -440px;
   margin-left: 120px;
-  &__new_5 {
-    width: 100%;
-    
-    .card-register-form {
-      width: 100%;
-      .card-form-group {
-        margin-bottom: 30px;
-        text-align: left;
-        &__label {
-          margin-bottom: 10px;
-        }
-        &__select-box {
-          width: 30%;
-        }
-        &__submit {
-          margin-top: 30px;
-        }
-        &__next-form {
-          width: 100%;
-          line-height: 48px;
-          color: $btn_font_color;
-          background-color: #ea352d;
-          outline: none;
-          cursor: pointer;
-        }
-      }
-    }
-  }
+  
   &__new_2 {
     position: relative;
     .new-user-form {
@@ -131,14 +96,7 @@
       background: red;
       color: white;
     }
-    &--expiration_date {
-      background: red;
-      color: white;
-    }
-    &--security_code {
-      background: red;
-      color: white;
-    }
+
     &--password1 {
       background: red;
       color: white;
@@ -276,15 +234,6 @@
   &__building_name {
     font-weight: bold;
   }
-  &__card {
-    font-weight: bold;
-  }
-  &__expiration_date {
-    font-weight: bold;
-  }
-  &__security_code {
-    font-weight: bold;
-  }
 }
 
 select {
@@ -298,12 +247,4 @@ select {
   border: 1px solid lightgray;
   height: 60px;
   width: 310px;
-}
-.photo {
-  width: 60px;
-  height: 60px;
-}
-.photo2 {
-  width:350px;
-  height: 50px;
 }
