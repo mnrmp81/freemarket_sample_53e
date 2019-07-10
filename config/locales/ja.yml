@@ -25,6 +25,17 @@ ja:
         included: 送料込み(出品者負担)
         cash_on_delivery: 着払い(購入者負担)
 
+      delivery_method:
+        undecided: 未定
+        mercari_deli: らくらくメルカリ便
+        yu_mail: ゆうメール
+        letter_pack: レターパック
+        normal_mail: 普通郵便（定形、定形外）
+        kuroneko: クロネコヤマト
+        yu_pack: ゆうパック
+        click_post: クリックポスト
+        yu_packet: ゆうパケット
+
       delivery_date:
         one_or_two_days: 1~2日で発送
         two_or_three_days: 2~3日で発送
@@ -54,6 +65,7 @@ ja:
         second_category_id: ""
         product_condition: ""
         delivery_fee: ""
+        delivery_method: ""
         delivery_former_area: ""
         delivery_date: ""
         product_price: "値段"

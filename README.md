@@ -87,6 +87,7 @@
 |product_size|integer||
 |product_condition|integer|null: false|
 |delivery_fee|integer|null: false|
+|delivery_method|integer|null: false|
 |delivery_former_area|string|null: false|
 |delivery_date|integer|null: false|
 |product_price|integer|null: false|

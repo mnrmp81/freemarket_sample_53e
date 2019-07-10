@@ -39,6 +39,10 @@ class Post < ApplicationRecord
       errors[:delivery_fee] << "選択して下さい"
     end
 
+    if delivery_method.blank?
+      errors[:delivery_method] << "選択して下さい"
+    end
+
     if delivery_former_area.blank?
       errors[:delivery_former_area] << "選択して下さい"
     end
@@ -56,6 +60,7 @@ class Post < ApplicationRecord
   enum product_size:{ xxs_or_less: 0, xs: 1, small: 2, middle: 3, large: 4, xl: 5, xxl: 6, xxxl: 7, xxxxl_or_more: 8, free: 9 }
   enum product_condition:{ cond_s: 0, cond_a: 1, cond_b: 2, cond_c: 3, cond_d: 4, cond_e: 5 }
   enum delivery_fee:{ included: 0, cash_on_delivery: 1 }
+  enum delivery_method:{ undecided: 0, mercari_deli: 1, yu_mail: 2, letter_pack: 3, normal_mail: 4, kuroneko: 5, yu_pack: 6, click_post: 7, yu_packet: 8}
   enum delivery_date:{ one_or_two_days: 0, two_or_three_days: 1, within_a_week:2 }
   enum product_status:{ listing: 0, stopping_listing: 1, in_transaction: 2, completed_transaction: 3 }
 end
