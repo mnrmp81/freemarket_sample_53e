@@ -1,66 +1,75 @@
 $(function() {
-  function buildHTML(i) {
-    var html = `<div class="preview-box" id="preview-box__${i}">
+
+  function buildHTML(count, image) {
+    var html = `<div class="preview-box" id="preview-box__${count}">
                   <div class="upper-box">
-                    <img src="" width="112" height="112" alt="preview">
+                    <img src="${image}" width="112" height="112" alt="preview">
                   </div>
                   <div class="lower-box">
                     <div class="update-box">
-                      <label for="post_images_attributes_${i}_image">編集</label>
+                      <label for="post_images_attributes_${count}_image" class="edit_btn">編集</label>
                     </div>
-                    <div class="delete-box">
-                      <span id="delete_image__${i}">削除</span>
+                    <div class="delete-box" id="delete_btn_${count}">
+                      <span>削除</span>
                     </div>
                   </div>
                 </div>`
     return html;
   }
-  
-  // プレビュー追加先（上段or下段）
-  function buildPrev(i) {
-    var prevContent = (i < 5 ? '.prev-content' : '.post__drop__box__container .prev-content:eq(1)');
-    return prevContent;
+
+  // ラベルのwidth操作
+  function setLabel(count) {
+    var prevContent = $('.label-content').prev();
+    labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+    $('.label-content').css('width', labelWidth);
+    $('.label-box').attr({id: `label-box--${count}`,for: `post_images_attributes_${count}_image`});
   }
 
-  // ラベルボックスのwidth操作
-  function buildLabel(i, prevContent) {
-    var labelWidth = (i == 4 ? '620px' : 620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-    return labelWidth;
-  }
-
-  // 下段ボックスを追加（5プレビュー済）
-  function topEdge() {
-    $('.prev-content').after(`<div class="prev-content"></div>`);
-  }
-
-  // ラベルボックスを削除（10プレビュー済）
-  function bottomEdge(i) {
-    $(`#label-box--${i}`).remove();
-  }
-
-  function addPrev(i) {
-    var labelBox = `.label-content #post_images_attributes_${i}_image`
-    $(document).on("change", labelBox, function() {
-      var html = buildHTML(i);
-      var prevContent = buildPrev(i);
+  // プレビューの追加
+  var inputField = `.label-content .hidden-field`
+  $(document).on('change', inputField, function() {
+    var file = this.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function() {
+      var image = this.result;
+      var count = $('.preview-box').length;
+      var html = buildHTML(count, image);
+      var prevContent = $('.label-content').prev();
       $(prevContent).append(html);
-      if (i == 9) {
-        bottomEdge(i);
-      } else {
-        var labelWidth = buildLabel(i, prevContent);
-        $(`#label-box--${i}`).css('width', labelWidth);
-        $(`#label-box--${i}`).attr({
-            id: `label-box--${i+1}`,
-            for: `post_images_attributes_${i+1}_image`
-        });
-        if (i == 4) topEdge();
+      $(`#post_images_attributes_${count}_image`).appendTo(prevContent);
+      var count = $('.preview-box').length;
+      if (count == 10) { $('.label-content').hide();} 
+      else {
+        if (count == 5){
+          $('.prev-content').after(`<div class="prev-content"></div>`);
+        }
+        setLabel(count);
       }
-    });
-  }
-
-  $(function() {
-    for (let i=0; i<10; i++) {
-      addPrev(i);
     }
   });
+
+
+  // 画像の編集
+  $(document).on('change', '.prev-content input', function() {
+    var id = $(this).attr("id").replace(/[^0-9]/g, '');
+    var file = this.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function() {
+      var image = this.result;
+      $(`#preview-box__${id} img`).attr('src', `${image}`);
+    }
+  });
+
+  // 画像の削除
+  $(document).on('click', '.delete-box', function() {
+    var id = $(this).attr("id").replace(/[^0-9]/g, '');
+    $(`#preview-box__${id}`).remove();
+    var count = $('.preview-box').length;
+    $(`#post_images_attributes_${id}_image`).insertAfter('.label-box');
+    $(`#post_images_attributes_${id}_image`).val("");
+    setLabel(count);
+  });
+
 });

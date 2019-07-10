@@ -65,14 +65,14 @@ ja:
         nickname: ニックネーム
 
       profile:
-        family_name: 姓
-        first_name: 名
-        family_name_kana: 姓（カナ）
-        first_name_kana: 名（カナ）
+        family_name: ""
+        first_name: ""
+        family_name_kana: ""
+        first_name_kana: ""
 
       address:
-        postal_code: 郵便番号
-        prefecture: 都道府県
-        city: 市町村
-        block: 番地
+        postal_code: ""
+        prefecture: ""
+        city: ""
+        block: ""
         building: 建物名

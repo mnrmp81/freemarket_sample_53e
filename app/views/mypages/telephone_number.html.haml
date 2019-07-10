@@ -1,0 +1,19 @@
+= render "shared/top_page/header"
+- breadcrumb :telephone_number
+= breadcrumbs separator: " &rsaquo; "
+
+.main-body
+  = render partial: 'shared/mypage/side_menu'
+
+  .mypage-main
+    .mypage-main-top.user-registration-info
+      .user-registration-info__title
+        %h1 完了
+      .user-registration-info__content--teleohone_number
+        .user-registration-info__telephone_number
+          確認済みです
+        
+
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"

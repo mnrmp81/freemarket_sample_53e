@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 2019_07_09_132831) do
     t.index ["post_id"], name: "index_images_on_post_id"
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.string "charge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_orders_on_post_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

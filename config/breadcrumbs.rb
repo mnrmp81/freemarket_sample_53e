@@ -22,6 +22,28 @@ crumb :identification do
   parent :mypages
 end
 
+crumb :telephone_number do
+  link "電話番号の確認", telephone_number_mypages_path
+  parent :mypages
+end
+
+crumb :telephone_number do
+  link "電話番号の確認", telephone_number_mypages_path
+  parent :mypages
+end
+
+crumb :profile do
+  link "プロフィール", edit_mypages_path
+  parent :mypages
+end
+
+crumb :email_password do
+  link "メール/パスワード", email_password_mypages_path
+  parent :mypages
+end
+
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

@@ -32,31 +32,31 @@
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to listing_mypages_path, class: 'menu-link' do
           .menu-text
             出品した商品・出品中
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to in_transaction_mypages_path, class: 'menu-link' do
           .menu-text
             出品した商品・取引中
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to completed_transaction_mypages_path, class: 'menu-link' do
           .menu-text
             出品した商品・売却済み
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to purchase_mypages_path, class: 'menu-link' do
           .menu-text
             購入した商品・取引中
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to purchased_mypages_path, class: 'menu-link' do
           .menu-text
             購入した商品・過去の取引
           .list-arrow-icon
@@ -112,19 +112,19 @@
     %h1 設定
     %ul.menu-lists
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to profile_mypages_path, class: 'menu-link' do
           .menu-text
             プロフィール
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to deliver_address_mypages_path , class: 'menu-link' do
           .menu-text
             発送元・お届け先住所変更
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to card_mypages_path, class: 'menu-link' do
           .menu-text
             お支払い方法
           .list-arrow-icon
@@ -142,13 +142,13 @@
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to telephone_number_mypages_path, class: 'menu-link' do
           .menu-text
             電話番号の確認
           .list-arrow-icon
             = icon('fas', 'chevron-right')
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to logout_mypages_path, class: 'menu-link' do
           .menu-text
             ログアウト
           .list-arrow-icon

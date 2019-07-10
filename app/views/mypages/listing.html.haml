@@ -1,0 +1,37 @@
+= render "shared/top_page/header"
+
+.main-body
+  = render partial: 'shared/mypage/side_menu'
+  .mypage-main
+    .mypage-main-bottom
+      .bought-product-header
+        %p 出品した商品
+      .tabs
+        %ul.tabs-lists
+          %li.tabs-list.tabs-list__in-transaction 出品中
+          %li.tabs-list.tabs-list__past-trading 取引中
+          %li.tabs-list.tabs-list__past-trading 売却済み
+      .tabs-contents
+        - if @posts.present?
+          - @posts.each do |post|
+            - if post.product_status == "listing"
+              - image = get_image_url(post.id)
+              %ul.contents-lists
+                %li.contents-list
+                  = link_to '#' do
+                    - if image.present?
+                      .contents-list-
+                        = image_tag image.image.url, size: '48x48', alt: 'product-image'
+                    .contents-list-main
+                      .contents-list-main__top
+                        「 #{post.product_name} 」は出品中です。
+                    .list-arrow-icon
+                      = icon('fas', 'chevron-right')
+        - else
+          %ul.no-content-list
+            .no-content-box
+              %li.no-content-box__message.no-content-box__message--in-transaction 取引中の商品がありません
+
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"
