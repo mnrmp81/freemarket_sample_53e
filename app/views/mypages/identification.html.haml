@@ -35,29 +35,29 @@
             = f.label '郵便番号', class: 'registration-form-group__label'
             %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
             %br
-            = f.text_field :postal_code, placeholder: '例）1234567', class: 'registration-form-group__text-field', value: "1234567"
+            = f.text_field :postal_code, placeholder: '例）1234567', class: 'registration-form-group__text-field'
           .registration-form-group.registration-form-group--prefecture
             = f.label '都道府県', class: 'registration-form-group__label'
             %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
             %br
-            = f.text_field :prefecture, placeholder: '--', class: 'registration-form-group__text-field', value: "神奈川県"
+            =f.collection_select :prefecture, Prefecture.all, :id, :name, class: 'registration-form-group__collection-select'
             .drop-down-arrow-icon
               = icon('fas', 'chevron-down')
           .registration-form-group
             = f.label '市区町村', class: 'registration-form-group__label'
             %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
             %br
-            = f.text_field :city, placeholder: '例) 横浜市緑区', class: 'registration-form-group__text-field', value: "横浜市緑区"
+            = f.text_field :city, placeholder: '例) 横浜市緑区', class: 'registration-form-group__text-field'
           .registration-form-group
             = f.label '番地', class: 'registration-form-group__label'
             %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
             %br
-            = f.text_field :block, placeholder: '例) 青山1−1−1', class: 'registration-form-group__text-field', value: "青山1-1-1"
+            = f.text_field :block, placeholder: '例) 青山1−1−1', class: 'registration-form-group__text-field'
           .registration-form-group
             = f.label '建物名', class: 'registration-form-group__label'
             %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
             %br
-            = f.text_field :building, placeholder: '例) 柳ビル103', class: 'registration-form-group__text-field', value: "柳ビル103"
+            = f.text_field :building, placeholder: '例) 柳ビル103', class: 'registration-form-group__text-field'
 
           -# 名前、生年月日等を登録していない人には以下のコメントアウト部分を表示
           -# .registration-form-group
