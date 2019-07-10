@@ -68,10 +68,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def credit_card_params
-    card_param = params[:credit_card]
-    date = card_param["expiration_date(2i)"] + card_param["expiration_date(3i)"]
-    year = card_param["expiration_date(1i)"]
-    params.require(:credit_card).permit(:card_number, :security_code).merge(expiration_date: date, expiration_year: year)
+    date = params["expiration_date(2i)"]
+    year = params["expiration_date(1i)"]
+    params.permit(:card_number, :security_code).merge(expiration_date: date, expiration_year: year)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
