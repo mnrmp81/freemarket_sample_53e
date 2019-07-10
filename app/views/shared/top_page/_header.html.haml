@@ -34,7 +34,7 @@
               %i.fas.fa-check
               %span.list-name やることリスト
           %li.user-information__list-login
-            = link_to mypages_path do
+            = link_to mypage_path(user) do
               = image_tag asset_path("top_page/avater.jpeg"), class: "avater-image", size: "30x30"
               %span.list-name マイページ
         - else

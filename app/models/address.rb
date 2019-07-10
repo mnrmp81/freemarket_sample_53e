@@ -1,6 +1,10 @@
-class Address < ApplicationRecord
+class Address < ApplicationRecord  
   belongs_to :user
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+
+  validates :prefecture, presence: true
   validates :postal_code, presence: { message: '入力してください' }
   validates :postal_code, length: { is: 7, message: 'フォーマットが正しくありません' }, if: ->(u) { u.postal_code.present? },
     numericality: { only_integer: true, message: '' }

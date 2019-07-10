@@ -23,6 +23,6 @@ class AddressSessionController < ApplicationController
   private
 
   def address_session_params
-    params.permit(:postal_code, :prefecture, :city, :block, :building)
+    params.permit(:postal_code, :prefecture_id, :city, :block, :building)
   end
 end

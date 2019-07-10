@@ -1,15 +1,15 @@
-= render "shared/top_page/header"
+= render partial: "shared/top_page/header", locals: { user: @user }
 - breadcrumb :mypages
 %p.bread
   = breadcrumbs separator: "&rsaquo;"
 
 .main-body
-  = render partial: 'shared/mypage/side_menu'
+  = render partial: 'shared/mypage/side_menu', locals: { user: @user }
 
   .mypage-main
     .mypage-main-top
       .user-header
-        = link_to '#' do
+        = link_to '/' do
           .user-info-box
             .user-info-box__thumbnail
               = image_tag 'mypage/user-icon.png', size: '60x60', alt: 'thumbnail'

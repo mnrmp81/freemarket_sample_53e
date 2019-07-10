@@ -1,0 +1,25 @@
+= render "shared/top_page/header"
+
+.main__container.clearfix
+  = render partial: 'shared/mypage/side_menu'
+
+  .main__content
+    %section.chapter__container
+      %h2.chapter__head 支払い方法
+      .payment__main
+        .payment__list
+          .payment__list__content
+            %h3.sub__head クレジットカード一覧
+        .card__payment__list
+          %form.card__payment__content
+          .card__list
+            .card__list__picture  
+          .card__number ************9999
+          .expire__date 02/20
+          %button.delete__button 削除する
+        .how__not__regist
+          %span 支払い方法について
+
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"

@@ -1,17 +1,35 @@
 class MypagesController < ApplicationController
   before_action :get_user_has_posts, only: [:purchase, :purchased, :listing, :in_transaction, :completed_transaction]
   before_action :get_user_purchase_products, only: [:purchase, :purchased]
-
+  before_action :get_user_params, only: [:index, :identification]
   def index
+  end
+
+  def profile
+  end
+
+  def deliver_address
+  end
+
+  def verified_card
+  end
+
+  def card
+  end
+
+  def create_card
   end
 
   def logout
   end
 
   def identification
+    @profile = Profile.where(user_id: current_user.id).first
+    @address = Address.where(user_id: current_user.id).first
   end
 
   def edit
+  
   end 
 
   def telephone_number
@@ -19,7 +37,6 @@ class MypagesController < ApplicationController
 
   def email_password
     @user = User.find(current_user.id)
-  
   end
 
   def purchase
@@ -47,6 +64,10 @@ class MypagesController < ApplicationController
 
   def get_user_purchase_products
     @products = current_user.orders
+  end
+
+  def get_user_params
+    @user = User.find(params[:id])
   end
 
 end
