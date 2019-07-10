@@ -1,26 +1,27 @@
-.member_information__new_5
-  %h3 支払い方法
-.form-group__new_5
-  = form_with model: @user, scope: 'user', url: '/users', class: 'card-register-form' do |f|
-    = fields_for :credit_card do |card|
-      .card-form-group
-        .card-form-group__label
-          = card.label 'カード番号', class: 'form-group__card'
-          %span.form-group__required 必須
-        = card.number_field :card_number, class: 'form-group__input', placeholder: '半角英数字のみ'
-      .card-form-group.card-form-group__photo2
-        =image_tag  "profiles/20.15.42.png", class: "photo2"
-      .card-form-group
-        .card-form-group__label
-          = card.label '有効期限', class: 'form-group__expiration_date'
-          %span.form-group__required--expiration_date 必須
-        = card.date_select :expiration_date, class: "card-form-group__select-box"
-        
-      .card-form-group
-        .card-form-group__label
-          = card.label 'セキュリティコード', class: 'orm-group__security_code'
-          %span.form-group__required--security_code 必須
-        = card.number_field :security_code, class: 'form-group__input', placeholder: 'カード背面4桁もしくは3桁の番号'
-    .card-form-group.card-form-group__submit
-      = f.submit '次へ進む', class: 'card-form-group__next-form'
-    
+.main__content
+  %section.chapter__container
+    %h2.chapter__head お支払い方法
+    = form_with model: @credit_card, url: '/users', class: 'chapter__container__inner' do |f|
+      .form__main__container
+        .form__content
+          = f.label 'カード番号', class: 'payment__card'
+          %span.require__form 必須
+          = f.number_field :card_number, class: 'input__deafult', placeholder: '半角英数字のみ'
+          .card__list
+            .card__list__picture
+        .form__content.top__margin
+          = f.label '有効期限', class: 'payment__card'
+          %span.require__form 必須
+          .select__box.top__margin
+            .select__box__half
+              = f.date_select :expiration_date, class: "select__default", discard_day: true, discard_day: true
+        .form__content.top__margin
+          = f.label 'セキュリティコード'
+          %span.require__form 必須
+          = f.number_field :security_code, placeholder: 'カード背面4桁もしくは3桁の番号'
+          .single__code
+            .single__code__text
+            %span.form__question ? 
+            %span カードの裏面の番号とは？
+        = f.submit '次へ進む', class: 'credit-card-submit'
+  
