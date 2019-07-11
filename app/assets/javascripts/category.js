@@ -5,10 +5,20 @@ $(function () {
     var html = `<div class="select__box">
                   <select class="select__box__format" name="post[${count}_category_id]" id="post_${count}_category_id">
                     <option>---</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                    <option value="1">トップス</option>
+                    <option value="2">ジャケット/アウター</option>
+                    <option value="3">パンツ</option>
+                    <option value="4">スカート</option>
+                    <option value="5">ワンピース</option>
+                    <option value="6">靴</option>
+                    <option value="7">ルームウェア/パジャマ</option>
+                    <option value="8">レッグウェア</option>
+                    <option value="9">帽子</option>
+                    <option value="10">バッグ</option>
+                    <option value="11">アクセサリー</option>
+                    <option value="12">ヘアアクセサリー</option>
+                    <option value="13">小物</option>
+                    <option value="14">時計</option>
                   </select>
                   <div class="drop-down-icon">
                     <i class="fas fa-chevron-down"></i>
