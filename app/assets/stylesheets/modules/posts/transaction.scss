@@ -75,6 +75,9 @@
             font-size: 28px;
           }
         }
+        .buy-post-submit-error {
+          color: #ea352d;
+        }
         .buy-post-submit {
           margin: 8px 0 0;
           background: #ea352d;
@@ -84,6 +87,11 @@
           width: 100%;
           line-height: 48px;
           font-size: 14px;
+        }
+        .disabled {
+          border: 1px solid #888;
+          background: #888;
+          font-weight: bold;
         }
       }
     }
