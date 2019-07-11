@@ -1,7 +1,7 @@
 $(function () {
   function buildOptions(input){
     var options = (function() {
-      if(input == "included") return `<option>---</option>
+      if(input == "included") return `<option value="">---</option>
                                       <option value="undecided">未定</option>
                                       <option value="mercari_deli">らくらくメルカリ便</option>
                                       <option value="yu_mail">ゆうメール</option>
@@ -12,7 +12,7 @@ $(function () {
                                       <option value="click_post">クリックポスト</option>
                                       <option value="yu_packet">ゆうパケット</option>`;
                                       
-                              return `<option>---</option>
+                              return `<option value="">---</option>
                                       <option value="undecided">未定</option>
                                       <option value="kuroneko">クロネコヤマト</option>
                                       <option value="yu_pack">ゆうパック</option>
@@ -42,7 +42,7 @@ $(function () {
 
   $(document).on("change", "#post_delivery_fee", function () {
     var input = $(this).val();
-    if ($('#delivery_method_content').length == 0) {
+    if ($('#delivery_method_form').length == 0) {
       html = buildHTML(input);
       $(html).insertAfter('#delivery_fee_content');
     }
