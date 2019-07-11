@@ -36,9 +36,9 @@ class ProfilesController < ApplicationController
   end
 
   def profile_update
-    binding.pry
     User.update(user_update_params)
     Profile.update(profile_update_params)
+    redirect_to profile_mypage_path
   end
 
   private

@@ -7,8 +7,7 @@ class MypagesController < ApplicationController
   end
 
   def profile
-    @user = User.find(current_user.id)
-    @profile = Profile.find(current_user.id)
+    @profile = Profile.find(params[:id])
   end
 
   def deliver_address
