@@ -21,15 +21,8 @@ class User < ApplicationRecord
   validates :nickname, presence: true
 
   def self.find_oauth(auth)
-    uid = auth.uid
-    provider = auth.provider
-    User.create_with(
-      uid: uid,
-      provider: provider,
-      nickname: auth.info.name,
-      email: auth.info.email,
-      password: Devise.friendly_token[0, 20]
-    ).find_or_create_by(uid: uid, provider: provider)
+    user = User.find_by(uid: auth.uid, provider: auth.provider)
+    return user
   end
 
 end
