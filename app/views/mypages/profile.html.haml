@@ -8,16 +8,15 @@
   .main__content
     %section.chapter__container
       %h2.chapter__head プロフィール
-      %form
-        -# %input
+      = form_with url: profile_update_profile_path , local: true do |f|
         .profile__icon
-          %figure
-            = image_tag asset_path("top_page/avater.jpeg"), class: "img", size: "60x60"
-          %input.input__deafult{placeholder: "shiro"}
+          = f.file_field :avatar, class: "hidden_avator"
+          = f.label :avatar do
+            = image_tag asset_path("top_page/avater.jpeg"), class: "figure", size: "60x60"
+          = f.text_field :nickname, class: "input__deafult", placeholder: "shiro"
         .profile__content
-          %textarea.content__deafult{placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-          -# %input
-          %button.btn__deafult 変更する
+          = f.text_area :profile,  placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" , class: "content__deafult"
+          = f.submit "変更する" , class: "btn__deafult"
     
 = render "shared/top_page/sell-fix-logo"
 = render "shared/top_page/app-banner"

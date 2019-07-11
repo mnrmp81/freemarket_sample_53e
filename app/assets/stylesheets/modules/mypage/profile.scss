@@ -28,7 +28,10 @@
           font-size: 0;
           background-size: cover;
           background-image: url("mypage/background_image.png");
-          figure{
+          .hidden_avator{
+            display: none;
+          }
+          .figure{
             display: inline-block;
             overflow: hidden;
             width: 60px;

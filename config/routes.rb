@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     member do
       get "edit_address_delivery"
       post "update"
+      post "profile_update"
     end
   end
 

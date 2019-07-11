@@ -35,4 +35,20 @@ class ProfilesController < ApplicationController
   def update
   end
 
+  def profile_update
+    binding.pry
+    User.update(user_update_params)
+    Profile.update(profile_update_params)
+  end
+
+  private
+  
+  def user_update_params
+    params.permit(:avatar, :nickname)
+  end
+
+  def profile_update_params
+    params.permit(:profile)
+  end
+
 end
