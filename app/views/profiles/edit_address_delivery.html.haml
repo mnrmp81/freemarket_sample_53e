@@ -6,46 +6,42 @@
   .main__content
     %section.chapter__container
       %h2.chapter__head 発送元・お届け先住所変更
-      %form.chapter__container__inner
+      =form_with url: update_address_delivery_profile_path(@user), class: "chapter__container__inner" do |f|
         .form__main__container
           .form__content
-            %label.name お名前
+            =f.label "お名前", class:"name" 
             %span.require__form 必須
-            %input.input__default{placeholder: "例) 山田"}
-            %input.input__default{placeholder: "例) 彩"}
+            =f.text_field :family_name, class:"input__default", value:"#{@profile.family_name}"
+            =f.text_field :first_name, class:"input__default", value:"#{@profile.first_name}"
           .form__content.name__kana
-            %label.name お名前カナ
+            =f.label "お名前カナ", class:"name" 
             %span.require__form 必須
-            %input.input__default{placeholder: "例) ヤマダ"}
-            %input.input__default{placeholder: "例) アヤ"}
+            =f.text_field :family_name_kana, class:"input__default", value:"#{@profile.family_name_kana}"
+            =f.text_field :first_name_kana, class:"input__default", value:"#{@profile.first_name_kana}"
           .form__content__default
-            %label.name 郵便番号
+            =f.label "郵便番号", class: "name"
             %span.require__form 必須
-            %input.input__default{placeholder: "例) 123-456"}
+            =f.text_field :postal_code, class:"input__default", value:"#{@address.postal_code}"
           .form__content__prefecture
-            %label.prefecture 都道府県
+            =f.label "都道府県", class: "prefecture"
             %span.require__form 必須
             .select__content
-              %select.prefecture
-              .drop-down-icon
+              =f.collection_select :prefecture_id, Prefecture.all, :id, :name, class:"prefecture", selected: "#{@address.prefecture_id}"
+              .down-arrow-icon
                 = icon('fas', 'chevron-down')
           .form__content__default 
-            %label.name 市区町村
+            =f.label "市区町村", class: "name"
             %span.require__form 必須
-            %input.input__default{placeholder: "例) 横浜市緑区"}
+            =f.text_field :city, class:"input__default",value:"#{@address.city}"
           .form__content__default 
-            %label.name 番地
+            =f.label "番地", class:"name"
             %span.require__form 必須
-            %input.input__default{placeholder: "例) 青山1-1-1"}
+            =f.text_field :block, class:"input__default",value:"#{@address.block}"
           .form__content__default 
-            %label.name 建物名
+            =f.label "建物名", class:"name"
             %span.require__form-gray 任意
-            %input.input__default{placeholder: "例) 柳ビル103"}
-          .form__content__default 
-            %label.name 電話
-            %span.require__form-gray 任意
-            %input.input__default{placeholder: "例) 09012345678"}
-          %button.red__btn 変更する
+            =f.text_field :building, class:"input__default",value:"#{@address.building}"
+          =f.submit "変更する", class:"red__btn "
 
     
 = render "shared/top_page/sell-fix-logo"

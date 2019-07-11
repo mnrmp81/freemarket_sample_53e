@@ -116,7 +116,7 @@
         margin: 8px 0 0;
         position: relative;
         background: #fff;
-        .prefecture{
+        #prefecture_id{
           width: 100%;
           position: relative;
           z-index: 2;
@@ -132,8 +132,13 @@
           -moz-appearance: none;
           appearance: none; 
         }
-        .drop-down-icon{
-          @include drop_down_icon();
+
+        .fas.fa-chevron-down{
+          position: absolute;
+          top: 35%;
+          bottom: 0;
+          right: 2%;
+          color: #bdbdbd;
         }
       }
     }

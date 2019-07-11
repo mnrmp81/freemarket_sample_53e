@@ -45,7 +45,10 @@
               = f.label '都道府県', class: 'registration-form-group__label'
               %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
               %br
-              =f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'registration-form-group__text-field', selected: "#{@address.prefecture_id}"
+              .select__content
+                =f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'registration-form-group__text-field', selected: "#{@address.prefecture_id}"
+                .down-arrow-icon
+                  = icon('fas', 'chevron-down')
             .registration-form-group
               = f.label '市区町村', class: 'registration-form-group__label'
               %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意

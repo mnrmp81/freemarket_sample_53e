@@ -29,10 +29,27 @@ class ProfilesController < ApplicationController
   end
 
   def edit_address_delivery
-    @user = User.find(params[:id]) 
+    @user = User.find_by(params[:id]) 
+    @profile = Profile.find_by(user_id: params[:id])
+    @address = Address.find_by(user_id: params[:id])
   end
 
-  def update
+  def update_address_delivery
+    @user = User.find_by(id: current_user) 
+    profile = Profile.find_by(user_id: current_user)
+    address = Address.find_by(user_id: current_user)
+    profile.update(profile_delivery_params)
+    address.update(address_delivery_params)
+  end
+
+  private
+
+  def profile_delivery_params
+    params.permit(:family_name,:first_name,:family_name_kana,:first_name_kana)
+  end
+
+  def address_delivery_params
+    params.permit(:postal_code,:prefecture_id,:city,:block,:building)
   end
 
 end
