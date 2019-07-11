@@ -68,7 +68,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(update_post_params)
-      redirect_to root_path
+      redirect_to @post
     else
       render :edit
     end
@@ -76,7 +76,7 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      redirect_to root_path, notice: '出品を削除しました'
+      redirect_to listing_mypage_path(current_user), notice: '出品を削除しました'
     else
       render @post
     end
