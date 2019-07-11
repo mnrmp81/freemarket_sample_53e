@@ -1,0 +1,12 @@
+- if post.user_id == current_user.id
+  .edit-content
+    = link_to '商品の編集', edit_post_path(post), class: 'edit-btn'
+    %p or
+    = form_for(post) do |f|
+      - if post.product_status == "listing"
+        = f.text_field :product_status, value: 'stopping_listing', class: 'hidden-field'
+        = f.submit '出品を一旦停止する', class: 'stopping-listing-btn'
+      - if post.product_status == "stopping_listing"
+        = f.text_field :product_status, value: 'listing', class: 'hidden-field'
+        = f.submit '出品を再開する', class: 'listing-btn'
+    = link_to 'この商品を削除する', post_path(post), method: :delete, class: 'destroy-btn'
