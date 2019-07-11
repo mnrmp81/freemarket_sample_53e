@@ -24,8 +24,7 @@ class PostsController < ApplicationController
   end 
 
   def show
-    @other_posts = @post.user.posts.limit(6)
-    @image = Image.find_by(post_id: @post.id)
+    @other_posts = @post.user.posts.limit(6).where.not(id: @post.id, product_status: "1")
   end
 
   def transaction
