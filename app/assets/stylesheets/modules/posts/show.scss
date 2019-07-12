@@ -121,31 +121,6 @@ a {
       }
     }
   }
-  .edit-content {
-    @include content_box($mar:24px auto);
-    text-align: center;
-    .edit-btn {
-      @include edit_btn_style($red-btn-color);
-    }
-    .hidden-field {
-      display: none;
-    }
-    .stopping-listing-btn {
-      @include edit_btn_style($comment_font_color);
-      border: 1px solid #aaa;
-      width: 100%;
-      cursor: pointer;
-    }
-    .listing-btn {
-      @include edit_btn_style($red-btn-color);
-      width: 100%;
-      cursor: pointer;
-    }
-    .destroy-btn {
-      @include edit_btn_style($comment_font_color);
-      border: 1px solid #aaa;
-    }
-  }
   .comment-content {
     @include content_box($mar:8px auto);
     &__comments-container {
@@ -190,29 +165,6 @@ a {
     }
     &__next-post-link {
       @include post_links(right);
-    }
-  }
-  .sns-links {
-    @include content_box($mar:24px auto);
-    &__link-box {
-      display: flex;
-      justify-content: center;
-      a:hover {
-        @include link_only_opacity;
-      }
-      .sns-link {
-        &--fb {
-          margin-right: 8px;
-          color: #385185;
-        }
-        &--twitter {
-          margin-right: 8px;
-          color: #5d9dc9;
-        }
-        &--pinterest {
-          color: #aa262a;
-        }
-      }
     }
   }
   .other-posts {

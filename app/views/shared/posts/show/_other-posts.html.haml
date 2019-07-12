@@ -1,6 +1,6 @@
 = link_to post_path(other_post), {class: 'post-box'} do
   .post-box__image
-    = image_tag 'post_show/post-img', size: "220x220", alt: "post-img"
+    = image_tag other_post.images.first.image.url, size: "220x220", alt: "post-img"
   .post-box__body
     .post-name
       = other_post.product_name

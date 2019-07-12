@@ -12,7 +12,7 @@
         - if @post.images.present?
           .img-box
             .img-box__current-img
-              = image_tag @image.image.url size: "300x300", alt: "post-img"
+              = image_tag @post.images.first.image.url size: "300x300", alt: "post-img"
             .img-box__images.clearfix
               = render partial: 'shared/posts/show/images', collection: @post.images, as: 'image'
       .post-content__upper-box__right-side
@@ -44,18 +44,7 @@
         = link_to '#', {class: 'approach-to-safety-link'} do
           %i.fas.fa-unlock-alt.approach-to-safety-link__lock
           %span あんしん・あんぜんへの取り組み
-  - if @post.user_id == current_user.id
-    .edit-content
-      = link_to '商品の編集', edit_post_path(@post), class: 'edit-btn'
-      %p or
-      = form_for(@post) do |f|
-        - if @post.product_status == "listing"
-          = f.text_field :product_status, value: 'stopping_listing', class: 'hidden-field'
-          = f.submit '出品を一旦停止する', class: 'stopping-listing-btn'
-        - if @post.product_status == "stopping_listing"
-          = f.text_field :product_status, value: 'listing', class: 'hidden-field'
-          = f.submit '出品を再開する', class: 'listing-btn'
-      = link_to 'この商品を削除する', post_path(@post), method: :delete, class: 'destroy-btn'
+  = render 'shared/posts/show/edit-box', {post: @post}
   .comment-content
     .comment-content__comments-container.clearfix
       = render 'shared/posts/show/comments'
@@ -66,28 +55,19 @@
       %button.comment-content__form-box__submit{type: 'submit'} コメントする
   %ul.post-links.clearfix
     %li.post-links__prev-post-link
-      = link_to '#' do
-        %i.fas.fa-chevron-left
-        %span 【片付け読本】　メグメグのシンプルかわいい片づけ生活
-    %li.post-links__next-post-link
-      = link_to '#' do
-        %span コサージュ アレンジメント
-        %i.fas.fa-chevron-right
-  .sns-links
-    %ul.sns-links__link-box
-      %li.sns-link
-        = link_to '#' do
-          %i.fab.fa-facebook-square.fa-3x.sns-link--fb
-      %li.sns-link
-        = link_to '#' do
-          %i.fab.fa-twitter-square.fa-3x.sns-link--twitter
-      %li.sns-link
-        = link_to '#' do
-          %i.fab.fa-pinterest-square.fa-3x.sns-link--pinterest
+      - if @post.previous.present?
+        = link_to post_path(@post.previous) do
+          %i.fas.fa-chevron-left
+          %span #{@post.previous.product_name}
+    %li.post-links__next-post-link 
+      - if @post.next.present?
+        = link_to post_path(@post.next) do
+          %span #{@post.next.product_name}
+          %i.fas.fa-chevron-right
+  = render 'shared/posts/show/sns'
   .other-posts
     %h2.other-posts__link
-      = link_to '#' do
-        #{@post.user.nickname}さんのその他の商品
+      = link_to "#{@post.user.nickname}さんのその他の商品", '#'
     .post-boxes
       = render partial: 'shared/posts/show/other-posts', collection: @other_posts, as: 'other_post'
   .other-posts

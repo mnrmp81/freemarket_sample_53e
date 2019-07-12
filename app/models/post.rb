@@ -63,4 +63,12 @@ class Post < ApplicationRecord
   enum delivery_method:{ undecided: 0, mercari_deli: 1, yu_mail: 2, letter_pack: 3, normal_mail: 4, kuroneko: 5, yu_pack: 6, click_post: 7, yu_packet: 8}
   enum delivery_date:{ one_or_two_days: 0, two_or_three_days: 1, within_a_week:2 }
   enum product_status:{ listing: 0, stopping_listing: 1, in_transaction: 2, completed_transaction: 3 }
+
+  def previous
+    Post.where("id < ?", self.id).order("id DESC").first
+  end
+ 
+  def next
+    Post.where("id > ?", self.id).order("id ASC").first
+  end
 end
