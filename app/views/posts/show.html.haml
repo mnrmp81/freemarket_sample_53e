@@ -23,9 +23,7 @@
       %span.tax (税込)
       %span.delivery-fee
         = @post.delivery_fee_i18n
-    - unless @post.user_id == current_user.id
-      .post-content__order-box
-        = link_to '購入画面に進む', transaction_post_path(@post), {class: "order-btn"}
+    = render 'shared/posts/show/buy_button', {post: @post}
     .post-content__description-box
       %p.prodict-description
         = @post.product_description
