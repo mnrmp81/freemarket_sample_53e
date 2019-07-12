@@ -1,0 +1,6 @@
+.sold-logo {
+  @include status_logo(#ea352d, "SOLD", 24px, 28px);
+}
+.stopping-logo {
+  @include status_logo(#888, "公開停止中", 35px, 18px);
+}
