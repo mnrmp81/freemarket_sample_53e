@@ -2,7 +2,7 @@
   .main-menu
     %ul.menu-lists
       %li.menu-list
-        = link_to '#', class: 'menu-link' do
+        = link_to mypage_path(current_user), class: 'menu-link' do
           .menu-text
             マイページ
           .list-arrow-icon
