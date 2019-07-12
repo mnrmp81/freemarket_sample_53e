@@ -35,7 +35,7 @@
               %span.list-name やることリスト
           %li.user-information__list-login
             = link_to mypage_path(current_user) do
-              = image_tag asset_path("top_page/avater.jpeg"), class: "avater-image", size: "30x30"
+              = image_tag @user.avatar.url, class: "avater-image", size: "30x30" ,alt: asset_path("profiles/mypageicon.jpeg")
               %span.list-name マイページ
         - else
           %li.user-information__list-nologin

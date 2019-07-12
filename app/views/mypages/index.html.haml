@@ -13,7 +13,7 @@
           .user-info-box
             - if @user.avatar.present?
               .user-info-box__thumbnail
-                -# = image_tag @user.avatar.url, size: '60x60', alt: 'thumbnail'
+                = image_tag @user.avatar.url, class: "figure", size: "60x60" ,alt: asset_path("mypage/mypageicon.jpg")
             - else
               .user-info-box__thumbnail
                 = image_tag 'mypage/user-icon.png', size: '60x60', alt: 'thumbnail'

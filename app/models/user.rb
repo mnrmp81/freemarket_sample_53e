@@ -20,6 +20,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
 
+  mount_uploader :avatar, ImageUploader
+
   def self.find_oauth(auth)
     user = User.find_by(uid: auth.uid, provider: auth.provider)
     return user
