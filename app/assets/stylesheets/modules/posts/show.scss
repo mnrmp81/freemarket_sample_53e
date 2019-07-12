@@ -45,24 +45,6 @@ a {
         font-size: 16px;
       }
     }
-    &__order-box {
-      margin: 16px 0 24px 0;
-      .order-btn {
-        display: block;
-        height: 60px;
-        line-height: 60px;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        color: $white;
-        background: $red-btn-color; 
-        opacity: 0.9;
-        &:hover {
-          opacity: 1.0;
-          text-decoration: none;
-        }
-      }
-    }
     &__description-box {
       padding-top: 32px;
       font-size: 18px;
