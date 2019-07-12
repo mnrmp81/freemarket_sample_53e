@@ -94,4 +94,4 @@ gem 'jquery-rails'
 gem 'rails-i18n'
 
 gem 'payjp'
-
+gem 'ancestry'
