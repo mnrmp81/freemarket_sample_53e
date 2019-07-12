@@ -119,33 +119,37 @@
           color: #888;
         }
 
-        &--prefecture {
-          position: relative;
-          select {
-            height: 48px;
-            width: 100%;
-            margin: 5px 0;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            outline: none;
-            cursor: pointer;
-          }
-          select:focus {
-            border: 1px solid $guide_links;
-          }
-          select::-ms-expand{
-            display: none;
-          } 
-          .drop-down-arrow-icon {
-            position: absolute;
-            top: 53%;
-            bottom: 0;
-            right: 2%;
-            color: #bdbdbd;
+        &--prefecturel {
+          .select__content{
+            position: relative;
+            #address_prefecture_id{
+              position: relative;
+              background: 0;
+              height: 48px;
+              width: 100%;
+              margin: 5px 0;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              // outline: none;
+              z-index: 2;
+              cursor: pointer;
+            }
+            .fas.fa-chevron-down{
+              position: absolute;
+              top: 38%;
+              bottom: 0;
+              right: 2%;
+              color: #bdbdbd;
+            }
+            // select:focus {
+            //   border: 1px solid $guide_links;
+            // }
+            // select::-ms-expand{
+            //   display: none;
+            // } 
           }
         }
-
         &__register-btn {
           width: 100%;
           padding: 15px 0;

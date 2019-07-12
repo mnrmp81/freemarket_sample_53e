@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   resources :profiles, only: :new do
     member do
       get "edit_address_delivery"
-      post "update"
+      post "update_address_delivery"
       post "profile_update"
     end
   end
