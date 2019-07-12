@@ -22,6 +22,7 @@
 @import 'mixins/posts/show/upper_box';
 @import 'mixins/posts/form/drop_down_icon';
 @import 'mixins/posts/form/image_btn';
+@import 'mixins/status_logo';
 
 @import "modules/shared/top_page/app-banner.scss";
 @import "modules/shared/top_page/footer.scss";
@@ -47,6 +48,8 @@
 @import 'modules/shared/posts/show/table.scss';
 @import 'modules/shared/posts/show/edit-box.scss';
 @import 'modules/shared/posts/show/sns.scss';
+@import 'modules/shared/posts/show/buy_button.scss';
+@import 'modules/shared/status_logo.scss';
 
 @import 'modules/shared/pankuzu.scss';
 @import "modules/posts/transaction.scss";
