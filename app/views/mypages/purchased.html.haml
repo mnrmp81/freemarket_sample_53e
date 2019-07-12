@@ -3,13 +3,17 @@
 .main-body
   = render partial: 'shared/mypage/side_menu'
   .mypage-main
-    .mypage-main-bottom
+    .mypage-main-top
       .bought-product-header
         %p 購入した商品
       .tabs
         %ul.tabs-lists
-          %li.tabs-list.tabs-list__past-trading 取引中
-          %li.tabs-list.tabs-list__in-transaction 過去の取引
+          %li.tabs-list.tabs-list__past-trading
+            = link_to purchase_mypage_path(current_user) do
+              %h3.tabs-list__name 取引中
+          %li.tabs-list.tabs-list__in-transaction
+            = link_to purchased_mypage_path(current_user) do
+              %h3.tabs-list__name 過去の取引
       .tabs-contents
         - if @products.present?
           - @products.each do |product|
