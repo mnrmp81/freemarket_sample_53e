@@ -120,7 +120,7 @@
                       = image_tag 'mypage/user-transaction.jpg', size: '48x48', alt: 'product-image'
                     .contents-list-main
                       .contents-list-main__top
-                        「xxxxxxxxxx」の取引中です。
+                        = "「#{product.post.product_name}」の取引中です。"
                     .list-arrow-icon
                       = icon('fas', 'chevron-right')
                 %li.move-list-link
