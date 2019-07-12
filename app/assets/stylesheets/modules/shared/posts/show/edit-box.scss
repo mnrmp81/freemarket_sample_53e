@@ -1,0 +1,25 @@
+.edit-content {
+  @include content_box($mar:24px auto);
+  text-align: center;
+  .edit-btn {
+    @include edit_btn_style($red-btn-color);
+  }
+  .hidden-field {
+    display: none;
+  }
+  .stopping-listing-btn {
+    @include edit_btn_style($comment_font_color);
+    border: 1px solid #aaa;
+    width: 100%;
+    cursor: pointer;
+  }
+  .listing-btn {
+    @include edit_btn_style($red-btn-color);
+    width: 100%;
+    cursor: pointer;
+  }
+  .destroy-btn {
+    @include edit_btn_style($comment_font_color);
+    border: 1px solid #aaa;
+  }
+}

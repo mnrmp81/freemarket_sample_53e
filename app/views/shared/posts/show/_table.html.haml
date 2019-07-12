@@ -30,20 +30,26 @@
           %p.third-category
             = link_to '#' do
               %i.fas.fa-chevron-right
-              %span ショルダーバッグ
+              %span
+                = post.third_category_id
     %tr
       %th ブランド
       %td
-        = link_to 'シャネル', '#'
+        - if post.brand_name.present?
+          = link_to '#' do
+            = post.brand_name
     %tr
       %th 商品の状態
-      %td #{post.product_condition_i18n}
+      %td
+        = post.product_condition_i18n
     %tr
       %th 配送料の負担
-      %td #{post.delivery_fee_i18n}
+      %td
+        = post.delivery_fee_i18n
     %tr
       %th 配送の方法
-      %td らくらくメルカリ便
+      %td
+        = post.delivery_method_i18n
     %tr
       %th 配送元地域
       %td
@@ -51,4 +57,5 @@
           = Prefecture.find(post.delivery_former_area).name
     %tr
       %th 配送日の目安
-      %td #{post.delivery_date_i18n}
+      %td
+        = post.delivery_date_i18n

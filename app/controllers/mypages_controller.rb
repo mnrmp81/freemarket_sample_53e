@@ -7,6 +7,7 @@ class MypagesController < ApplicationController
   end
 
   def profile
+    @profile = Profile.find(params[:id])
   end
 
   def deliver_address

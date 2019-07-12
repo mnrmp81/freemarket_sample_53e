@@ -1,0 +1,23 @@
+.sns-links {
+  @include content_box($mar:24px auto);
+  &__link-box {
+    display: flex;
+    justify-content: center;
+    a:hover {
+      @include link_only_opacity;
+    }
+    .sns-link {
+      &--fb {
+        margin-right: 8px;
+        color: #385185;
+      }
+      &--twitter {
+        margin-right: 8px;
+        color: #5d9dc9;
+      }
+      &--pinterest {
+        color: #aa262a;
+      }
+    }
+  }
+}
