@@ -38,8 +38,12 @@ class ProfilesController < ApplicationController
     @user = User.find_by(id: current_user) 
     profile = Profile.find_by(user_id: current_user)
     address = Address.find_by(user_id: current_user)
-    profile.update(profile_delivery_params)
-    address.update(address_delivery_params)
+    if profile.update(profile_delivery_params) && address.update(address_delivery_params)
+      redirect_to controller: :mypages, action: :index
+    else
+      redirect_to controller: :mypages, action: :profile
+    end
+
   end
 
   private
@@ -55,10 +59,10 @@ class ProfilesController < ApplicationController
   def profile_update
     if User.update(user_update_params) && Profile.update(profile_update_params)
       redirect_to profile_mypage_path
-    elsif User.update(user_update_params) || Profile.update(profile_update_params)
-      redirect_to profile_mypage_path
+    # elsif User.update(user_update_params) || Profile.update(profile_update_params)
+    #   redirect_to profile_mypage_path
     else
-      render :profile_update
+      redirect_to controller: :mypages, action: :profile
     end
   end
     

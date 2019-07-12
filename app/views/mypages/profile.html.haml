@@ -8,16 +8,16 @@
   .main__content
     %section.chapter__container
       %h2.chapter__head プロフィール
-      = form_with url: profile_update_profile_path , local: true do |f|
+      = form_with url: profile_update_profile_path(current_user) , local: true do |f|
         .profile__icon
           = f.file_field :avatar, class: "hidden_avator"
           = f.label :avatar do
             = image_tag asset_path("top_page/avater.jpeg"), class: "figure", size: "60x60"
-          = f.text_field :nickname, class: "input__deafult", placeholder: "#{@user.nickname}"
+          = f.text_field :nickname, class: "input__deafult", value: "#{@user.nickname}"
         .profile__content
           - if @user.profile.profile.present?
-            = f.text_area :profile,  placeholder: "#{@user.profile.profile}" , class: "content__deafult"
-          - if @user.profile.profile == ""
+            = f.text_area :profile,  value: "#{@user.profile.profile}" , class: "content__deafult"
+          - else 
             = f.text_area :profile,  placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" , class: "content__deafult" 
           = f.submit "変更する" , class: "btn__deafult"
 
