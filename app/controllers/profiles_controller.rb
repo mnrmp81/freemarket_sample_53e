@@ -36,12 +36,12 @@ class ProfilesController < ApplicationController
   end
 
   def profile_update
-    if
-    User.update(user_update_params)
-    Profile.update(profile_update_params)
-    redirect_to profile_mypage_path
+    if User.update(user_update_params) && Profile.update(profile_update_params)
+      redirect_to profile_mypage_path
+    elsif User.update(user_update_params) || Profile.update(profile_update_params)
+      redirect_to profile_mypage_path
     else
-    render :profile_update
+      render :profile_update
     end
   end
     
