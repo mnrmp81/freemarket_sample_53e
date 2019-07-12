@@ -3,14 +3,20 @@
 .main-body
   = render partial: 'shared/mypage/side_menu'
   .mypage-main
-    .mypage-main-bottom
+    .mypage-main-top
       .bought-product-header
         %p 出品した商品
       .tabs
         %ul.tabs-lists
-          %li.tabs-list.tabs-list__past-trading 出品中
-          %li.tabs-list.tabs-list__past-trading 取引中
-          %li.tabs-list.tabs-list__in-transaction 売却済み
+          %li.tabs-list.tabs-list__past-trading
+            = link_to listing_mypage_path(current_user) do
+              %h3.tabs-list__name 出品中
+          %li.tabs-list.tabs-list__past-trading
+            = link_to in_transaction_mypage_path(current_user) do
+              %h3.tabs-list__name 取引中
+          %li.tabs-list.tabs-list__in-transaction
+            = link_to completed_transaction_mypage_path(current_user) do
+              %h3.tabs-list__name 売却済み
       .tabs-contents
         - if @posts.present?
           - @posts.each do |post|
