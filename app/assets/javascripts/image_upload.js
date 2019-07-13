@@ -64,12 +64,38 @@ $(function() {
 
   // 画像の削除
   $(document).on('click', '.delete-box', function() {
-    var id = $(this).attr("id").replace(/[^0-9]/g, '');
-    $(`#preview-box__${id}`).remove();
     var count = $('.preview-box').length;
-    $(`#post_images_attributes_${id}_image`).insertAfter('.label-box');
+    setLabel(count);
+    var id = $(this).attr("id").replace(/[^0-9]/g, '');
     $(`#post_images_attributes_${id}_image`).val("");
+    $(`#post_images_attributes_${id}_image`).insertAfter('.label-box');
+    $(`#preview-box__${id}`).remove();
+    if (id <= 4) {
+      var prevContentFirst = $('.prev-content').first();
+      $('#preview-box__5').appendTo(prevContentFirst);
+      var prevContentSecond = $('.prev-content').eq(1);
+      var field = $('prevContentSecond .hidden-field');
+      $(field).appendTo(prevContentFirst);
+    }
+    $('.hidden-field').each(function(index, field){
+      $(field).attr({name: `post[images_attributes][${index}][image]`, id: `post_images_attributes_${index}_image`});
+    })
+    $('.preview-box').each(function(index, box){
+      $(box).attr('id', `preview-box__${index}`);
+    })
+    $('.update-box').each(function(index, box){
+      $(box).attr('for', `post_images_attributes_${index}_image`);
+    })
+    $('.delete-box').each(function(index, box){
+      $(box).attr('id', `delete_btn_${index}`);
+    })
+    var count = $('.preview-box').length;
+    if (count == 4){
+      var prevContent = $('.label-content').prev();
+      $(prevContent).remove();
+    } else if (count == 9) {
+      $('.label-content').show();
+    }
     setLabel(count);
   });
-
 });
