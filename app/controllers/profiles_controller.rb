@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit_address_delivery
-    @user = User.find_by(params[:id]) 
+    @user = User.find_by(params[:id])
     @profile = Profile.find_by(user_id: params[:id])
     @address = Address.find_by(user_id: params[:id])
   end
