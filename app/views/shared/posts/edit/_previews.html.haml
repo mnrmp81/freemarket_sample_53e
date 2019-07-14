@@ -1,10 +1,8 @@
 .preview-box{id: "preview-box__#{image_counter}"}
   .upper-box
-    %img{alt: "preview", height: "112", src: "#{image.image.url}", width: "112"}
-    -# = image_tag image.image.url size: "112x112", alt: "preview"
+    = image_tag image.image.url, size: "112x112", alt: "preview"
   .lower-box
     .update-box
       %label.edit_btn 編集
-      -# %label.edit_btn{for: "post[images_attributes][#{image_counter}][id]"} 編集
     .delete-box{id: "delete_btn_#{image_counter}"}
       %span 削除
