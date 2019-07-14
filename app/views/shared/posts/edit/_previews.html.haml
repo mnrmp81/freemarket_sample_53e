@@ -1,0 +1,8 @@
+.preview-box{id: "preview-box__#{image_counter}"}
+  .upper-box
+    = image_tag image.image.url, size: "112x112", alt: "preview"
+  .lower-box
+    .update-box
+      %label.edit_btn 編集
+    .delete-box{id: "delete_btn_#{image_counter}"}
+      %span 削除
