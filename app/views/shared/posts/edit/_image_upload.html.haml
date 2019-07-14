@@ -1,0 +1,23 @@
+.post__upload__box
+  %h3.post__upload__head
+    出品画像
+    %span.require__form 必須
+  %p 最大10枚までアップロードできます
+  .post__drop__box__container
+    .prev-content
+      = render partial: 'shared/posts/edit/previews', collection: post.images.limit(5), as: 'image'
+    - if post.images.length >= 5
+      .prev-content
+        = render partial: 'shared/posts/edit/previews', collection: post.images.offset(5), as: 'image'
+    .label-content
+      %label{for: "post_images_attributes_#{post.images.length}_image", class: "label-box", id: "label-box--0"}
+        %pre.label-box__text-visible
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード
+    .hidden-content
+      = f.fields_for :images do |image|
+        = image.file_field :image , class: "hidden-field"
+        = image.check_box:_destroy, class: "hidden-checkbox"
+      - post.images.length.upto(9) do |i|
+        %input{id: "post_images_attributes_#{i}_image", class: "hidden-field", name: "post[images_attributes][#{i}][image]", type: "file"}
+    = render partial: 'shared/posts/form/error', locals: { post: post, attr: :images}
