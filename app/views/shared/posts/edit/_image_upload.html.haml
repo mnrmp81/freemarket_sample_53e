@@ -10,7 +10,7 @@
       .prev-content
         = render partial: 'shared/posts/edit/previews', collection: post.images.offset(5), as: 'image'
     .label-content
-      %label{for: "post_images_attributes_#{post.images.length}_image", class: "label-box", id: "label-box--0"}
+      %label{for: "post_images_attributes_#{post.images.length}_image", class: "label-box", id: "label-box--#{post.images.length}"}
         %pre.label-box__text-visible
           ドラッグアンドドロップ
           またはクリックしてファイルをアップロード
