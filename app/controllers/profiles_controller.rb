@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit_address_delivery
-    @user = User.find_by(params[:id]) 
+    @user = User.find_by(params[:id])
     @profile = Profile.find_by(user_id: params[:id])
     @address = Address.find_by(user_id: params[:id])
   end
@@ -46,6 +46,14 @@ class ProfilesController < ApplicationController
 
   end
 
+  def profile_update
+    if User.update(user_update_params) && Profile.update(profile_update_params)
+       redirect_to mypage_path
+    else
+      redirect_to profile_mypage_path
+    end
+  end
+    
   private
 
   def profile_delivery_params
@@ -55,18 +63,6 @@ class ProfilesController < ApplicationController
   def address_delivery_params
     params.permit(:postal_code,:prefecture_id,:city,:block,:building)
   end
-
-  def profile_update
-    if User.update(user_update_params) && Profile.update(profile_update_params)
-      redirect_to profile_mypage_path
-    # elsif User.update(user_update_params) || Profile.update(profile_update_params)
-    #   redirect_to profile_mypage_path
-    else
-      redirect_to controller: :mypages, action: :profile
-    end
-  end
-    
-  private
   
   def user_update_params
     params.permit(:avatar, :nickname)

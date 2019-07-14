@@ -60,6 +60,7 @@ class CreditCardController < ApplicationController
   end
 
   def confirmation
+    @user = User.find(params[:id])
     card = current_user.credit_cards
     redirect_to action: "show" if card.exists?
   end

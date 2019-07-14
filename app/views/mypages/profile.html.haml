@@ -12,7 +12,10 @@
         .profile__icon
           = f.file_field :avatar, class: "hidden_avator"
           = f.label :avatar do
-            = image_tag asset_path("top_page/avater.jpeg"), class: "figure", size: "60x60"
+            - if @user.avatar.present?
+              = image_tag @user.avatar.url, class: "figure", size: "60x60" ,alt: asset_path("profiles/mypageicon.jpeg")
+            -else
+              = image_tag asset_path("profiles/mypageicon.jpeg"), class: "figure" , size: "60x60" 
           = f.text_field :nickname, class: "input__deafult", value: "#{@user.nickname}"
         .profile__content
           - if @user.profile.profile.present?
