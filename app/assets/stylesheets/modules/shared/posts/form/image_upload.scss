@@ -32,12 +32,9 @@
             @include image_btn;
           }
           .delete-box {
-            @include image_btn;            
+            @include image_btn;
           }
         }
-      }
-      .hidden-field {
-        display: none;
       }
     }
     .label-content {
@@ -66,7 +63,12 @@
           word-wrap: break-word;
         }
       }
+    }
+    .hidden-content {
       .hidden-field {
+        display: none;
+      }
+      .hidden-checkbox {
         display: none;
       }
     }
