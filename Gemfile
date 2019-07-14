@@ -95,3 +95,4 @@ gem 'rails-i18n'
 
 gem 'payjp'
 gem 'ancestry'
+gem 'recaptcha', require: "recaptcha/rails"
