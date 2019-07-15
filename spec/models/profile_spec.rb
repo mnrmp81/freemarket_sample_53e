@@ -38,6 +38,42 @@ describe Profile do
         profile.valid?
         expect(profile.errors[:first_name_kana]).to include('入力してください')
       end
+
+      it 'is invalid with a family_name_kana that has alphabet' do
+        profile = build(:profile, family_name_kana: 'aaaa')
+        profile.valid?
+        expect(profile.errors[:family_name_kana]).to include('カタカナで入力してください')
+      end
+
+      it 'is invalid with a family_name_kana that has hiragana' do
+        profile = build(:profile, family_name_kana: 'あああ')
+        profile.valid?
+        expect(profile.errors[:family_name_kana]).to include('カタカナで入力してください')
+      end
+
+      it 'is invalid with a family_name_kana that has numeric' do
+        profile = build(:profile, family_name_kana: '111')
+        profile.valid?
+        expect(profile.errors[:family_name_kana]).to include('カタカナで入力してください')
+      end
+
+      it 'is invalid with a first_name_kana that has alphabet' do
+        profile = build(:profile, first_name_kana: 'aaaa')
+        profile.valid?
+        expect(profile.errors[:first_name_kana]).to include('カタカナで入力してください')
+      end
+
+      it 'is invalid with a first_name_kana that has hiragana' do
+        profile = build(:profile, first_name_kana: 'あああ')
+        profile.valid?
+        expect(profile.errors[:first_name_kana]).to include('カタカナで入力してください')
+      end
+
+      it 'is invalid with a first_name_kana that has numeric' do
+        profile = build(:profile, first_name_kana: '111')
+        profile.valid?
+        expect(profile.errors[:first_name_kana]).to include('カタカナで入力してください')
+      end
     end
 
   end
