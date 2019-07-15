@@ -25,18 +25,9 @@
         %br
         = f.password_field :password, placeholder: "パスワード", class: "edit_registration__second__password", autocomplete: "current-password"
         %br
-        .form-group__checkbox.form-group__checkbox--login
-          .form-group__checkbox__robot
-            %input{name: "robot", type: "checkbox", value: "1"}>/
-            .form-group__checkbox__notrobot 
-              私はロボットでは
-              %br ありません
-            =image_tag  "profiles/18.18.00.png", class: "photo"
-            %br
-          .form-group__checkbox__link
-            %a{href: ""} プライバシー
-            %p ・
-            %a{href: ""} 利用規約
+        - if Rails.env == "production"
+          .form-group__checkbox
+            =recaptcha_tags
         = f.submit "ログイン", class: "input_user_registration__second__subbutton"
         %br
         %a{href: "/", class: "edit_registration__second__fogetpass"}

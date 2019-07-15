@@ -5,6 +5,7 @@ describe PostsController, type: :controller do
   render_views
 
   let(:user) { create(:user) }
+  let(:posts) { FactoryBot.create_list :post, 2 }
 
   include AuthHelper
   before(:each) do
@@ -28,9 +29,9 @@ describe PostsController, type: :controller do
       end
 
       it "match " do
-        posts = create_list(:post, 3) 
-        binding.pry
-        expect(assigns(:posts)).to match(posts.sort{ |a, b| b.created_at <=> a.created_at } )
+        # posts = create(:post) 
+
+        expect(assigns(:posts)).to match(posts)
       end
     end
   end

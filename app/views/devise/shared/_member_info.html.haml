@@ -61,22 +61,14 @@
 
       %p.form-group__birthday--text
         ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-      .form-group__checkbox
-        .form-group__checkbox__robot
-          %input{name: "robot", type: "checkbox", value: "1"}>/
-          .form-group__checkbox__notrobot 
-            私はロボットでは
-            %br ありません
-        =image_tag  "profiles/18.18.00.png", class: "photo"
-        %br
-        .form-group__checkbox__link
-          %a{href: ""} プライバシー
-          %a{href: ""}  利用規約
+      -if Rails.env == "production"
+        .form-group__recaptcha
+          =recaptcha_tags
       
       .form-group__dentification--text
         %a「次へ進む」のボタンを押すことにより、
-        %br
         %a{href: ""}利用規約
+        %br
         %a に同意したものとみなします。
       .form-group__next
         = f.submit '次へ進む'
