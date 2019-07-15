@@ -41,16 +41,6 @@
     }
   }
   &__second{
-    .login-form {
-      .form-group__checkbox--login {
-        padding-bottom: 15x;
-        transform: scale(0.8);
-        &__link {
-          margin-bottom: 10px;
-          color: #888;
-        }
-      }
-    }
 
     button.edit_registration__second__f_loginbutton{
       width: 70%;

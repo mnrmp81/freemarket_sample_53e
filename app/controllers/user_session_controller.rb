@@ -8,13 +8,25 @@ class UserSessionController < ApplicationController
     profile = user.build_profile(profile_session_params)
     user.valid?
 
-    if user.errors.any? || verify_recaptcha.blank?
-      # エラーメッセージがあった場合、flashにエラーメッセージを格納。
-      # view側でキーを指定してエラーメッセージを取り出せるようにハッシュに変換
-      flash[:alert] = user.errors.keys.map { |key| [ key, user.errors.full_messages_for(key) ] }.to_h
-      redirect_to new_profile_path
+    if Rails.env == "production"
+      if user.errors.any? || verify_recaptcha.blank?
+        # エラーメッセージがあった場合、flashにエラーメッセージを格納。
+        # view側でキーを指定してエラーメッセージを取り出せるようにハッシュに変換
+        flash[:alert] = user.errors.keys.map { |key| [ key, user.errors.full_messages_for(key) ] }.to_h
+        redirect_to new_profile_path
+      else
+        redirect_to controller: 'users', action: 'sms_confirmation'
+      end
+
     else
-      redirect_to controller: 'users', action: 'sms_confirmation'
+      if user.errors.any? 
+        # エラーメッセージがあった場合、flashにエラーメッセージを格納。
+        # view側でキーを指定してエラーメッセージを取り出せるようにハッシュに変換
+        flash[:alert] = user.errors.keys.map { |key| [ key, user.errors.full_messages_for(key) ] }.to_h
+        redirect_to new_profile_path
+      else
+        redirect_to controller: 'users', action: 'sms_confirmation'
+      end
     end
   end
 
