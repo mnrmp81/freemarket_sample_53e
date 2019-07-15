@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   end 
 
   def show
+    @user = User.find(current_user.id)
     @other_posts = @post.user.posts.limit(6).where.not(id: @post.id, product_status: "1")
   end
 
