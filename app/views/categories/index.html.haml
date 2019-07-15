@@ -7,25 +7,27 @@
     .category__main__head
       %h2 カテゴリー一覧
     .category__main__nav.clearfix
-      %a.category__nav
-        .category__name レディース
-      %a.category__nav
-        .category__name メンズ
-      %a.category__nav
-        .category__name ベビー・キッズ
-      %a.category__nav
-        .category__name インテリア・住まい・小物
+      - @parent.each do |parent|
+        %a.category__nav
+          .category__name
+            =parent.name
     .category__main__box
-      .category__main__box__head レディース
-      .category__main__box__container
-        %p すべて
-        .category__main__box__content
-        %h4 トップス
-        .category__main__box__list.clearfix
-          .category__main__box__name
-            %p
-              %a すべて
-        
+      - @parent.each do |parent|
+        .category__main__box__head
+          =parent.name
+        .category__main__box__container         
+          %p すべて
+          .category__main__box__content
+            -parent.children.each do |child|
+              %h4
+                =child.name
+              .category__main__box__list.clearfix
+                -child.children.each do |grandchild|
+                  .category__main__box__name
+                    %p
+                      %a
+                        =grandchild.name
+
 = render "shared/top_page/sell-fix-logo"
 = render "shared/top_page/app-banner"
 = render "shared/top_page/footer"

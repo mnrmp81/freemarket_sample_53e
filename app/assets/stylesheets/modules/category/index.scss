@@ -33,10 +33,10 @@
     }
   }
   .category__main__box{
-    background-color: white;
     margin: 30px auto;
     border-radius: 4px;   
     &__head{
+      margin-top: 40px;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
       padding: 7px 30px 0 30px;
@@ -47,11 +47,13 @@
       font-weight: bold;
     }
     &__container{
+      background-color: white; 
       padding: 24px 30px 10px 30px;
       font-size: 16px;
-      margin-top: 8px;
+      margin-top: 0 ;
       margin-bottom: 8px;
       color: #0099e8;
+      border-radius: 4px;
       .category__main__box__content{
         padding-top: 15px;
         padding-bottom: 5px;
@@ -59,6 +61,9 @@
       h4{
         color: black;
         font-weight: bold;
+        font-size: 14px;
+        padding-top: 15px;
+        padding-bottom: 5px;
       }
       .category__main__box__list{
         margin-top: 10px;
@@ -72,7 +77,7 @@
           font-size: 16px;
           margin-top: 8px;
           margin-bottom: 8px;
-        }
+        } 
       }
     }
   }
