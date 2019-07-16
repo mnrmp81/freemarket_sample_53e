@@ -72,6 +72,12 @@ crumb :confirmation do
   parent :mypages
 end
 
+crumb :search do
+  link params["keyword"], search_post_path(current_user)
+  parent :root
+end
+  
+
 
 # crumb :projects do
 #   link "Projects", projects_path

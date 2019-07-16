@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'transaction'
       post 'buy'
       get 'done'
+      get 'search'
     end
   end
 
