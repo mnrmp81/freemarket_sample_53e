@@ -1,0 +1,18 @@
+= render partial: "shared/top_page/header", locals: { user: @user }
+- breadcrumb :search
+= breadcrumbs separator: " &rsaquo; "
+
+.main-pc
+  %section.top-visual
+  .containter
+    .containter__items-box
+      %font{size: "4"}
+        %b #{params[:keyword]}
+        の検索結果
+      %h3  1- #{@posts.count}件表示
+      .items-box-list
+        = render "shared/top_page/post-card"
+          
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"
