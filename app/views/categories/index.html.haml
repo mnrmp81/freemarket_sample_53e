@@ -7,15 +7,15 @@
     .category__main__head
       %h2 カテゴリー一覧
     .category__main__nav.clearfix
-      - @parent.each do |parent|
-        %a.category__nav
-          .category__name
-            =parent.name
+      - @parent.each_with_index do |parent, i|
+        .category__nav
+          =link_to "#{parent.name}", {anchor: "category__main__box__head__#{i}"}, id: "category__name__#{i}"
+          -# .category__name
     .category__main__box
-      - @parent.each do |parent|
-        .category__main__box__head
+      - @parent.each do |parent, i|
+        .category__main__box__head{id: "category__main__box__head__#{i}"}
           =parent.name
-        .category__main__box__container         
+        .category__main__box__container
           %p すべて
           .category__main__box__content
             -parent.children.each do |child|
