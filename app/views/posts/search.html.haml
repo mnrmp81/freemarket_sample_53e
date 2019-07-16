@@ -1,6 +1,7 @@
 = render partial: "shared/top_page/header", locals: { user: @user }
 - breadcrumb :search
-= breadcrumbs separator: " &rsaquo; "
+.bread
+  = breadcrumbs separator: " &rsaquo; "
 
 .main-pc
   %section.top-visual
