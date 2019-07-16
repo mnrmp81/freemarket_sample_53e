@@ -89,6 +89,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.where('product_name LIKE(?)', "%#{params[:keyword]}%").limit(40)
+  end
+
+
   def done 
   end
 
