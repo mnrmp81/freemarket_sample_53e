@@ -91,6 +91,7 @@ class PostsController < ApplicationController
   end
 
   def search
+    @user = User.find(current_user.id)
     @posts = Post.where('product_name LIKE(?)', "%#{params[:keyword]}%").limit(40)
   end
 
