@@ -77,10 +77,10 @@ crumb :search do
   parent :root
 end
 
-crumb :categories do
-  link "カテゴリー一覧",    categories_path(current_user)
-  parent :root
-end
+# crumb :categories do
+#   link "カテゴリー一覧",    categories_path(current_user)
+#   parent :root
+# end
   
 
 
