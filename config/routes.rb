@@ -46,11 +46,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: :index do
-    collection do
-      get 'index'
-    end
-  end
 
   resources :address, only: :new do
     member do
