@@ -1,0 +1,33 @@
+= render "shared/top_page/header"
+- breadcrumb :telephone_number
+= breadcrumbs separator: " &rsaquo; "
+
+.category__index
+  .category__main
+    .category__main__head
+      %h2 カテゴリー一覧
+    .category__main__nav.clearfix
+      - @parent.each do |parent|
+        %a.category__nav
+          .category__name
+            =parent.name
+    .category__main__box
+      - @parent.each do |parent|
+        .category__main__box__head
+          =parent.name
+        .category__main__box__container         
+          %p すべて
+          .category__main__box__content
+            -parent.children.each do |child|
+              %h4
+                =child.name
+              .category__main__box__list.clearfix
+                -child.children.each do |grandchild|
+                  .category__main__box__name
+                    %p
+                      %a
+                        =grandchild.name
+
+= render "shared/top_page/sell-fix-logo"
+= render "shared/top_page/app-banner"
+= render "shared/top_page/footer"
