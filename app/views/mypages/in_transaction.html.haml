@@ -1,6 +1,7 @@
 = render "shared/top_page/header"
 - breadcrumb :in_transaction
-= breadcrumbs separator: " &rsaquo; "
+.bread
+  = breadcrumbs separator: " &rsaquo; "
 
 .main-body
   = render partial: 'shared/mypage/side_menu'
