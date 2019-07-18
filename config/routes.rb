@@ -15,6 +15,11 @@ Rails.application.routes.draw do
       get 'done'
       get 'search'
     end
+
+    collection do
+      get 'child_category'
+      get 'grandchild_category'
+    end
   end
 
   resources :mypages do

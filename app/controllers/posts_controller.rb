@@ -15,6 +15,22 @@ class PostsController < ApplicationController
     @parents = Category.order('ancestry ASC').limit(13)
   end
 
+  def child_category
+    @children = Category.where(ancestry: params[:parent_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+  
+  def grandchild_category
+    @grandchildren = Category.where(ancestry: "#{params[:parent_id]}/#{params[:child_id]}")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def create
     @post = Post.new(post_params)
     if @post.save
