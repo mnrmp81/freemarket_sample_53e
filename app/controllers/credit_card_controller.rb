@@ -1,5 +1,7 @@
 class CreditCardController < ApplicationController
 
+  before_action :get_user_params, only: [:edit, :confirmation, :show]
+
   def new
   end
 
@@ -60,8 +62,14 @@ class CreditCardController < ApplicationController
   end
 
   def confirmation
-    @user = User.find(params[:id])
     card = current_user.credit_cards
     redirect_to action: "show" if card.exists?
   end
+
+private
+
+  def get_user_params
+    @user = current_user
+  end
+
 end
