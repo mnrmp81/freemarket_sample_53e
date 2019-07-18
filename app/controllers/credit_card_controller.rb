@@ -1,6 +1,6 @@
 class CreditCardController < ApplicationController
 
-  before_action :get_user_params, only: [:edit, :confirmation]
+  before_action :get_user_params, only: [:edit, :confirmation, :show]
 
   def new
   end
@@ -69,7 +69,7 @@ class CreditCardController < ApplicationController
 private
 
   def get_user_params
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
 end
