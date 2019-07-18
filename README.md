@@ -12,11 +12,9 @@
 ### Assosiation
 - has_many :orders
 - has_many :posts
-- has_many :comments
 - has_one :profile, dependent: :destroy
 - has_one :address, dependent: :destroy
 - has_many :credit_cards, dependent: :destroy
-
 
 ## profiles
 
@@ -32,7 +30,6 @@
 
 ### Assosiation
 - belongs_to :user
-
 
 ## address
 
@@ -105,14 +102,6 @@
 ### Index
 - add_index posts, :prduct_name
 
-## enum
-- enum product_size
-- enum product_condition
-- enum delivery_fee
-- enum delivery_date
-- enum product_status
-
-
 ## images
 
 |Column|Type|Options|
@@ -131,4 +120,11 @@
 |ancestry|string||
 
 ### Assosiation
-- belongs_to :post 
+- has_many :posts
+
+## enum
+- enum product_size
+- enum product_condition
+- enum delivery_fee
+- enum delivery_date
+- enum product_status
