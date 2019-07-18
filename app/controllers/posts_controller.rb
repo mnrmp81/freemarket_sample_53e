@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     10.times { @post.images.build }
+    @parents = Category.order('ancestry ASC').limit(13)
   end
 
   def create
