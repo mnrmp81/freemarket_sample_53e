@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :get_post, only: [:show, :edit, :update, :destroy, :transaction, :buy, :done]
+  before_action :get_category, only: [:new, :create, :edit, :update]
 
   def index
     @posts = Post.order('id DESC').limit(32)
@@ -12,7 +13,6 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     10.times { @post.images.build }
-    @parents = Category.order('ancestry ASC').limit(13)
   end
 
   def child_category
@@ -119,6 +119,10 @@ class PostsController < ApplicationController
   private
   def get_post
     @post = Post.find(params[:id])
+  end
+
+  def get_category
+    @parents = Category.order('ancestry ASC').limit(13)
   end
   
   def post_params
