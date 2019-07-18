@@ -22,8 +22,6 @@
                 = link_to '#' do
                   本人確認書類のアップロードについて
                   = icon('fas', 'chevron-right')
-
-            -# 名前、生年月日等が登録済みの場合
             .registration-form-group
               = f.label 'お名前', class: 'registration-form-group__label'
               %p 
@@ -32,10 +30,6 @@
               = f.label 'お名前カナ', class: 'registration-form-group__label'
               %p 
                 = "#{@profile.family_name_kana} #{@profile.first_name_kana}"
-            -# 生年月日登録ある？
-            .registration-form-group
-              = f.label '生年月日', class: 'registration-form-group__label'
-              %p 1992/05/07
 
             .registration-form-group
               = f.label '郵便番号', class: 'registration-form-group__label'
@@ -73,68 +67,6 @@
                 = link_to '#' do
                   本人情報の登録について
                   = icon('fas', 'chevron-right')
-          
-      -# -else
-      -#   .user-registration-info__content
-      -#     = form_with model: @address, scope: 'address',url: address_path(@user), class: 'user-registration-info-form' do |f|
-      -#       .user-registration-info-form__description
-      -#         %p 
-      -#           お客様の本人情報をご登録ください。
-      -#           %br
-      -#           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-      -#         %p.about-upload-info
-      -#           = link_to '#' do
-      -#             本人確認書類のアップロードについて
-      -#             = icon('fas', 'chevron-right')
-
-      -#       -# 名前、生年月日等が登録済みの場合
-      -#       .registration-form-group
-      -#         = f.label 'お名前', class: 'registration-form-group__label'
-      -#         %p 
-      -#           = "#{@profile.family_name} #{@profile.first_name}"
-      -#       .registration-form-group
-      -#         = f.label 'お名前カナ', class: 'registration-form-group__label'
-      -#         %p 
-      -#           = "#{@profile.family_name_kana} #{@profile.first_name_kana}"
-      -#       -# 生年月日登録ある？
-      -#       .registration-form-group
-      -#         = f.label '生年月日', class: 'registration-form-group__label'
-      -#         %p 1992/05/07
-
-      -#       .registration-form-group
-      -#         = f.label '郵便番号', class: 'registration-form-group__label'
-      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-      -#         %br
-      -#         = f.text_field :postal_code, class: 'registration-form-group__text-field', placeholder: '例）123-4567'
-      -#       .registration-form-group.registration-form-group--prefecturel
-      -#         = f.label '都道府県', class: 'registration-form-group__label'
-      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-      -#         %br
-      -#         =f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'registration-form-group__text-field'
-      -#       .registration-form-group
-      -#         = f.label '市区町村', class: 'registration-form-group__label'
-      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-      -#         %br
-      -#         = f.text_field :city, placeholder: "例) 横浜市緑区", class: 'registration-form-group__text-field'
-      -#       .registration-form-group
-      -#         = f.label '番地', class: 'registration-form-group__label'
-      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-      -#         %br
-      -#         = f.text_field :block, placeholder: '例) 青山1−1−1', class: 'registration-form-group__text-field'
-      -#       .registration-form-group
-      -#         = f.label '建物名', class: 'registration-form-group__label'
-      -#         %span.registration-form-group__require-badge.registration-form-group__require-badge--optional 任意
-      -#         %br
-      -#         = f.text_field :building, placeholder: '例) 柳ビル103', class: 'registration-form-group__text-field'
-
-      -#       .registration-form-group
-      -#         = f.submit '登録する', class: 'registration-form-group__register-btn'
-      -#       .user-registration-info-form__description.user-registration-info-form__description--register
-      -#         %p.about-upload-info.about-upload-info--register
-      -#           = link_to '#' do
-      -#             本人情報の登録について
-      -#             = icon('fas', 'chevron-right')
-
 
 = render "shared/top_page/sell-fix-logo"
 = render "shared/top_page/app-banner"
