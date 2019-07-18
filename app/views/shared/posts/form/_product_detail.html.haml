@@ -5,23 +5,11 @@
       =f.label :first_category_id, "カテゴリー"
       %span.require__form 必須
       .select__box
-        = f.collection_select :first_category_id, FirstCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
+        = f.collection_select :first_category_id, @parents, :id, :name, {prompt: "---"}, {class: "select__box__format"}
         .drop-down-icon
           = icon('fas', 'chevron-down')
       = render partial: 'shared/posts/form/error', locals: { post: post, attr: :first_category_id}
-      - if post.second_category_id.present?
-        .select__box
-          = f.collection_select :second_category_id, SecondCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
-          .drop-down-icon
-            = icon('fas', 'chevron-down')
-        = render partial: 'shared/posts/form/error', locals: { post: post, attr: :second_category_id}
-      -# ----------------カテゴリー実装後にコメントアウトを外す-------------------
-      -# - if post.third_category_id.present?
-      -#   .select__box
-      -#     = f.collection_select :third_category_id, ThirdCategory.all, :id, :name, {prompt: "---"}, {class: "select__box__format"}
-      -#     .drop-down-icon
-      -#       = icon('fas', 'chevron-down')
-      -#   = render partial: 'shared/posts/form/error', locals: { post: @post, attr: :third_category_id}
+      = render partial: 'shared/posts/form/error', locals: { post: post, attr: :second_category_id}
     .form__content__deafult#size-content
       - if post.product_size.present?
         =f.label :product_size, "サイズ"
