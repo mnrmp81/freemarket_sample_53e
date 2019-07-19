@@ -2,8 +2,9 @@ class Post < ApplicationRecord
   # extend ActiveHash::Associations::ActiveRecordExtensions
   #   belongs_to_active_hash :prefecture
   belongs_to :user
+  belongs_to :category
   has_one :order
-  has_many:images, dependent: :destroy
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   
   validates :product_price, numericality: { only_integer: true, greater_than_or_equal_to: 300 , less_than_or_equal_to: 9999999}

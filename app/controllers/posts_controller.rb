@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :get_post, only: [:show, :edit, :update, :destroy, :transaction, :buy, :done]
+  before_action :get_category, only: [:new, :create, :edit, :update]
 
   def index
     @posts = Post.order('id DESC').limit(32)
@@ -12,6 +13,22 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     10.times { @post.images.build }
+  end
+
+  def child_category
+    @children = Category.where(ancestry: params[:parent_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+  
+  def grandchild_category
+    @grandchildren = Category.where(ancestry: "#{params[:parent_id]}/#{params[:child_id]}")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
@@ -26,6 +43,7 @@ class PostsController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @other_posts = @post.user.posts.limit(6).where.not(id: @post.id, product_status: "1")
+    @other_category_posts = Post.where(third_category_id: @post.third_category_id).limit(6).where.not(id: @post.id, product_status: "1")
   end
 
   def transaction
@@ -102,6 +120,10 @@ class PostsController < ApplicationController
   private
   def get_post
     @post = Post.find(params[:id])
+  end
+
+  def get_category
+    @parents = Category.order('ancestry ASC').limit(13)
   end
   
   def post_params
