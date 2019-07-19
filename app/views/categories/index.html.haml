@@ -8,13 +8,13 @@
     .category__main__head
       %h2 カテゴリー一覧
     .category__main__nav.clearfix
-      - @parent.each do |parent|
-        %a.category__nav
+      - @parent.each_with_index do |parent, i|
+        .category__nav
           .category__name
-            =parent.name
+            =link_to "#{parent.name}" , {anchor: "category__main__box__head__#{i}"}
     .category__main__box
-      - @parent.each do |parent|
-        .category__main__box__head
+      - @parent.each_with_index do |parent, i|
+        %div{id:"category__main__box__head__#{i}", class: "category__main__box__head"}
           =parent.name
         .category__main__box__container         
           %p すべて
