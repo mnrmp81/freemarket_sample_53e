@@ -2,7 +2,9 @@ class Post < ApplicationRecord
   # extend ActiveHash::Associations::ActiveRecordExtensions
   #   belongs_to_active_hash :prefecture
   belongs_to :user
-  belongs_to :category
+  belongs_to :first_category, class_name: 'Category', foreign_key: :first_category_id
+  belongs_to :second_category, class_name: 'Category', foreign_key: :second_category_id
+  belongs_to :third_category, class_name: 'Category', foreign_key: :third_category_id
   has_one :order
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
