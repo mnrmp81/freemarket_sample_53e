@@ -179,29 +179,22 @@ a {
   }
 }
 
-.no-content-list {
-  height: 230px;
-  .no-content-box {
+.no-content-box {
+  height: 236px;
+  .no-content-list {
     height: 100%;
     width: 100%;
-    background-image: image-url('mypage/no-content.png');
-    background-size: 15%;
-    background-position: 50% 30%;
+    background-image: image-url('mypage/no-content-icon.svg');
+    background-size: 78px 85px;
+    background-position: center 40px;
     background-repeat: no-repeat;
-    position: relative;
+    display: block;
     &__message {
-      color: #bdbdbd;
+      padding: 160px 0 60px;
+      text-align: center;
+      font-size: 16px;
       font-weight: bold;
-      &--to-do {
-        // top, left, width, heightの順で値の指定が可能
-        @include position_absolute(95%, 22%, 50%, 60%);
-      }
-      &--in-transaction {
-        @include position_absolute(95%, 27%, 50%, 60%);
-      }
-      &--past-trading {
-        @include position_absolute(95%, 29%, 50%, 60%);
-      }
+      color: #ccc;
     }
   }
 }
