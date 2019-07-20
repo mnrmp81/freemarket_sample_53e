@@ -27,7 +27,11 @@
           %span.form-group__required--password2 必須 
         = f.password_field :password_confirmation, class: 'form-group__input', placeholder: "#{@minimum_password_length}文字以上", autocomplete: "new-password"
         = render partial: 'shared/user_registration/error', locals: { key: "password_confirmation" }
-
+    - else
+      = f.password_field :password, class: 'form-group__input hidden', autocomplete: "new-password", value: "#{@user.password}"
+      = f.password_field :password_confirmation, class: 'form-group__input hidden', autocomplete: "new-password", value: "#{@user.password}"
+      = f.text_field :uid, class: "form-group__input hidden"
+      = f.text_field :provider, class: "form-group__input hidden"
     .address-register-form
       .form-group__dentification 
         本人確認

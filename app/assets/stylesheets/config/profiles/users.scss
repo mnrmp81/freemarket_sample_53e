@@ -48,6 +48,9 @@
   margin-left: 120px;
   
   &__new_2 {
+    .hidden {
+      display: none;
+    }
     position: relative;
     .new-user-form {
       margin: 0 50px 30px 50px;
