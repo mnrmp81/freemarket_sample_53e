@@ -73,7 +73,7 @@
   .other-posts
     %h2.other-posts__link
       - if @post.brand_name.present?
-        = link_to "#{post.brand_name}の#{Category.find(@post.third_category_id).name}その他の商品", '#'
+        = link_to "#{@post.brand_name}の#{Category.find(@post.third_category_id).name}その他の商品", '#'
       - else
         = link_to "#{Category.find(@post.third_category_id).name}(#{Category.find(@post.first_category_id).name})その他の商品", '#'
     .post-boxes
