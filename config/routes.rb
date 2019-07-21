@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       post 'buy'
       get 'done'
       get 'search'
+      get 'card'
+      post 'card_create'
     end
 
     collection do
