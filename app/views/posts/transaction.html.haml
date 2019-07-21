@@ -63,7 +63,7 @@
             = exp_month + " / " + exp_year
         .pay-post__credit-image
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1905591235", size: "34x20"
-        = link_to root_path, class: "pay-post__entry-bottom" do
+        = link_to card_post_path(@post.id), class: "pay-post__entry-bottom", data: { "turbolinks": false } do
           %span 変更する
           %i.fas.fa-chevron-right
 

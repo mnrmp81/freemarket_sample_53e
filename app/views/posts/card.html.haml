@@ -5,13 +5,9 @@
         %a{href: "/"}
           =image_tag "profiles/mercari_logo.jpg", class: "header_sh__logo__image"
         %br
-        %a
-          =image_tag "profiles/progress_4.jpg", class: "header_sh__logo__progress1__image"
-  .main-container.main__container--user-redistration
-    .form-group__new_5
-      = form_tag('/users', method: :post, id: 'charge-form',  name: "inputForm", class: "chapter__container__inner") do
-        = render "credit_card2"
-    
+  .form-group__new_5
+    = form_tag(card_create_post_path(@post.id), method: :post, action: "create", id: 'charge-form',  name: "inputForm", class: "chapter__container__inner") do
+      = render "credit_card/credit_card2"
   .user-registration-footer-second-type
     .caution_sh
       %a{href: "/", class: "caution_sh__article"}

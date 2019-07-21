@@ -1,7 +1,9 @@
 class CreditCardController < ApplicationController
 
   before_action :get_user_params, only: [:edit, :confirmation, :show]
+  before_action :get_payjp_info, only: [:new_create, :create, :delete, :show]
 
+  #クレジットカード新規登録ビュー
   def new
   end
 
@@ -9,11 +11,6 @@ class CreditCardController < ApplicationController
   end
 
   def create
-    if Rails.env == 'development'
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    else
-      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-    end
     if params['payjp-token'].blank?
       redirect_to action: "edit", id: current_user.id
     else
@@ -34,11 +31,6 @@ class CreditCardController < ApplicationController
   def delete
     card = current_user.credit_cards.first
     if card.present?
-      if Rails.env == 'development'
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      else
-        Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-      end
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
@@ -49,11 +41,6 @@ class CreditCardController < ApplicationController
   def show
     card = current_user.credit_cards.first
     if card.present?
-      if Rails.env == 'development'
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      else
-        Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-      end
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     else
@@ -66,10 +53,17 @@ class CreditCardController < ApplicationController
     redirect_to action: "show" if card.exists?
   end
 
-private
+  private
 
   def get_user_params
     @user = current_user
   end
 
+  def get_payjp_info
+    if Rails.env == 'development'
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    end
+  end
 end
