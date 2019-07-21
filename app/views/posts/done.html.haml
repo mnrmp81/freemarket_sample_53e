@@ -1,38 +1,29 @@
+= render "shared/user_registration/form-header"
 %h1.wait_sign 
   %i.far.fa-clock
   発送をお待ちください 
-
 %h1.done_buy 
-  購入完了しました 
-
+  購入完了しました
 .buy_image
-  =image_tag "done_buy/chikyuu.png", class:"buy_image__image",size: "230x230"
-
+  = link_to post_path(@post.id) do
+    = image_tag @image.image.url, class:"buy_image__image", size: "230x230"
 %p.product_name  
-  商品名
-
+  = @post.product_name
 %p.done_price
-  価格(税込み)
-
+  ¥ #{@post.product_price} (税込み) 
 .done_buy_place 
   .done_buy_place__box
     %a.done_buy_place__box__title
       配送先 
     %br
     %a.done_buy_place__box__address
-      神奈川県
+      = Prefecture.find(current_user.address.prefecture_id).name
     %br
     %a.done_buy_place__box__address
-      海老名市
+      = current_user.address.city
     %br
     %a.done_buy_place__box__address
-      wwwwwwwwww
+      = current_user.address.block
     %br
     %a.done_buy_place__box__address
-      dddddddddd
-
-
-
-
-
-
+      = current_user.address.building
