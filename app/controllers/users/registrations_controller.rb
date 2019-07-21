@@ -21,27 +21,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
       profile.save
       address = user.build_address(session[:address])
       address.save
-      # if Rails.env == 'development'
-      #   Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      # else
-      #   Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-      # end
-      # customer = Payjp::Customer.create(email: user.email, card: params['payjp-token'], metadata: {user_id: user.id})
-      # credit_card = user.build_credit_card(customer_id: customer.id, card_id: customer.default_card)
-
-      # if params['payjp-token'].blank?
-      #   reset_session
-      #   sign_in user
-      #   redirect_to new_user_registration_path
-      # else
-      #   customer = Payjp::Customer.create(
-      #   email: user.email,
-      #   card: params['payjp-token'],
-      #   metadata: {user_id: user.id}
-      #   )
-      #   credit_card = user.build_credit_card(customer_id: customer.id, card_id: customer.default_card)
-      #   credit_card.save
-      # end
+      if Rails.env == 'development'
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      else
+        Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+      end
+      customer = Payjp::Customer.create(
+      email: user.email,
+      card: params['payjp-token'],
+      metadata: {user_id: user.id}
+      )
+      CreditCard.create(customer_id: customer.id, card_id: customer.default_card, user_id: user.id)
 
       # セッションを削除
       reset_session

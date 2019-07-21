@@ -8,7 +8,9 @@
         %a
           =image_tag "profiles/progress_4.jpg", class: "header_sh__logo__progress1__image"
   .main-container.main__container--user-redistration
-    = render "credit-card"
+    .form-group__new_5
+      = form_tag('/users', method: :post, id: 'charge-form',  name: "inputForm", class: "chapter__container__inner") do
+        = render "credit_card2"
     
   .user-registration-footer-second-type
     .caution_sh
