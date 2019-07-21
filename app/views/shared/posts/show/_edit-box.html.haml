@@ -1,7 +1,8 @@
 - if post.user_id == current_user.id
   .edit-content
-    = link_to '商品の編集', edit_post_path(post), class: 'edit-btn'
-    %p or
+    - if post.product_status == "listing" || post.product_status == "stopping_listing"
+      = link_to '商品の編集', edit_post_path(post), class: 'edit-btn'
+      %p or
     = form_for(post) do |f|
       - if post.product_status == "listing"
         = f.text_field :product_status, value: 'stopping_listing', class: 'hidden-field'

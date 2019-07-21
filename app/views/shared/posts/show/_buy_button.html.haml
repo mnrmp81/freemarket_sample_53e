@@ -1,6 +1,7 @@
 - unless post.user_id == current_user.id
-  .post-content__order-box
-    = link_to '購入画面に進む', transaction_post_path(post), {class: "order-btn"}
-  - if post.product_status == "in_transaction" || post.product_status == "completed_transaction"
+  - if post.product_status == "listing"
     .post-content__order-box
-      .sold-btn 売り切れました
+      = link_to '購入画面に進む', transaction_post_path(post), {class: "order-btn"}
+- if post.product_status == "in_transaction" || post.product_status == "completed_transaction"
+  .post-content__order-box
+    .sold-btn 売り切れました
