@@ -1,4 +1,15 @@
 $(document).on('turbolinks:load', function() {  
+
+  $(function() {
+    $('.category__nav').hover(function() {
+      $(this).css("background-color", "red");
+      $(this).children().children().css("color", "white");
+    }, function() {
+      $(this).css("background-color", "white");
+      $(this).children().children().css("color", "black");
+    });
+  });
+
   $(function(){
     $('a[href^="#"]').click(function(){
       var speed = 400;
@@ -9,4 +20,5 @@ $(document).on('turbolinks:load', function() {
       return false;
     });
   });
+
 });
