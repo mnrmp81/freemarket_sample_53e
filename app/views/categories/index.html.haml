@@ -11,7 +11,8 @@
       - @parent.each_with_index do |parent, i|
         .category__nav
           .category__name
-            =link_to "#{parent.name}" , {anchor: "category__main__box__head__#{i}"}
+            =link_to "#{parent.name}", "#category__main__box__head__#{i}"
+
     .category__main__box
       - @parent.each_with_index do |parent, i|
         %div{id:"category__main__box__head__#{i}", class: "category__main__box__head"}
