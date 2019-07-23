@@ -87,6 +87,9 @@ class PostsController < ApplicationController
 
   def done
     @image = Image.find_by(post_id: @post.id)
+    @address = Address.find_by(user_id: current_user.id)
+    @post = Post.find_by(id: @post.id)
+    @image = Image.find_by(post_id: @post.id)
     card = current_user.credit_cards.first
     if card.present?
       if Rails.env == 'development'
