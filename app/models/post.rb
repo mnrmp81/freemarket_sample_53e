@@ -68,10 +68,10 @@ class Post < ApplicationRecord
   enum product_status:{ listing: 0, stopping_listing: 1, in_transaction: 2, completed_transaction: 3 }
 
   def previous
-    Post.where("id < ?", self.id).order("id DESC").first
+    Post.where("id < ?", self.id).order("id DESC").where.not(product_status: "1").first
   end
  
   def next
-    Post.where("id > ?", self.id).order("id ASC").first
+    Post.where("id > ?", self.id).order("id ASC").where.not(product_status: "1").first
   end
 end
