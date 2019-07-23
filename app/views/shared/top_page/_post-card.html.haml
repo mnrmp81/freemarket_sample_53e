@@ -3,6 +3,7 @@
     %a{href: "/posts/#{post.id}"}
       .item-box__image
         - if post.images.present?
+          = render 'shared/status_logo', {post: post}
           = image_tag post.images.first.image.url, size: "213x213"
           
       .item-box__boby
