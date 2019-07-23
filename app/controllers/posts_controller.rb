@@ -104,7 +104,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(update_post_params)
-      redirect_to @post
+      redirect_to @post, notice: '変更が完了しました'
     else
       render :edit
     end
