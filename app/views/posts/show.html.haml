@@ -23,7 +23,10 @@
       %span.product-price ¥#{@post.product_price}
       %span.tax (税込)
       %span.delivery-fee
-        = @post.delivery_fee_i18n
+        - if @post.delivery_fee == 'included'
+          着払い
+        - if @post.delivery_fee == 'cash_on_delivery'
+          送料込み
     = render 'shared/posts/show/buy_button', {post: @post}
     .post-content__description-box
       %p.prodict-description
