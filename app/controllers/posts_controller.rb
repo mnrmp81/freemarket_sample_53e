@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :get_post, only: [:show, :edit, :update, :destroy, :transaction, :buy, :done, :card, :card_create]
+  before_action :get_post, only: [:show, :edit, :update, :destroy, :transaction, :buy, :done, :card, :card_create, :change_status]
   before_action :get_category, only: [:new, :create, :edit, :update]
 
   def index
@@ -110,6 +110,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def change_status
+    if @post.update(change_status_params)
+      redirect_to @post
+      if @post.product_status == 'listing'
+        flash[:notice] = '出品を再開しました'
+      elsif @post.product_status == 'stopping_listing'
+        flash[:notice] = '出品の一旦停止をしました'
+      end
+    else
+      render @post
+    end
+  end
+
   def destroy
     if @post.destroy
       redirect_to listing_mypage_path(current_user), notice: '出品を削除しました'
@@ -201,11 +214,14 @@ class PostsController < ApplicationController
                                  :delivery_former_area,
                                  :delivery_date,
                                  :product_price,
-                                 :product_status,
                                  :user_id,
                                  :brand_name,
                                  [images_attributes: [:image, :_destroy, :id]]
                                  ).merge(user_id: current_user.id)
+  end
+
+  def change_status_params
+    params.require(:post).permit(:product_status)
   end
 
   def post_buy_params
