@@ -1,70 +1,72 @@
-= render "shared/user_registration/form-header"
+.backscreen
 
-.buy-cheak-main
-  .buy-cheak-block 
-    .buy-cheak-block__title
-      %h2 購入内容の確認
-    .buy-cheak-block__content
-      .content-post
-        .content-post__detail
-          .content-post__detail__image
-            = image_tag @image.image.url, size: "64x64"
-          %p.content-post__detail__name
-            = @post.product_name
-        = form_with  model: @post, url: buy_post_path, method: :POST, local: true, class: "content-post__buy-form", id: "charge-form" do |form|
-          = form.text_field :product_status, value: 'in_transaction', class: 'hidden-field'
-          .buy-post-price
-            .buy-post-price__fee
-              ¥ #{@post.product_price}
-            .buy-post-price__cost
-              送料込み
-          %ul.buy-post-point
-            %li
-              .buy-post-point__result
-                ポイントはありません
-          %ul.buy-post-payment
-            %li.buy-post-payment.detail
-              .buy-post-payment_fee
-                支払金額
-              .buy-post-payment_price
+  = render "shared/user_registration/form-header"
+
+  .buy-cheak-main
+    .buy-cheak-block 
+      .buy-cheak-block__title
+        %h2 購入内容の確認
+      .buy-cheak-block__content
+        .content-post
+          .content-post__detail
+            .content-post__detail__image
+              = image_tag @image.image.url, size: "64x64"
+            %p.content-post__detail__name
+              = @post.product_name
+          = form_with  model: @post, url: buy_post_path, method: :POST, local: true, class: "content-post__buy-form", id: "charge-form" do |form|
+            = form.text_field :product_status, value: 'in_transaction', class: 'hidden-field'
+            .buy-post-price
+              .buy-post-price__fee
                 ¥ #{@post.product_price}
-          - if @default_card_information.present?
-            = form.submit '購入する', class: 'buy-post-submit', id: "submit-button"
-          - else
-            %p.buy-post-submit-error 配送先と支払い方法の入力を完了してください。
-            = form.submit '購入する', class: 'buy-post-submit disabled', id: "submit-button", disabled: true
-    .buy-cheak-block__address
-      .address-post
-        %h3 配送先
-        %address.address-post__info-text
-          - if current_user.address.present?
-            〒
-            = current_user.address.postal_code
-            %br
-            = Prefecture.find(current_user.address.prefecture_id).name
-            = current_user.address.city
-            = current_user.address.block
-            = current_user.address.building
-        = link_to root_path, class: "address-post__entry-bottom" do
-          %span 変更する
-          %i.fas.fa-chevron-right
+              .buy-post-price__cost
+                送料込み
+            %ul.buy-post-point
+              %li
+                .buy-post-point__result
+                  ポイントはありません
+            %ul.buy-post-payment
+              %li.buy-post-payment.detail
+                .buy-post-payment_fee
+                  支払金額
+                .buy-post-payment_price
+                  ¥ #{@post.product_price}
+            - if @default_card_information.present?
+              = form.submit '購入する', class: 'buy-post-submit', id: "submit-button"
+            - else
+              %p.buy-post-submit-error 配送先と支払い方法の入力を完了してください。
+              = form.submit '購入する', class: 'buy-post-submit disabled', id: "submit-button", disabled: true
+      .buy-cheak-block__address
+        .address-post
+          %h3 配送先
+          %address.address-post__info-text
+            - if current_user.address.present?
+              〒
+              = current_user.address.postal_code
+              %br
+              = Prefecture.find(current_user.address.prefecture_id).name
+              = current_user.address.city
+              = current_user.address.block
+              = current_user.address.building
+          = link_to root_path, class: "address-post__entry-bottom" do
+            %span 変更する
+            %i.fas.fa-chevron-right
 
-    .buy-cheak-block__pay
-      .pay-post
-        %h3 支払い方法
-        .pay-post__credit-number
-          - if @default_card_information.blank?
-            %br 
-          - else
-            = "**** **** **** " + @default_card_information.last4
-            %br
-            - exp_month = @default_card_information.exp_month.to_s
-            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-            = exp_month + " / " + exp_year
-        .pay-post__credit-image
-          = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1905591235", size: "34x20"
-        = link_to card_post_path(@post.id), class: "pay-post__entry-bottom", data: { "turbolinks": false } do
-          %span 変更する
-          %i.fas.fa-chevron-right
+      .buy-cheak-block__pay
+        .pay-post
+          %h3 支払い方法
+          .pay-post__credit-number
+            - if @default_card_information.blank?
+              %br 
+            - else
+              = "**** **** **** " + @default_card_information.last4
+              %br
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+          .pay-post__credit-image
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1905591235", size: "34x20"
+          = link_to card_post_path(@post.id), class: "pay-post__entry-bottom", data: { "turbolinks": false } do
+            %span 変更する
+            %i.fas.fa-chevron-right
 
-= render "shared/user_registration/form-footer"
+  = render "shared/user_registration/form-footer"
