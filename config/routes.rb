@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'card'
       post 'card_create'
+      patch 'change_status'
     end
 
     collection do

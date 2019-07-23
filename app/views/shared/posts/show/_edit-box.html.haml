@@ -3,7 +3,7 @@
     - if post.product_status == "listing" || post.product_status == "stopping_listing"
       = link_to '商品の編集', edit_post_path(post), class: 'edit-btn'
       %p or
-    = form_for(post) do |f|
+    = form_with(url:change_status_post_path(post), model: post, local: true) do |f|
       - if post.product_status == "listing"
         = f.text_field :product_status, value: 'stopping_listing', class: 'hidden-field'
         = f.submit '出品を一旦停止する', class: 'stopping-listing-btn'

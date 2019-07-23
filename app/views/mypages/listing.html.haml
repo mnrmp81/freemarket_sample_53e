@@ -2,7 +2,7 @@
 - breadcrumb :listing
 .bread
   = breadcrumbs separator: " &rsaquo; "
-
+  = render 'shared/flash_messages'
 .main-body
   = render partial: 'shared/mypage/side_menu'
   .mypage-main
