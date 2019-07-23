@@ -35,4 +35,18 @@
 .bread {
   background-color: white;
   border-top: 1px solid #eee;
+  position: relative;
+  .flash-messages {
+    width: 100vw;
+    height: 60px;
+    text-align: center;
+    background: #cef0ce;
+    color: green;
+    font-size: 12px;
+    line-height: 60px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+  }
 }
