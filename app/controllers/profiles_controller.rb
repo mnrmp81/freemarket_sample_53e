@@ -47,7 +47,9 @@ class ProfilesController < ApplicationController
   end
 
   def profile_update
-    if User.update(user_update_params) && Profile.update(profile_update_params)
+    user = User.find_by(id: current_user)
+    
+    if user.update(user_update_params) && Profile.update(profile_update_params)
        redirect_to mypage_path
     else
       redirect_to profile_mypage_path
