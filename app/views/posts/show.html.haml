@@ -2,7 +2,7 @@
 - breadcrumb :show_post, @post
 .bread
   = breadcrumbs separator: " &rsaquo; "
-
+  = render 'shared/flash_messages'
 .post-container
   .post-content
     .post-content__title-box
