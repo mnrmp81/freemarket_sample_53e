@@ -23,7 +23,10 @@
       %span.product-price ¥#{@post.product_price}
       %span.tax (税込)
       %span.delivery-fee
-        = @post.delivery_fee_i18n
+        - if @post.delivery_fee == 'included'
+          着払い
+        - if @post.delivery_fee == 'cash_on_delivery'
+          送料込み
     = render 'shared/posts/show/buy_button', {post: @post}
     .post-content__description-box
       %p.prodict-description
@@ -46,8 +49,6 @@
           %span あんしん・あんぜんへの取り組み
   = render 'shared/posts/show/edit-box', {post: @post}
   .comment-content
-    .comment-content__comments-container.clearfix
-      = render 'shared/posts/show/comments'
     %p.comment-content__alert-box
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %form.comment-content__form-box
@@ -55,29 +56,33 @@
       %button.comment-content__form-box__submit{type: 'submit'} コメントする
   %ul.post-links.clearfix
     %li.post-links__prev-post-link
-      - if @post.previous.present?
-        = link_to post_path(@post.previous) do
-          %i.fas.fa-chevron-left
-          %span #{@post.previous.product_name}
-    %li.post-links__next-post-link 
       - if @post.next.present?
         = link_to post_path(@post.next) do
-          %span #{@post.next.product_name}
+          %i.fas.fa-chevron-left
+          %span
+            = @post.next.product_name
+    %li.post-links__next-post-link 
+      - if @post.previous.present?
+        = link_to post_path(@post.previous) do
+          %span
+            = @post.previous.product_name
           %i.fas.fa-chevron-right
   = render 'shared/posts/show/sns'
-  .other-posts
-    %h2.other-posts__link
-      = link_to "#{@post.user.nickname}さんのその他の商品", '#'
-    .post-boxes
-      = render partial: 'shared/posts/show/other-posts', collection: @other_posts, as: 'other_post'
-  .other-posts
-    %h2.other-posts__link
-      - if @post.brand_name.present?
-        = link_to "#{@post.brand_name}の#{Category.find(@post.third_category_id).name}その他の商品", '#'
-      - else
-        = link_to "#{Category.find(@post.third_category_id).name}(#{Category.find(@post.first_category_id).name})その他の商品", '#'
-    .post-boxes
-      = render partial: 'shared/posts/show/other-posts', collection: @other_category_posts, as: 'other_post'
+  - if @other_posts.present?
+    .other-posts
+      %h2.other-posts__link
+        = link_to "#{@post.user.nickname}さんのその他の商品", '#'
+      .post-boxes
+        = render partial: 'shared/posts/show/other-posts', collection: @other_posts, as: 'other_post'
+  - if @other_category_posts.present?
+    .other-posts
+      %h2.other-posts__link
+        - if @post.brand_name.present?
+          = link_to "#{@post.brand_name}の#{Category.find(@post.third_category_id).name}その他の商品", '#'
+        - else
+          = link_to "#{Category.find(@post.third_category_id).name}(#{Category.find(@post.first_category_id).name})その他の商品", '#'
+      .post-boxes
+        = render partial: 'shared/posts/show/other-posts', collection: @other_category_posts, as: 'other_post'
 = render 'shared/top_page/app-banner'
 = render 'shared/top_page/footer'
 
