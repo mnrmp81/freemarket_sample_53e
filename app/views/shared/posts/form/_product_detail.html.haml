@@ -8,8 +8,8 @@
         = f.collection_select :first_category_id, @parents, :id, :name, {prompt: "---"}, {class: "select__box__format"}
         .drop-down-icon
           = icon('fas', 'chevron-down')
-      = render partial: 'shared/posts/form/error', locals: { post: post, attr: :first_category_id}
-      = render partial: 'shared/posts/form/error', locals: { post: post, attr: :second_category_id}
+      = render partial: 'shared/posts/form/error', locals: { post: post, key: "first_category_id"}
+      = render partial: 'shared/posts/form/error', locals: { post: post, key: "second_category_id"}
     .form__content__deafult#size-content
       - if post.product_size.present?
         =f.label :product_size, "サイズ"
@@ -18,7 +18,7 @@
           = f.select :product_size, Post.product_sizes_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
-        = render partial: 'shared/posts/form/error', locals: { post: post, attr: :product_size}
+        = render partial: 'shared/posts/form/error', locals: { post: post, key: "product_size"}
     .form__content__deafult#brand-content
       - if post.product_size.present?
         =f.label :product_brand_name, "ブランド"
@@ -33,4 +33,4 @@
           = f.select :product_condition, Post.product_conditions_i18n.invert, {prompt: "---"}, {class: "select__box__format"}
           .drop-down-icon
             = icon('fas', 'chevron-down')
-        = render partial: 'shared/posts/form/error', locals: { post: post, attr: :product_condition}
+        = render partial: 'shared/posts/form/error', locals: { post: post, key: "product_condition"}

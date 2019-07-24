@@ -13,4 +13,4 @@
     .hidden-content
       = f.fields_for :images do |image|
         = image.file_field :image , class: "hidden-field"
-    = render partial: 'shared/posts/form/error', locals: { post: @post, attr: :images}
+    = render partial: 'shared/posts/form/error', locals: { post: @post, key: "images"}

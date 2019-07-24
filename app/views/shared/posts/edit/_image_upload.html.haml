@@ -20,4 +20,4 @@
         = image.check_box:_destroy, class: "hidden-checkbox"
       - post.images.length.upto(9) do |i|
         %input{id: "post_images_attributes_#{i}_image", class: "hidden-field", name: "post[images_attributes][#{i}][image]", type: "file"}
-    = render partial: 'shared/posts/form/error', locals: { post: post, attr: :images}
+    = render partial: 'shared/posts/form/error', locals: { post: post, attr: "images"}
