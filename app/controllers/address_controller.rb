@@ -11,12 +11,12 @@ class AddressController < ApplicationController
   end
 
   def update
-    address= Address.find(params[:id])
+    address = Address.find(params[:id])
 
     if address.update(address_params)
-      redirect_to controller: :mypages, action: :index
+      redirect_to identification_mypage_path(current_user), notice: '登録しました'
     else
-      redirect_to controller: :address, action: :identification
+      redirect_to identification_mypage_path(current_user)
     end
   end
 
