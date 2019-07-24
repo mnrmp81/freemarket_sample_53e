@@ -4,9 +4,11 @@ class PostsController < ApplicationController
   before_action :get_category, only: [:new, :create, :edit, :update]
 
   def index
-    @posts = Post.order('id DESC').limit(32)
-    if user_signed_in?
+    if user_signed_in? 
       @user = User.find(current_user.id)
+      @posts = Post.order('id DESC').where.not(product_status: "stopping_listing").limit(32)
+    else
+      @posts = Post.order('id DESC').where.not(product_status: "stopping_listing").limit(32)
     end
   end
 
@@ -41,7 +43,7 @@ class PostsController < ApplicationController
   end 
 
   def show
-    if authenticate_user!
+    if user_signed_in? 
       @user = User.find(current_user.id)
       @other_posts = @post.user.posts.limit(6).where.not(id: @post.id, product_status: "1")
       @other_category_posts = Post.where(third_category_id: @post.third_category_id).limit(6).where.not(id: @post.id, product_status: "1")
