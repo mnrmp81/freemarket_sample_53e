@@ -15,9 +15,11 @@ class Users::SessionsController < Devise::SessionsController
         redirect_to action: "new"
       else
         super
+        flash[:notice] = nil
       end
     else
       super
+      flash[:notice] = nil
     end
   end
 
