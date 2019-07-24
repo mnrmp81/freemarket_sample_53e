@@ -1,0 +1,4 @@
+- if flash[:blank].blank? && flash[:alert].present?
+  .login-error-message-box
+    %p.login-error-message-box__message
+      = flash[:alert]
