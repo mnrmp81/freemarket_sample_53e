@@ -38,7 +38,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: '出品が完了しました'
     else
-      render :new
+      flash[:errors] = @post.errors.keys.map { |key|[key, @post.errors.full_messages_for(key)]}.to_h
+      redirect_to new_post_path
     end
   end 
 
@@ -112,7 +113,8 @@ class PostsController < ApplicationController
     if @post.update(update_post_params)
       redirect_to @post, notice: '変更が完了しました'
     else
-      render :edit
+      flash[:errors] = @post.errors.keys.map { |key|[key, @post.errors.full_messages_for(key)]}.to_h
+      redirect_to edit_post_path(@post)
     end
   end
 

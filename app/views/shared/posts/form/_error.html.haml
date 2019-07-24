@@ -1,4 +1,4 @@
-- if post.errors.any?
-  - post.errors.full_messages_for(attr).each do |message|
+- if flash[:errors].present? && flash[:errors][key].present?
+  - flash[:errors][key].each do |message|
     %p.error-message
       = message
