@@ -96,5 +96,12 @@ ja:
 
   devise:
     failure:
+      already_authenticated: すでにログインしています
+      inactive: アカウントが無効です
       invalid: メールアドレスまたはパスワードが違います
-      unauthenticated: ログインしてください
+      locked: アカウントは凍結されています
+      last_attempt: あと1回でアカウントが凍結されます
+      not_found_in_database: メールアドレスまたはパスワードが違います
+      timeout: タイムアウトしています。もう一度ログインしてください
+      unauthenticated: アカウント登録もしくはログインしてください
+      unconfirmed: 続けるにはメールアドレスの本人確認が必要です
