@@ -2,6 +2,7 @@
 - breadcrumb :identification
 .bread
   = breadcrumbs separator: " &rsaquo; "
+  = render 'shared/flash_messages'
 
 .main-body
   = render partial: 'shared/mypage/side_menu', locals: { user: @user }
@@ -12,7 +13,7 @@
         %h1 本人情報の登録
       -if @address.present?
         .user-registration-info__content
-          = form_with scope: 'address',url: update_address_path(@address), class: 'user-registration-info-form' do |f|
+          = form_with scope: 'address',url: update_address_path(@address), class: 'user-registration-info-form', local: true do |f|
             .user-registration-info-form__description
               %p 
                 お客様の本人情報をご登録ください。
