@@ -23,17 +23,21 @@
       .tabs-contents
         - if @posts.present?
           - @posts.each do |post|
-            - if post.product_status == "listing"
+            - if post.product_status == "listing" or post.product_status == "stopping_listing"
               - image = get_image_url(post.id)
               %ul.contents-lists
                 %li.contents-list
-                  = link_to '#' do
+                  = link_to post_path(post.id) do
                     - if image.present?
                       .contents-list-
                         = image_tag image.image.url, size: '48x48', alt: 'product-image'
                     .contents-list-main
-                      .contents-list-main__top
-                        「 #{post.product_name} 」は出品中です。
+                      - if post.product_status == "listing"
+                        .contents-list-main__top
+                          「 #{post.product_name} 」は出品中です。
+                      - else 
+                        .contents-list-main__top
+                          「 #{post.product_name} 」は出品停止中です。
                     .list-arrow-icon
                       = icon('fas', 'chevron-right')
         - else
