@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :get_post, only: [:show, :edit, :update, :destroy, :transaction, :buy, :done, :card, :card_create, :change_status]
   before_action :get_category, only: [:new, :create, :edit, :update]
 
@@ -42,15 +42,11 @@ class PostsController < ApplicationController
     end
   end 
 
-  def show
-    if user_signed_in? 
+  def show 
       @user = User.find(current_user.id)
       @other_posts = @post.user.posts.limit(6).where.not(id: @post.id, product_status: "1")
       @other_category_posts = Post.where(third_category_id: @post.third_category_id).limit(6).where.not(id: @post.id, product_status: "1")
-    else
-      redirect_to new_user_session_path
-    end
-
+    
   end
 
   def transaction
