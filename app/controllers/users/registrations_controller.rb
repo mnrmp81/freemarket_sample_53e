@@ -51,9 +51,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    flash[:notice] = '変更しました'
+  end
 
   # DELETE /resource
   # def destroy
@@ -111,4 +112,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def after_update_path_for(resource)
+    edit_user_registration_path
+  end
 end

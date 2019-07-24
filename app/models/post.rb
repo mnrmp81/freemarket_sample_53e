@@ -8,8 +8,6 @@ class Post < ApplicationRecord
   has_one :order
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  
-  validates :product_price, numericality: { only_integer: true, greater_than_or_equal_to: 300 , less_than_or_equal_to: 9999999}
 
   validate :add_error_message
  

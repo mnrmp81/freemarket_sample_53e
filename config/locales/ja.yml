@@ -93,3 +93,8 @@ ja:
       recaptcha: 
         errors: 
           verification_failed: 'reCAPTCHA認証に失敗しました。' 
+
+  devise:
+    failure:
+      invalid: メールアドレスまたはパスワードが違います
+      unauthenticated: ログインしてください

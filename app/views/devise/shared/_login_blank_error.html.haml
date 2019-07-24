@@ -1,0 +1,3 @@
+- if flash[:blank].present? && flash[:blank][key].present?
+  %p.blank_error_message
+    = flash[:blank][key]

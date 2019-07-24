@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit_address_delivery
-    @user = User.find_by(params[:id])
+    @user = User.find(current_user.id)
     @profile = Profile.find_by(user_id: params[:id])
     @address = Address.find_by(user_id: params[:id])
   end
@@ -39,9 +39,9 @@ class ProfilesController < ApplicationController
     profile = Profile.find_by(user_id: current_user)
     address = Address.find_by(user_id: current_user)
     if profile.update(profile_delivery_params) && address.update(address_delivery_params)
-      redirect_to controller: :mypages, action: :index
+      redirect_to edit_address_delivery_profile_path, notice: '変更しました'
     else
-      redirect_to controller: :mypages, action: :profile
+      redirect_to edit_address_delivery_profile_path
     end
 
   end
@@ -50,7 +50,7 @@ class ProfilesController < ApplicationController
     user = User.find_by(id: current_user)
     
     if user.update(user_update_params) && Profile.update(profile_update_params)
-       redirect_to mypage_path
+      redirect_to profile_mypage_path, notice: '変更しました'
     else
       redirect_to profile_mypage_path
     end

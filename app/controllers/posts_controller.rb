@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :get_post, only: [:show, :edit, :update, :destroy, :transaction, :buy, :done, :card, :card_create, :change_status]
   before_action :get_category, only: [:new, :create, :edit, :update]
 
   def index
-    @posts = Post.order('id DESC').limit(32)
-    if user_signed_in?
+    if user_signed_in? 
       @user = User.find(current_user.id)
+      @posts = Post.order('id DESC').where.not(product_status: "stopping_listing").limit(32)
+    else
+      @posts = Post.order('id DESC').where.not(product_status: "stopping_listing").limit(32)
     end
   end
 
@@ -36,14 +38,16 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: '出品が完了しました'
     else
-      render :new
+      flash[:errors] = @post.errors.keys.map { |key|[key, @post.errors.full_messages_for(key)]}.to_h
+      redirect_to new_post_path
     end
   end 
 
-  def show
-    @user = User.find(current_user.id)
-    @other_posts = @post.user.posts.limit(6).where.not(id: @post.id, product_status: "1")
-    @other_category_posts = Post.where(third_category_id: @post.third_category_id).limit(6).where.not(id: @post.id, product_status: "1")
+  def show 
+      @user = User.find(current_user.id)
+      @other_posts = @post.user.posts.limit(6).where.not(id: @post.id, product_status: "1")
+      @other_category_posts = Post.where(third_category_id: @post.third_category_id).limit(6).where.not(id: @post.id, product_status: "1")
+    
   end
 
   def transaction
@@ -87,6 +91,9 @@ class PostsController < ApplicationController
 
   def done
     @image = Image.find_by(post_id: @post.id)
+    @address = Address.find_by(user_id: current_user.id)
+    @post = Post.find_by(id: @post.id)
+    @image = Image.find_by(post_id: @post.id)
     card = current_user.credit_cards.first
     if card.present?
       if Rails.env == 'development'
@@ -106,7 +113,8 @@ class PostsController < ApplicationController
     if @post.update(update_post_params)
       redirect_to @post, notice: '変更が完了しました'
     else
-      render :edit
+      flash[:errors] = @post.errors.keys.map { |key|[key, @post.errors.full_messages_for(key)]}.to_h
+      redirect_to edit_post_path(@post)
     end
   end
 
