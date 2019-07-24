@@ -97,3 +97,4 @@ ja:
   devise:
     failure:
       invalid: メールアドレスまたはパスワードが違います
+      unauthenticated: ログインしてください
