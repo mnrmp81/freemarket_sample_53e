@@ -29,7 +29,8 @@ $(function () {
         var html = buildHTML('second');
         $('#category-contents').append(html);
       } else {
-        $('#post_second_category_id option:not(:first)').remove();
+        $('#post_second_category_id').empty();
+        $('#post_second_category_id').append(`<option value="">---</option>`);
       }
       children.forEach(function (child) {
         var html = buildChildren(child);
@@ -55,7 +56,8 @@ $(function () {
         var html = buildHTML('third');
         $('#category-contents').append(html);
       } else {
-        $('#post_third_category_id option:not(:first)').remove();
+        $('#post_third_category_id').empty();
+        $('#post_third_category_id').append(`<option value="">---</option>`);
       }
       grandchildren.forEach(function (grandchild) {
         var html = buildChildren(grandchild);

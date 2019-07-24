@@ -29,9 +29,9 @@
         = render partial: 'devise/shared/login_blank_error', locals: { key: "password" }
         %br
         - if Rails.env == "production"
-        .form-group-checkbox
-          =recaptcha_tags
-          = render partial: 'devise/shared/login_check_box_error'
+          .form-group-checkbox
+            =recaptcha_tags
+            = render partial: 'devise/shared/login_check_box_error'
         = f.submit "ログイン", class: "input_user_registration__second__subbutton"
         %br
         %a{href: "/", class: "edit_registration__second__fogetpass"}
