@@ -16,6 +16,7 @@ class Users::SessionsController < Devise::SessionsController
     
     if Rails.env == "production"
       if verify_recaptcha.blank?
+        flash[:check] = '選択してください'
         redirect_to action: "new"
       else
         super
