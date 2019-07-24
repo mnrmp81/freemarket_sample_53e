@@ -9,7 +9,16 @@
         .drop-down-icon
           = icon('fas', 'chevron-down')
       = render partial: 'shared/posts/form/error', locals: { post: post, key: "first_category_id"}
-      = render partial: 'shared/posts/form/error', locals: { post: post, key: "second_category_id"}
+      - if post.first_category_id.present?
+        .select__box
+          = f.collection_select :second_category_id, @children, :id, :name, {prompt: "---"}, {class: "select__box__format"}
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
+        = render partial: 'shared/posts/form/error', locals: { post: post, key: "second_category_id"}
+        .select__box
+          = f.collection_select :third_category_id, @grandchildren, :id, :name, {prompt: "---"}, {class: "select__box__format"}
+          .drop-down-icon
+            = icon('fas', 'chevron-down')
     .form__content__deafult#size-content
       - if post.product_size.present?
         =f.label :product_size, "サイズ"

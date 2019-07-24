@@ -106,6 +106,8 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @children = @parents.find(@post.first_category_id).children
+    @grandchildren = @children.find(@post.second_category_id).children
   end
 
   def update
