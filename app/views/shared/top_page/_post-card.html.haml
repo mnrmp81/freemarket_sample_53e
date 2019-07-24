@@ -5,7 +5,6 @@
         - if post.images.present?
           = render 'shared/status_logo', {post: post}
           = image_tag post.images.first.image.url, size: "213x213"
-          
       .item-box__boby
         = post.product_name
         .item-detail
@@ -14,4 +13,5 @@
             %i.far.fa-heart
             %span 3
         %p.item-tax (税込)
+  
 
