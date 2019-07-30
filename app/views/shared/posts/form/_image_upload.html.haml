@@ -8,8 +8,7 @@
     .label-content
       %label{for: "post_images_attributes_0_image", class: "label-box", id: "label-box--0"}
         %pre.label-box__text-visible
-          ドラッグアンドドロップ
-          またはクリックしてファイルをアップロード
+          クリックしてファイルをアップロード
     .hidden-content
       = f.fields_for :images do |image|
         = image.file_field :image , class: "hidden-field"
